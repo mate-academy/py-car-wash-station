@@ -22,12 +22,12 @@ class CarWashStation:
         return round(first_action * second_action, 2)
 
     def serve_cars(self, list_of_cars):
-        income = []
+        fee = []
         for car in list_of_cars:
             if car.clean_mark < self.clean_power:
-                income.append(self.calculate_washing_price(car))
+                fee.append(self.calculate_washing_price(car))
                 self.wash_single_car(car)
-        return sum(income)
+        return sum(fee)
 
     def wash_single_car(self, car):
         if self.clean_power > car.clean_mark:
