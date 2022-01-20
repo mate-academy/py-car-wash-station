@@ -26,7 +26,8 @@ class CarWashStation:
         return round(cost, 1)
 
     def wash_single_car(self, car):
-        car.clean_mark = self.clean_power
+        if car.clean_mark < self.clean_power:
+            car.clean_mark = self.clean_power
         return car
 
     def serve_cars(self, cars):
