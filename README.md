@@ -34,13 +34,13 @@ rounded to 1 decimal
 single car wash,
 cost is calculated as: car's comfort class * difference between
 wash station's clean power and car's clean mark * car wash station 
-rating / car wash station 
-distance to the center of the city, returns number rounded 
+rating / car wash station distance to the center of the city, 
+3. returns number rounded 
 to 1 decimal
-3. `wash_single_car` - method, that washes a single car, so it should 
+4. `wash_single_car` - method, that washes a single car, so it should 
 have `clean_mark` equals wash station's `clean_power`, if 
 `wash_station.clean_power` is greater than `car.clean_mark`
-4. `rate_service` - method to add a single rate.
+5. `rate_service` - method to add a single rate.
 
 You can add own methods if you need.
 
