@@ -83,5 +83,3 @@ class CarWashStation:
 
         self.average_rating = round(new_rating, self.ROUND_DIGITS)
         self.count_of_ratings += 1
-
-
