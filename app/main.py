@@ -8,9 +8,9 @@ class Car:
         if comfort_class > self.MAX_COMFORT_CLASS \
                 or comfort_class < self.MIN_COMFORT_CLASS:
             raise ValueError(
-                f'comfort_class value is {comfort_class},'
-                f' which is out of bounds({self.MIN_COMFORT_CLASS}'
-                f'...{self.MAX_COMFORT_CLASS})')
+                f"comfort_class value is {comfort_class},"
+                f" which is out of bounds({self.MIN_COMFORT_CLASS}"
+                f"...{self.MAX_COMFORT_CLASS})")
         elif clean_mark > self.MAX_CLEAN_MARK\
                 or clean_mark < self.MIN_CLEAN_MARK:
             raise ValueError(
@@ -41,15 +41,15 @@ class CarWashStation:
         if distance_from_city_center > self.MAX_DISTANCE_FROM_CENTER or\
                 distance_from_city_center < self.MIN_DISTANCE_FROM_CENTER:
             raise ValueError(
-                f'distance_from_city_center is {distance_from_city_center},'
-                f' which is out of bounds{self.MIN_DISTANCE_FROM_CENTER}'
-                f'...{self.MAX_DISTANCE_FROM_CENTER}')
+                f"distance_from_city_center is {distance_from_city_center},"
+                f" which is out of bounds{self.MIN_DISTANCE_FROM_CENTER}"
+                f"...{self.MAX_DISTANCE_FROM_CENTER}")
         elif average_rating > self.MAX_AVERAGE_RATING or\
                 average_rating < self.MIN_AVERAGE_RATING:
             raise ValueError(
-                f'average_rating value is {average_rating},'
-                f' which is out of bounds({self.MIN_AVERAGE_RATING}'
-                f'...{self.MAX_AVERAGE_RATING})')
+                f"average_rating value is {average_rating},"
+                f" which is out of bounds({self.MIN_AVERAGE_RATING}"
+                f"...{self.MAX_AVERAGE_RATING})")
         else:
             self.average_rating = average_rating
             self.distance_from_city_center = distance_from_city_center
