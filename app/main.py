@@ -17,7 +17,7 @@ class CarWashStation:
 
     def serve_cars(self, list_cars):
         amount = sum([self.calculate_washing_price(i) for i in list_cars if
-                      i.clean_mark <= self.clean_power])
+                      i.clean_mark < self.clean_power])
         for i in list_cars:
             self.wash_single_car(i)
 
