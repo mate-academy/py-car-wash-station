@@ -14,12 +14,12 @@ class CarWashStation:
         self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars):
-        resultlist = []
+        count = 0
         for car in cars:
             if car.clean_mark < self.clean_power:
-                resultlist.append(self.calculate_washing_price(car))
+                count += self.calculate_washing_price(car)
                 self.wash_single_car(car)
-        return sum(resultlist)
+        return count
 
     def calculate_washing_price(self, car):
         return round(
