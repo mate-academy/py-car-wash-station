@@ -17,12 +17,12 @@ class CarWashStation:
         self.distance_from_city_center = distance_from_city_center
 
     def serve_cars(self, cars):
-        total_cost = []
+        total_cost = 0
         for car in cars:
             if car.clean_mark < self.clean_power:
-                total_cost.append(self.calculate_washing_price(car))
+                total_cost += self.calculate_washing_price(car)
                 self.wash_single_car(car)
-        return sum(total_cost)
+        return total_cost
 
     def calculate_washing_price(self, car):
         return round((car.comfort_class * (
