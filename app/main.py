@@ -22,14 +22,14 @@ class CarWashStation:
         self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, list_cars):
-        income_per_cars = 0
+        income = 0
 
         for i in list_cars:
             if i.clean_mark < self.clean_power:
-                income_per_cars += self.calculate_washing_price(i)
+                income += self.calculate_washing_price(i)
                 self.wash_single_car(i)
 
-        return round(income_per_cars, 1)
+        return round(income, 1)
 
     def calculate_washing_price(self, car):
         difference_between_cars = self.clean_power - car.clean_mark
