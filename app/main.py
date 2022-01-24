@@ -20,10 +20,11 @@ class CarWashStation:
 
     def calculate_washing_price(self, other: Car):
         if isinstance(other, Car):
-            return other.comfort_class * (self.clean_power - other.clean_mark) \
-                   * self.average_rating / self.distance_from_city_center
+            difference = self.clean_power - other.clean_mark
+            product = other.comfort_class * difference * self.average_rating
+            return product / self.distance_from_city_center
         else:
-            raise TypeError(f"'{type(other)}' not supported for this method. Requires 'Car'")
+            raise TypeError(f"'{type(other)}' not supported type. Requires 'Car'")
 
     def wash_single_car(self, other: Car):
         if isinstance(other, Car):
@@ -45,11 +46,11 @@ class CarWashStation:
     def rate_service(self, score):
         if isinstance(score, (int, float)):
             if 1 <= score <= 5:
-                self.average_rating = round((self.average_rating * self.count_of_ratings + score) /
-                                            (self.count_of_ratings + 1), 1)
+                general_rating = self.average_rating * self.count_of_ratings + score
+                self.average_rating = round(general_rating / (self.count_of_ratings + 1), 1)
                 self.count_of_ratings += 1
 
             else:
-                raise ValueError(f"The score should be from 1 to 5")
+                raise ValueError("The score should be from 1 to 5")
         else:
             raise TypeError(f"{type(score)} type not supported. Requires int or float")
