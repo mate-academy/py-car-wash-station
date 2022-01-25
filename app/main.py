@@ -28,7 +28,8 @@ class CarWashStation:
 
     def wash_single_car(self, other: Car):
         if isinstance(other, Car):
-            other.clean_mark = self.clean_power
+            if self.clean_power > other.clean_mark:
+                other.clean_mark = self.clean_power
         else:
             raise TypeError(f"{type(other)} type not supported. Requires 'Car'")
 
@@ -38,7 +39,8 @@ class CarWashStation:
             for car in cars:
                 if self.clean_power > car.clean_mark:
                     income += self.calculate_washing_price(car)
-                    self.wash_single_car(car)
+
+                self.wash_single_car(car)
             return round(income, 1)
         else:
             raise TypeError(f"{type(cars)} type not supported. Requires list")
