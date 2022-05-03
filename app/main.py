@@ -6,7 +6,12 @@ class Car:
 
 
 class CarWashStation(Car):
-    def __init__(self, distance_from_city_center, clean_power, average_rating, count_of_ratings):
+    def __init__(self,
+                 distance_from_city_center,
+                 clean_power,
+                 average_rating,
+                 count_of_ratings
+                 ):
         self.distance = float(distance_from_city_center)
         self.clean_power = clean_power
         self.average_rating = round(average_rating, 1)
@@ -35,4 +40,6 @@ class CarWashStation(Car):
         self.count_of_ratings += 1
         full_rating = self.average_rating * (self.count_of_ratings - 1)
         average_rating = full_rating + rating
-        self.average_rating = round(average_rating / self.count_of_ratings, 1)
+        self.average_rating = round(
+            average_rating / self.count_of_ratings, 1
+        )
