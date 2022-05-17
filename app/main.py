@@ -29,9 +29,9 @@ class CarWashStation:
         self.count_of_ratings += 1
 
     def serve_cars(self, cars_list):
-        value = 0
+        income = 0
         for car in cars_list:
             if car.clean_mark < self.clean_power:
-                value += self.calculate_washing_price(car)
-                car.clean_mark = self.clean_power
-        return value
+                income += self.calculate_washing_price(car)
+                self.wash_single_car(car)
+        return income
