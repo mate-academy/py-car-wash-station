@@ -37,13 +37,9 @@ class CarWashStation:
         income = 0
         for car in list_of_cars:
             if self.can_wash_car(car):
-                income += (
-                    car.comfort_class * (
-                        self.clean_power - car.clean_mark
-                    ) * self.average_rating / self.distance_from_city_center
-                )
+                income += self.calculate_washing_price(car)
                 self.wash_single_car(car)
-        return round(income, 1)
+        return income
 
     def wash_single_car(self, car):
         if self.can_wash_car(car):
