@@ -1,13 +1,13 @@
 class Car:
-    # write your code here
-    pass
+
     def __init__(self, comfort_class: int, clean_mark: int, brand: str):
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
+
+
 class CarWashStation:
-    # write your code here
-    pass
+
     def __init__(
             self,
             distance_from_city_center: float,
@@ -30,15 +30,14 @@ class CarWashStation:
         return profit
 
     def calculate_washing_price(self, car: Car):
-        price = (
-            car.comfort_class * (self.clean_power - car.clean_mark) * self.
-            average_rating / self.distance_from_city_center
-        )
-
+        possible_cost = self.clean_power - car.clean_mark
+        before_dist = self.average_rating / self.distance_from_city_center
+        price = (car.comfort_class * possible_cost) * before_dist
         return round(price, 1)
 
     def wash_single_car(self, car: Car) -> None:
-        car.clean_mark = self.clean_power
+        if car.clean_mark < self.clean_power:
+            car.clean_mark = self.clean_power
 
     def rate_service(self, rate: int) -> None:
         self.count_of_ratings += 1
