@@ -34,5 +34,3 @@ class CarWashStation:
     def wash_single_car(self, car):
         if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
-        else:
-            car.clean_mark = car.clean_mark
