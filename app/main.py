@@ -4,8 +4,6 @@ class Car:
         self.clean_mark = clean_mark
         self.brand = brand
 
-    pass
-
 
 class CarWashStation:
     def __init__(
@@ -18,8 +16,6 @@ class CarWashStation:
         self.clean_power = clean_power
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
-
-    pass
 
     def serve_cars(self, cars):
         car_wash_list = 0
