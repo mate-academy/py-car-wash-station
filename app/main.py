@@ -22,7 +22,7 @@ class CarWashStation:
         return income
 
     def calculate_washing_price(self, car: Car):
-        clean_mark = abs(car.clean_mark - self.clean_power)
+        clean_mark = self.clean_power - car.clean_mark
         mark = self.average_rating / self.distance_from_city_center
         return car.comfort_class * round(clean_mark * mark, 2)
 
