@@ -1,5 +1,7 @@
 class Car:
-    def __init__(self, comfort_class, clean_mark, brand):
+    def __init__(self, comfort_class,
+                 clean_mark,
+                 brand):
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -19,10 +21,10 @@ class CarWashStation(Car):
 
     def serve_cars(self, cars):
         income = 0
-        for i in cars:
-            if i.clean_mark < self.clean_power:
-                income += self.calculate_washing_price(i)
-                self.wash_single_car(i)
+        for car in cars:
+            if car.clean_mark < self.clean_power:
+                income += self.calculate_washing_price(car)
+                self.wash_single_car(car)
         return round(income, 1)
 
     def calculate_washing_price(self, car):
