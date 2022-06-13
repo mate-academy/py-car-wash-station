@@ -23,7 +23,7 @@ class CarWashStation:
         income = 0
         for car in cars_for_wash:
             income += self.calculate_washing_price(car)
-            car.clean_mark = self.clean_power
+            self.wash_single_car(car)
         return income
 
     def calculate_washing_price(self, car: Car):
