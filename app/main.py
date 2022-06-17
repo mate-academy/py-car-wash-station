@@ -39,6 +39,6 @@ class CarWashStation:
         for car in ls_of_cars:
             calc = self.calculate_washing_price(car)
             self.wash_single_car(car)
-            if self.calculate_washing_price(car) >= 0:
+            if calc >= 0:
                 serve_cost.append(calc)
         return sum(serve_cost)
