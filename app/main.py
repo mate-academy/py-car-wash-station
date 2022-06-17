@@ -37,8 +37,8 @@ class CarWashStation:
     def serve_cars(self, ls_of_cars):
         serve_cost = []
         for car in ls_of_cars:
-            calculated_car = CarWashStation.calculate_washing_price(self, car)
-            CarWashStation.wash_single_car(self, car)
-            if calculated_car >= 0:
-                serve_cost.append(calculated_car)
+            calc = self.calculate_washing_price(car)
+            self.wash_single_car(car)
+            if self.calculate_washing_price(car) >= 0:
+                serve_cost.append(calc)
         return sum(serve_cost)
