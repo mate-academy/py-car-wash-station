@@ -6,7 +6,7 @@ class Car:
         self.brand = brand
 
 
-class CarWashStation(Car):
+class CarWashStation:
 
     def __init__(self, distance_from_city_center, clean_power,
                  average_rating, count_of_ratings):
@@ -25,21 +25,20 @@ class CarWashStation(Car):
     def wash_single_car(self, other):
         if self.clean_power > other.clean_mark:
             other.clean_mark = self.clean_power
-            return True
 
     def rate_service(self, mark):
-        x = (self.average_rating * self.count_of_ratings + mark) /\
-            (self.count_of_ratings + 1)
-        x = round(x, 1)
+        calc_mark = (self.average_rating * self.count_of_ratings + mark) /\
+                    (self.count_of_ratings + 1)
+        calc_mark = round(calc_mark, 1)
         self.count_of_ratings += 1
-        self.average_rating = x
-        return x
+        self.average_rating = calc_mark
+        return calc_mark
 
-    def serve_cars(self, income):
-        serve_c = []
-        for i in income:
-            x = CarWashStation.calculate_washing_price(self, i)
-            CarWashStation.wash_single_car(self, i)
-            if x >= 0:
-                serve_c.append(x)
-        return sum(serve_c)
+    def serve_cars(self, ls_of_cars):
+        serve_cost = []
+        for car in ls_of_cars:
+            calculated_car = CarWashStation.calculate_washing_price(self, car)
+            CarWashStation.wash_single_car(self, car)
+            if calculated_car >= 0:
+                serve_cost.append(calculated_car)
+        return sum(serve_cost)
