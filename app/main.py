@@ -34,10 +34,8 @@ class CarWashStation:
         self.average_rating = calc_mark
 
     def serve_cars(self, ls_of_cars):
-        serve_cost = []
+        serve_cost = 0
         for car in ls_of_cars:
-            calc = self.calculate_washing_price(car)
+            serve_cost += self.calculate_washing_price(car)
             self.wash_single_car(car)
-            if calc >= 0:
-                serve_cost.append(calc)
-        return sum(serve_cost)
+        return serve_cost
