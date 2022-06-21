@@ -4,8 +4,6 @@ class Car:
         self.clean_mark = clean_mark
         self.brand = brand
 
-    pass
-
 
 class CarWashStation:
     def __init__(self, distance_from_city_center, clean_power,
@@ -39,5 +37,3 @@ class CarWashStation:
         r = (self.average_rating * self.count_of_ratings + rate) / new_count
         self.average_rating = round(r, 1)
         self.count_of_ratings = new_count
-
-    pass
