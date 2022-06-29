@@ -45,6 +45,7 @@ have `clean_mark` equals wash station's `clean_power`, if
 You can add own methods if you need.
 
 Example:
+
 ```python
 bmw = Car(3, 3, 'BMW')
 audi = Car(4, 9, 'Audi')
@@ -61,16 +62,16 @@ income = ws.serve_cars([
 income == 41.7
 
 bmw.clean_mark == 8
-audi.clean_mark == 9  
+audi.clean_mark == 9
 mercedes.clean_mark == 8
 # audi wasn't washed
 # all other cars are washed to '8'
 
 ford = Car(2, 1, 'Ford')
-wash_cost = ws.calculate_washing_price(ford)  
+wash_cost = calculate_washing_price(ford)
 # only calculating cost, not washing
 wash_cost == 9.1
-ford.clean_mark == 1 
+ford.clean_mark == 1
 
 ws.rate_service(5)
 
