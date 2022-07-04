@@ -16,10 +16,10 @@ class CarWashStation:
 
     def serve_cars(self, cars):
         income = 0
-        for new_car in car :
-            if new_car.clean_mark <= self.clean_power :
-                income += self.calculate_washing_price(new_car)
-                new_car.clean_mark = self.clean_power
+        for car in cars:
+            if car.clean_mark <= self.clean_power :
+                income += self.calculate_washing_price(car)
+                car.clean_mark = self.clean_power
         return income
 
     def calculate_washing_price(self, car):
