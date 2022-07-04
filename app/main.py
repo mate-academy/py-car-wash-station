@@ -14,7 +14,7 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-    def serve_cars(self, car):
+    def serve_cars(self, cars):
         income = 0
         for new_car in car :
             if new_car.clean_mark <= self.clean_power :
