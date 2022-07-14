@@ -17,7 +17,6 @@ class CarWashStation:
         sum_of_cost = 0
         for car in cars_list:
             sum_of_cost += self.wash_single_car(car)
-        print(sum_of_cost)
         return round(sum_of_cost, 1)
 
     def calculate_washing_price(self, car):
