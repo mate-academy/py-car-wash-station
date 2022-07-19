@@ -2,47 +2,47 @@
 
 - Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before start
 
-You own a car washing station. Washing cost calculation 
-takes a lot of time, and you decide to automate this
-calculation. The washing cost will depend on car comfort 
-class, car cleanness degree, wash station average rating
-and wash station distance from the center of the city.
+У вас есть автомойка. Расчет стоимости стирки
+занимает много времени, и вы решаете автоматизировать это
+расчет. Стоимость мойки будет зависеть от комфортности автомобиля
+класс, степень чистоты автомобиля, средний балл мойки
+и мойка удаленность от центра города.
 
-Create class `Car`, its constructor takes and stores
-3 arguments:
-1. `comfort_class` - comfort class of a car, from 1 to 7
-2. `clean_mark` - car cleanness mark, from very 
-dirty - 1 to absolutely clean - 10
-3. `brand` - brand of the car
+Создайте класс `Car`, его конструктор берет и сохраняет
+3 аргумента:
+1. `comfort_class` - класс комфорта автомобиля, от 1 до 7
+2. `clean_mark` - знак чистоты автомобиля, от очень
+грязный - 1 до абсолютно чистый - 10
+3. `brand` - марка автомобиля.
 
-Create class `CarWashStation`, its constructor takes and
-stores 4 arguments:
-1. `distance_from_city_center` - how far station from
-the city center, from 1.0 to 10.0
-2. `clean_power` - `clean_mark` to which this car wash station
-washes (yes, not all stations can clean your car completely)
-3. `average_rating` - average rating of the station,
-from 1.0 to 5.0, rounded to 1 decimal
-4. `count_of_ratings` - number of people who rated
+Создайте класс `CarWashStation`, его конструктор берет и
+хранит 4 аргумента:
+1. `distance_from_city_center` - насколько далеко станция от
+центра города, от 1,0 до 10,0
+2. `clean_power` - `clean_mark`, к которой относится данная автомойка
+моет (да, не на всех станциях можно полностью помыть машину)
+3. `average_rating` - средний рейтинг станции,
+от 1,0 до 5,0 с округлением до 1 знака после запятой
+4. `count_of_ratings` - количество людей, которые оценили
 
-`CarWashStation` should have such methods: 
-1. `serve_cars` - method, that takes a list of `Car`'s, washes only
-cars with `clean_mark` < `clean_power` of wash station
-and returns income of CarWashStation for serving this list of Car's, 
-rounded to 1 decimal
-2. `calculate_washing_price` - method, that calculates cost for a 
-single car wash,
-cost is calculated as: car's comfort class * difference between
-wash station's clean power and car's clean mark * car wash station 
-rating / car wash station 
-distance to the center of the city, returns number rounded 
-to 1 decimal
-3. `wash_single_car` - method, that washes a single car, so it should 
-have `clean_mark` equals wash station's `clean_power`, if 
-`wash_station.clean_power` is greater than `car.clean_mark`
-4. `rate_service` - method to add a single rate.
+`CarWashStation` должны иметь такие методы:
+<!-- 1. `serve_cars` - метод, который берет список `Car`, только моет
+автомобили с `clean_mark` < `clean_power` мойки
+и возвращает доход CarWashStation за обслуживание этого списка Автомобилей,
+округляется до 1 десятичного знака -->
 
-You can add own methods if you need.
+<!-- 2. `calculate_washing_price` - метод, рассчитывающий стоимость стирки разовая автомойка, стоимость рассчитывается как: 
+класс комфорта автомобиля * 
+разница между чистая мощность мойки и знак чистоты автомобиля * 
+автомойка рейтинг / автомойка расстояние до центра города, 
+возвращает округленное число до 1 десятичного знака -->
+
+<!-- 3. `wash_single_car` - метод, который моет одну машину, так и должно быть
+иметь `clean_mark`, равный `clean_power` моечной станции, если
+`wash_station.clean_power` больше, чем `car.clean_mark` -->
+4. `rate_service` - метод для добавления одной ставки.
+
+Вы можете добавить собственные методы, если вам нужно.
 
 Example:
 ```python
@@ -63,12 +63,12 @@ income == 41.7
 bmw.clean_mark == 8
 audi.clean_mark == 9  
 mercedes.clean_mark == 8
-# audi wasn't washed
-# all other cars are washed to '8'
+# ауди не мыли
+# все остальные автомобили вымыты до «8»
 
 ford = Car(2, 1, 'Ford')
 wash_cost = ws.calculate_washing_price(ford)  
-# only calculating cost, not washing
+# только расчет стоимости, а не стирка
 wash_cost == 9.1
 ford.clean_mark == 1 
 
@@ -76,4 +76,3 @@ ws.rate_service(5)
 
 ws.count_of_ratings == 12
 ws.average_rating == 4.0
-```
