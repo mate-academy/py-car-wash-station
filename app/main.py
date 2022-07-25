@@ -27,7 +27,7 @@ class CarWashStation:
         self.clean_power = clean_power
 
     def serve_cars(self, car_list : list):
-        return[car1 for car1 in car_list if self.clean_power > car1.clean_mark]
+        return[+self.calculate_washing_price(car) for car in car_list if self.clean_power > car.clean_mark]
 
     def calculate_washing_price(self , car : Car):
         clean_cars = car.comfort_class * self.clean_power - car.clean_mark
