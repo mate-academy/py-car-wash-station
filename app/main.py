@@ -22,16 +22,20 @@ class CarWashStation:
         return income
 
     def calculate_washing_price(self, car):
+        # cost1 - calculates first part of the total cost
         cost1 = car.comfort_class * (self.clean_power - car.clean_mark)
-        # cost1 was created because I can not fix W504 line
-        # break after binary operator and W503 before operator
+        # cost - calculates the total price of washing
         cost = cost1 * (self.average_rating / self.distance_from_city_center)
         return round(cost, 1)
 
     def rate_service(self, rating):
-        x = self.average_rating * self.count_of_ratings + rating
-        # x - the same problem with flake8.
-        # That why I have divided 1 long calculated argument for 2
-        self.average_rating = round(x / (self.count_of_ratings + 1), 1)
+        # average1 calculates first part of the rate_service
+        average1 = self.average_rating * self.count_of_ratings + rating
+        # self.average_rating - calculates total rate_service
+        self.average_rating = round(average1 / (self.count_of_ratings + 1), 1)
         self.count_of_ratings += 1
-        return self.count_of_ratings, self.average_rating
+
+    def wash_single_car(self, car):
+        if self.clean_power >= car.clean_mark:
+            self.clean_power = car.clean_mark
+        return self.clean_power
