@@ -22,17 +22,19 @@ class CarWashStation:
         return income
 
     def calculate_washing_price(self, car):
-        # cost1 - calculates first part of the total cost
-        cost1 = car.comfort_class * (self.clean_power - car.clean_mark)
+        # half_cost- calculates first part of the total cost
+        half_cost = car.comfort_class * (self.clean_power - car.clean_mark)
         # cost - calculates the total price of washing
-        cost = cost1 * (self.average_rating / self.distance_from_city_center)
+        cost = self.average_rating / self.distance_from_city_center * half_cost
         return round(cost, 1)
 
     def rate_service(self, rating):
-        # average1 calculates first part of the rate_service
-        average1 = self.average_rating * self.count_of_ratings + rating
+        # half_average calculates first part of the rate_service
+        half_average = self.average_rating * self.count_of_ratings + rating
+        # half2_average calculates second part of the rate_service
+        half2_average = self.count_of_ratings + 1
         # self.average_rating - calculates total rate_service
-        self.average_rating = round(average1 / (self.count_of_ratings + 1), 1)
+        self.average_rating = round(half_average / half2_average, 1)
         self.count_of_ratings += 1
 
     def wash_single_car(self, car):
