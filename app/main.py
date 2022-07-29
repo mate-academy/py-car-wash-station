@@ -31,13 +31,10 @@ class CarWashStation:
     def rate_service(self, rating):
         # half_average calculates first part of the rate_service
         half_average = self.average_rating * self.count_of_ratings + rating
-        # half2_average calculates second part of the rate_service
-        half2_average = self.count_of_ratings + 1
-        # self.average_rating - calculates total rate_service
-        self.average_rating = round(half_average / half2_average, 1)
         self.count_of_ratings += 1
+        # self.average_rating - calculates total rate_service
+        self.average_rating = round(half_average / self.count_of_ratings, 1)
 
     def wash_single_car(self, car):
         if self.clean_power >= car.clean_mark:
             self.clean_power = car.clean_mark
-        return self.clean_power
