@@ -30,8 +30,8 @@ class CarWashStation:
             res = self.calculate_washing_price(car)
             return res
 
-    def rate_service(self, raiting: int):
-        self.average_rating = round((self.average_rating * self.count_of_ratings + raiting) /
+    def rate_service(self, rating: int):
+        self.average_rating = round((self.average_rating * self.count_of_ratings + rating) /
                                     (self.count_of_ratings + 1), 1)
         self.count_of_ratings += 1
         return self.average_rating
