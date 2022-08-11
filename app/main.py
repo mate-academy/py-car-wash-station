@@ -14,12 +14,12 @@ class CarWashStation:
         self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars):
-        income = 0
+        wash_single_car = 0
         for car in cars:
             if car.clean_mark < self.clean_power_clean_mark:
-                income += self.calculate_washing_price(car)
+                wash_single_car += self.calculate_washing_price(car)
                 car.clean_mark = self.clean_power_clean_mark
-        return income
+        return wash_single_car
 
     def calculate_washing_price(self, car):
         dif_ce = self.clean_power_clean_mark - car.clean_mark
