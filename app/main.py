@@ -1,20 +1,16 @@
 class Car:
     def __init__(self, comfort_class, clean_mark, brand):
-        if 1 <= comfort_class <= 7:
-            self.comfort_class = comfort_class
-        if 1 <= clean_mark <= 10:
-            self.clean_mark = clean_mark
+        self.comfort_class = comfort_class
+        self.clean_mark = clean_mark
         self.brand = brand
 
 
 class CarWashStation:
     def __init__(self, distance_from_city_center, clean_power,
                  average_rating, count_of_ratings):
-        if 1.0 <= distance_from_city_center <= 10.0:
-            self.distance_from_city_center = distance_from_city_center
+        self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
-        if 1.0 <= average_rating <= 5.0:
-            self.average_rating = average_rating
+        self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars: list):
