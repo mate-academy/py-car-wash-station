@@ -1,8 +1,43 @@
 class Car:
     # write your code here
-    pass
+    def __init__(self, comfort_class, clean_mark, brand):
+        self.comfort_class = comfort_class
+        self.clean_mark = clean_mark
+        self.brand = brand
 
 
 class CarWashStation:
     # write your code here
-    pass
+    def __init__(self,
+                 distance_from_city_center,
+                 clean_power,
+                 average_rating,
+                 count_of_ratings):
+        self.distance_from_city_center = distance_from_city_center
+        self.clean_power = clean_power
+        self.average_rating = average_rating
+        self.count_of_ratings = count_of_ratings
+
+    def serve_cars(self, *args):
+        new_list_of_car, = args
+        list_of_costs = []
+        for one_car in new_list_of_car:
+            if one_car.clean_mark >= self.clean_power:
+                list_of_costs.append(0)
+            else:
+                list_of_costs.append(self.calculate_washing_price(one_car))
+                self.wash_single_car(one_car)
+        return round(sum(list_of_costs), 1)
+
+    def calculate_washing_price(self, one_car):
+        return round(
+            one_car.comfort_class * (self.clean_power - one_car.clean_mark) * self.average_rating / self.distance_from_city_center, 1)
+
+    def wash_single_car(self, one_car):
+        if one_car.clean_mark >= self.clean_power:
+            return
+        one_car.clean_mark = self.clean_power
+
+    def rate_service(self, rate):
+        self.average_rating = round(
+            (self.average_rating * self.count_of_ratings + rate) / (self.count_of_ratings + 1), 1)
