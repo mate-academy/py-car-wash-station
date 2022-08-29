@@ -20,14 +20,12 @@ class CarWashStation:
 
     def serve_cars(self, *args):
         new_list_of_car, = args
-        list_of_costs = []
+        sum_of_costs = 0
         for one_car in new_list_of_car:
-            if one_car.clean_mark >= self.clean_power:
-                list_of_costs.append(0)
-            else:
-                list_of_costs.append(self.calculate_washing_price(one_car))
+            if one_car.clean_mark < self.clean_power:
+                sum_of_costs += self.calculate_washing_price(one_car)
                 self.wash_single_car(one_car)
-        return round(sum(list_of_costs), 1)
+        return round(sum_of_costs, 1)
 
     def calculate_washing_price(self, one_car):
         difference = self.clean_power - one_car.clean_mark
