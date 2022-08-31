@@ -31,13 +31,12 @@ class CarWashStation:
 
         return round(income, 1)
 
-    def wash_single_car(self, cars):
-        for i in cars.clean_mark:
-            if i > self.clean_power:
-                return f"{cars.brand} wasn't washed"
-            else:
-                cars.clean_mark = self.clean_power
-                return f"all other cars are washed to {cars.clean_mark}"
+    def wash_single_car(self, car):
+        if car.clean_mark > self.clean_power:
+            return f"{car.brand} wasn't washed"
+
+        car.clean_mark = self.clean_power
+        return f"all other cars are washed to {car.clean_mark}"
 
     def rate_service(self, mark):
         average = self.average_rating * self.count_of_ratings
