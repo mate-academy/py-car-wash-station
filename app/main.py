@@ -29,9 +29,7 @@ class CarWashStation:
         return round(price, 1)
 
     def wash_single_car(self, car):
-        print("income before", self.income)
         self.income += self.calculate_washing_price(car)
-        print("income after", self.income)
         car.clean_mark = self.clean_power
         return self.income
 
