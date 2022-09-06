@@ -1,5 +1,4 @@
-class Car:
-    
+class Car:    
     def __init__(self, 
                  comfort_class, 
                  clean_mark,
@@ -9,13 +8,12 @@ class Car:
         self.brand = brand
 
 
-class CarWashStation:
-    
+class CarWashStation:    
     def __init__(self,
-    distance_from_city_center,
-    clean_power,
-    average_rating,
-    count_of_ratings):
+                 distance_from_city_center,
+                 clean_power,
+                 average_rating,
+                 count_of_ratings):
 
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
