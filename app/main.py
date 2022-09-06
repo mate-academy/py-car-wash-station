@@ -30,7 +30,7 @@ class CarWashStation:
         return self.income                
 
     def calculate_washing_price(self, car):
-        wash_price = car.comfort_class*(
+        wash_price = car.comfort_class * (
             self.clean_power - car.clean_mark)
 
         return round(wash_price, 1)
@@ -45,8 +45,7 @@ class CarWashStation:
         new_sum_of_rating = \
             self.average_rating * self.count_of_ratings + mark
         self.average_rating = \
-            round(new_sum_of_rating / (self.count_of_ratings + 1),
-                1)
+            round(new_sum_of_rating / (self.count_of_ratings + 1), 1)            
         self.count_of_ratings += 1
-        
+
         return self.average_rating
