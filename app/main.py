@@ -38,7 +38,6 @@ class CarWashStation:
     def wash_single_car(self, car):
         if self.clean_power > car.clean_mark:
             car.clean_mark = self.clean_power
-        return
 
     def rate_service(self, mark):
         multiply = (self.count_of_ratings * self.average_rating + mark)
