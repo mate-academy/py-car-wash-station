@@ -1,4 +1,4 @@
-class Car:    
+class Car:
 
     def __init__(self,
                  comfort_class,
@@ -27,7 +27,7 @@ class CarWashStation:
             if car.clean_mark < self.clean_power:
                 self.wash_single_car(car)
 
-        return self.income               
+        return self.income
 
     def calculate_washing_price(self, car):
         wash_price = car.comfort_class * (
@@ -45,7 +45,7 @@ class CarWashStation:
         new_sum_of_rating = \
             self.average_rating * self.count_of_ratings + mark
         self.average_rating = \
-            round(new_sum_of_rating / (self.count_of_ratings + 1), 1)           
+            round(new_sum_of_rating / (self.count_of_ratings + 1), 1)
         self.count_of_ratings += 1
 
         return self.average_rating
