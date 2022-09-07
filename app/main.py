@@ -24,9 +24,8 @@ class CarWashStation:
     def calculate_washing_price(self, car):
         if car.clean_mark < self.clean_power:
             difference = self.clean_power - car.clean_mark
-            income = \
-                car.comfort_class * difference * self.average_rating / \
-                self.distance_from_city_center
+            multi_data = car.comfort_class * difference * self.average_rating
+            income = multi_data / self.distance_from_city_center
             return round(income, 1)
 
     def rate_service(self, mark):
