@@ -33,7 +33,6 @@ class CarWashStation:
     def wash_single_car(self, car):
         self.income += self.calculate_washing_price(car)
         car.clean_mark = self.clean_power
-        return self.income
 
     def rate_service(self, mark):
         new_sum_of_rating = \
