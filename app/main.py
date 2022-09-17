@@ -16,21 +16,26 @@ class CarWashStation:
     def serve_cars(self, cars: list):
         income_new = 0
         for brand in cars:
-            if brand.clean_mark < self.clean_power:
+            if brand.clean_mark <= self.clean_power:
                 income_new += self.calculate_washing_price(brand)
-        return round(income_new)
+        return round(income_new, 1)
 
     def calculate_washing_price(self, brand):
         income = (brand.comfort_class
                   * (self.clean_power - brand.clean_mark)
                   * self.average_rating
                   / self.distance_from_city_center)
-        return round(income)
+        return round(income, 1)
 
-    def wash_single_car(self, brand):
-        if brand.clean_mark < self.clean_power:
-            brand.clean_mark = self.clean_power
-        return brand.clean_mark
+    def wash_single_car(self, cars: list):
+        new_clean_cars = []
+        for brand in cars:
+            if brand.clean_mark <= self.clean_power:
+                new_clean_cars.append(self.clean_power)
+            else:
+                brand.clean_mark = brand.clean_mark
+                new_clean_cars.append(brand.clean_mark)
+        return new_clean_cars
 
     def rate_service(self, rate: int):
         new_average_rating = ((self.average_rating
