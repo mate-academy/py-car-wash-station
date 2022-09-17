@@ -30,7 +30,7 @@ class CarWashStation:
     def wash_single_car(self, cars: list):
         new_clean_cars = []
         for brand in cars:
-            if brand.clean_mark <= self.clean_power:
+            if brand.clean_mark < self.clean_power:
                 new_clean_cars.append(self.clean_power)
             else:
                 brand.clean_mark = brand.clean_mark
