@@ -30,10 +30,10 @@ class CarWashStation:
         return car.clean_mark
 
     def calculate_washing_price(self, car: Car):
-        dif_bet_cl_pow_and_cl_mark = self.clean_power - car.clean_mark
+        dif_betw_cl_pow_and_cl_mark = self.clean_power - car.clean_mark
         mul_atr = (
             car.comfort_class
-            * dif_bet_cl_pow_and_cl_mark
+            * dif_betw_cl_pow_and_cl_mark
             * self.average_rating
         )
         result = round(
