@@ -1,6 +1,4 @@
 class Car:
-    comfort_class = list(range(1, 8))
-    clean_mark = list(range(1, 11))
 
     def __init__(self, comfort_class: int, clean_mark: int,
                  brand: str) -> None:
