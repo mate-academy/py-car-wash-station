@@ -48,4 +48,4 @@ class CarWashStation:
         self.average_rating = round(self.average_rating
                                     + rounded_one_average_rate, 1)
         return self.average_rating
-        
+ 
