@@ -21,7 +21,6 @@ class CarWashStation:
 
             car_was_washed = self.wash_single_car(car_instance)
 
-            # Return the amount for the service, otherwise False
             if car_was_washed:
                 cost += car_was_washed
         return cost
