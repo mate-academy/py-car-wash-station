@@ -3,7 +3,6 @@ class Car:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
-    pass
 
 
 class CarWashStation:
@@ -19,7 +18,6 @@ class CarWashStation:
         for car in cars:
             if car.clean_mark < self.clean_power:
                 income += self.calculate_washing_price(car)
-                # car.clean = self.clean_power
                 self.wash_single_car(car)
         return income
 
