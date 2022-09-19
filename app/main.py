@@ -16,16 +16,15 @@ class CarWashStation:
         self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars: list):
-        cost = []
+        cost = 0
         for car_instance in cars:
 
-            # Checking for the possibility of washing
             car_was_washed = self.wash_single_car(car_instance)
 
             # Return the amount for the service, otherwise False
             if car_was_washed:
-                cost.append(car_was_washed)
-        return sum(cost)
+                cost += car_was_washed
+        return cost
 
     def calculate_washing_price(self, car):
         cost = (car.comfort_class * (self.clean_power - car.clean_mark)
