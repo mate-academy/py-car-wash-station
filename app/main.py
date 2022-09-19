@@ -30,7 +30,7 @@ class CarWashStation:
 
     def serve_cars(self, list_of_cars: list):
         filtered_list_of_cars = [car for car in list_of_cars
-                               if car.clean_mark < self.clean_power]
+                                 if car.clean_mark < self.clean_power]
         list_of_prices = []
         for car in filtered_list_of_cars:
             list_of_prices.append(self.calculate_washing_price(car))
