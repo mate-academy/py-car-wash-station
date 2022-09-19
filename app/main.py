@@ -29,10 +29,10 @@ class CarWashStation:
         return car.clean_mark
 
     def serve_cars(self, list_of_cars: list):
-        sorted_list_of_cars = [car for car in list_of_cars
+        filtered_list_of_cars = [car for car in list_of_cars
                                if car.clean_mark < self.clean_power]
         list_of_prices = []
-        for car in sorted_list_of_cars:
+        for car in filtered_list_of_cars:
             list_of_prices.append(self.calculate_washing_price(car))
             self.wash_single_car(car)
         result = round(sum(list_of_prices), 1)
