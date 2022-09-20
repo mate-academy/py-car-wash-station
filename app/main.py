@@ -18,17 +18,17 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-    def calculate_washing_price(self, car):
-        work = (self.clean_power - car.clean_mark)
+    def calculate_washing_price(self, car: Car):
+        work = self.clean_power - car.clean_mark
         rating_dist = self.average_rating / self.distance_from_city_center
         price = car.comfort_class * work * rating_dist
         return round(price, 1)
 
-    def wash_single_car(self, car):
+    def wash_single_car(self, car: Car):
         if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
 
-    def rate_service(self, rate):
+    def rate_service(self, rate: int):
         rates = self.average_rating * self.count_of_ratings + rate
         count_rates = self.count_of_ratings + 1
         self.average_rating = round(rates / count_rates, 1)
