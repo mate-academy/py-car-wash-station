@@ -35,7 +35,7 @@ def test_car():
 )
 def test_car_wash_station(cars, wash_station, total_cost):
     income = wash_station.serve_cars(cars)
-    assert income == total_cost, f"Income should equal to {total_cost}"
+    assert income == total_cost, f"Income({income}) should equal to {total_cost}"
 
 
 @pytest.mark.parametrize(
