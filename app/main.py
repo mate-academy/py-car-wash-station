@@ -24,7 +24,7 @@ class CarWashStation:
         self.count_of_ratings += 1
         return self.average_rating, self.count_of_ratings
 
-    def wash_single_car(self, car: Car) -> int:
+    def wash_single_car(self, car: Car) -> float:
         price_for_car = 0
 
         if self.clean_power > car.clean_mark:
