@@ -7,7 +7,8 @@ class Car:
 
 class CarWashStation:
 
-    def __init__(self, distance_from_city_center: float,
+    def __init__(self,
+                 distance_from_city_center: float,
                  clean_power: int,
                  average_rating: float,
                  count_of_ratings: int):
