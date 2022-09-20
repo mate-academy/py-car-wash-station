@@ -17,20 +17,20 @@ class CarWashStation:
         cash = []
         for car in car_arr:
             cash.append(self.wash_single_car(car))
-        return sum(cash)
+        return sum(cash)    #earned money for few cars
 
     def calculate_washing_price(self, car: Car):
         price = round(
             car.comfort_class * (self.clean_power - car.clean_mark)
             * self.average_rating / self.distance_from_city_center, 1)
-        return price
+        return price        #price for washing car
 
     def wash_single_car(self, car: Car):
         if car.clean_mark < self.clean_power:
             profit = self.calculate_washing_price(car)
             car.clean_mark = self.clean_power
-            return profit
-        return 0
+            return profit    #money we earned for wash, car become clean as station power
+        return 0             #car too clean for our station
 
     def rate_service(self, rate: int):
         new_rate = round(
