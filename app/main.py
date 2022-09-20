@@ -29,7 +29,7 @@ class CarWashStation:
         if car.clean_mark < self.clean_power:
             profit = self.calculate_washing_price(car)
             car.clean_mark = self.clean_power
-            return profit    # money we earned for wash, car become clean as station power
+            return profit    # money we earned for wash
         return 0             # car too clean for our station
 
     def rate_service(self, rate: int):
