@@ -43,7 +43,7 @@ class CarWashStation:
         if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
 
-    def rate_service(self, mark: float) -> float:
+    def rate_service(self, mark: float) -> tuple:
         all_marks = self.count_of_ratings * self.average_rating
 
         all_marks += mark
