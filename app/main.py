@@ -13,7 +13,8 @@ class CarWashStation:
             distance_from_city_center: float,
             clean_power: int,
             average_rating: float,
-            count_of_ratings: int):
+            count_of_ratings: int
+    ):
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = average_rating
