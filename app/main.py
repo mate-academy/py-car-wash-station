@@ -23,7 +23,7 @@ class CarWashStation:
 
     def rate_service(self, rating: int):
         general_rating = self.average_rating * self.count_of_ratings
-        #
+
         self.count_of_ratings += 1
         self.average_rating = round(
             (general_rating + rating) / self.count_of_ratings, 1
@@ -31,12 +31,12 @@ class CarWashStation:
 
     def serve_cars(self, cars: list[Optional[Car]]):
         res = 0
-        #
+
         for car in cars:
             if car.clean_mark < self.clean_power:
                 res += self.calculate_washing_price(car)
                 self.wash_single_car(car)
-        #
+
         return res
 
     def calculate_washing_price(self, car: Optional[Car]):
