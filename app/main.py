@@ -19,10 +19,10 @@ class CarWashStation:
 
     def serve_cars(self, cars):
         income = 0
-        for i in range(len(cars)):
-            if cars[i].clean_mark < self.clean_power:
-                income += self.calculate_washing_price(cars[i])
-                self.wash_single_car(cars[i])
+        for i in cars:
+            if i.clean_mark < self.clean_power:
+                income += self.calculate_washing_price(i)
+                self.wash_single_car(i)
         return round(income, 1)
 
     def rate_service(self, rate: int):
