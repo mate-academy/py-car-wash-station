@@ -28,20 +28,11 @@ class CarWashStation:
         )
         return round(result, 1)
 
+    def wash_single_car(self, car: Car):
+        if self.clean_power > car.clean_mark:
+            car.clean_mark = self.clean_power
 
-    def wash_single_car(self):
-        """
-        - метод, который моет одну машину,
-         поэтому у него clean_mark должен быть равен clean_power мойки,
-         если wash_station.clean_power больше car.clean_mark;
-        :return:
-        """
-
-    def rate_service(self):
-        """
-        метод, добавляющий одну ставку к станции мойки,
-         и на основе этой одной ставки следует изменить medium_rating и count_of_ratings:
-        :return:
-        """
-        return
-
+    def rate_service(self, mark: int):
+        sum_of_marks = self.average_rating * self.count_of_ratings + mark
+        self.count_of_ratings += 1
+        self.average_rating = round(sum_of_marks / self.count_of_ratings, 1)
