@@ -1,10 +1,8 @@
 class Car:
     def __init__(self,
                  comfort_class: int, clean_mark: int, brand: str) -> None:
-        # if error set maximum value of comfort_class
-        self.comfort_class = comfort_class if 1 <= comfort_class <= 7 else 7
-        # if error set minimum value clean_mark
-        self.clean_mark = clean_mark if 1 <= clean_mark <= 10 else 1
+        self.comfort_class = comfort_class
+        self.clean_mark = clean_mark
         self.brand = brand
 
 
