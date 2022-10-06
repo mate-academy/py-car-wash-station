@@ -27,14 +27,14 @@ class CarWashStation:
                 car.clean_mark = self.clean_power
         return wash_price
 
-    def calculate_washing_price(self, car) -> int:
+    def calculate_washing_price(self, car: Car) -> float:
 
         return round(car.comfort_class
                      * (self.clean_power - car.clean_mark)
                      * (self.average_rating
                         / self.distance_from_city_center), 1)
 
-    def wash_single_car(self, car) -> None:
+    def wash_single_car(self, car: Car) -> bool:
 
         return car.clean_mark <= self.clean_power
 
