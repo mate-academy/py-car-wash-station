@@ -2,7 +2,8 @@ from typing import Callable
 
 
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str):
+    def __init__(self, comfort_class: int, clean_mark: int,
+                 brand: str) -> Callable:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -12,7 +13,7 @@ class CarWashStation:
     def __init__(self, distance_from_city_center: int,
                  clean_power: int,
                  average_rating: int,
-                 count_of_ratings: int):
+                 count_of_ratings: int) -> Callable:
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = average_rating
@@ -26,17 +27,17 @@ class CarWashStation:
                 self.wash_single_car(i)
         return result
 
-    def calculate_washing_price(self, Car) -> Callable:
+    def calculate_washing_price(self, car: Callable) -> Callable:
 
         income = round(
-            ((Car.comfort_class * (self.clean_power - Car.clean_mark)
+            ((car.comfort_class * (self.clean_power - car.clean_mark)
               * self.average_rating) / self.distance_from_city_center), 1
         )
         return income
 
-    def wash_single_car(self, Car) -> None:
-        if Car.clean_mark < self.clean_power:
-            Car.clean_mark = self.clean_power
+    def wash_single_car(self, car: Callable) -> None:
+        if car.clean_mark < self.clean_power:
+            car.clean_mark = self.clean_power
         return
 
     def rate_service(self, rating: int) -> None:
