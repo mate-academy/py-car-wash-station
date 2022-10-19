@@ -38,11 +38,9 @@ class CarWashStation:
     def wash_single_car(self, car: Callable) -> None:
         if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
-        return
 
     def rate_service(self, rating: int) -> None:
         self.average_rating = round(
             ((self.average_rating * self.count_of_ratings) + rating)
             / (self.count_of_ratings + 1), 1)
         self.count_of_ratings += 1
-        return
