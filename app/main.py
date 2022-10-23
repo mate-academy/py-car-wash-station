@@ -24,8 +24,8 @@ class CarWashStation:
     def serve_cars(self, cars: list) -> float:
         income = 0
         for car in cars:
-            if car.clean_mark < self.clean_power:
-                self.wash_single_car(car)
+            wash = self.wash_single_car(car)
+            if wash:
                 price, difference = self.calculate_washing_price(car)
                 income += price
                 car.clean_mark += difference
@@ -41,7 +41,10 @@ class CarWashStation:
         return price, difference
 
     def wash_single_car(self, car: object) -> str:
-        print(f"{car.brand} was washed")
+        if car.clean_mark <= self.clean_power:
+            return True
+        else:
+            False
 
     def rate_service(self, rate: float) -> float:
         self.count_of_ratings += 1
