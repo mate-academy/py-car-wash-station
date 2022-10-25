@@ -1,6 +1,3 @@
-from typing import Union
-
-
 class Car:
     def __init__(self, comfort_class: int,
                  clean_mark: int,
@@ -31,14 +28,14 @@ class CarWashStation:
                 car.clean_mark += difference
         return income
 
-    def calculate_washing_price(self, car: object) -> Union:
+    def calculate_washing_price(self, car: Car) -> tuple[float, int]:
         difference = self.clean_power - car.clean_mark
         price = round(((car.comfort_class
                         * difference * self.average_rating)
                        / self.distance_from_city_center), 1)
         return price, difference
 
-    def wash_single_car(self, car: object) -> bool:
+    def wash_single_car(self, car: Car) -> bool:
         if car.clean_mark <= self.clean_power:
             return True
 
