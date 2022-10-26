@@ -1,3 +1,6 @@
+from typing import Union
+
+
 class Car:
     def __init__(self,
                  comfort_class: int,
@@ -18,7 +21,7 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-    def serve_cars(self, cars: list) -> float:
+    def serve_cars(self, cars: list[Car]) -> float:
         cash = 0
         for car in cars:
             cash += self.wash_single_car(car)
@@ -40,7 +43,7 @@ class CarWashStation:
             car.clean_mark = self.clean_power
         return round(cash, 1)
 
-    def rate_service(self, rating: float) -> None:
+    def rate_service(self, rating: Union[int, float]) -> None:
         self.average_rating = round(
             (self.average_rating * self.count_of_ratings + rating)
             / (self.count_of_ratings + 1), 1)
