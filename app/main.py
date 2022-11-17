@@ -31,7 +31,7 @@ class CarWashStation:
     def wash_single_car(self, car: tuple) -> int:
         return self.clean_power
 
-    def rate_service(self, num: int) -> int:
+    def rate_service(self, num: int) -> None:
         self.average_rating = \
             round(
                 ((self.average_rating * self.count_of_ratings) + num)
@@ -39,4 +39,3 @@ class CarWashStation:
                 1
             )
         self.count_of_ratings = self.count_of_ratings + 1
-        return self.average_rating, self.count_of_ratings
