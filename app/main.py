@@ -26,7 +26,7 @@ class CarWashStation:
             * self.average_rating / self.distance_from_city_center
         return round(profit, 1)
 
-    def rate_service(self, rate: int) -> None:
+    def rate_service(self, rate: int | float) -> None:
         new_rate = self.average_rating * self.count_of_ratings + rate
         self.count_of_ratings = self.count_of_ratings + 1
         self.average_rating = round(new_rate / self.count_of_ratings, 1)
