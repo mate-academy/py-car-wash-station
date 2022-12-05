@@ -37,10 +37,9 @@ class CarWashStation:
                 * self.average_rating
                 / self.distance_from_city_center)
 
-    def wash_single_car(self, car: Car) -> Car:
+    def wash_single_car(self, car: Car) -> None:
         if self.clean_power > car.clean_mark:
             car.clean_mark = self.clean_power
-        return car
 
     def rate_service(self, mark: int) -> None:
         self.average_rating = round(
@@ -49,8 +48,3 @@ class CarWashStation:
             1
         )
         self.count_of_ratings += 1
-
-
-# Readmi file has a bit mistake. It's confusing
-# income == 41.7
-# but must be 41.6
