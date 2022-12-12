@@ -1,21 +1,16 @@
-# Доброго дня!  мене виникла проблема із завданням linter-formater. Саму тему з list-comprahantion я засвоїв,
-# а із задачою не можу розібратися. Чи не могли б ви показати мені як її робити? Задачу закинув у папку
-# need_help. Дякую!
-
-
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
-        self.comfort_class = comfort_class
+    def __init__(self, comfort_clas: int, clean_mark: int, brand: str) -> None:
+        self.comfort_class = comfort_clas
         self.clean_mark = clean_mark
         self.brand = brand
 
 
 class CarWashStation:
-    def __init__(self, distance_from_city_center: int, clean_power: int, average_rating: float, count_of_ratings: int) -> None:
-        self.distance_from_city_center = distance_from_city_center
-        self.clean_power = clean_power
-        self.average_rating = average_rating
-        self.count_of_ratings = count_of_ratings
+    def __init__(self, dist: int, power: int, rating: int, count: int) -> None:
+        self.distance_from_city_center = dist
+        self.clean_power = power
+        self.average_rating = rating
+        self.count_of_ratings = count
 
     def serve_cars(self, count_of_cars: list) -> int:
         income = 0
@@ -37,8 +32,8 @@ class CarWashStation:
         else:
             print("Sorry, but your car is clean enough!")
 
-    def rate_service(self, rating_of_one_service: int) -> None:
-        calculation_of_rating = ((self.average_rating * self.count_of_ratings)
-                                 + rating_of_one_service) / (self.count_of_ratings + 1)
-        self.average_rating = round(calculation_of_rating, 1)
+    def rate_service(self, rating_a_service: int) -> None:
+        calc_of_rating = ((self.average_rating * self.count_of_ratings)
+                          + rating_a_service) / (self.count_of_ratings + 1)
+        self.average_rating = round(calc_of_rating, 1)
         self.count_of_ratings += 1
