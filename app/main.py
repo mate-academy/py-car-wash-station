@@ -6,7 +6,6 @@ class Car:
 
 
 class CarWashStation:
-    cars_ = []
 
     def __init__(
         self,
