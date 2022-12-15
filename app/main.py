@@ -3,7 +3,6 @@ class Car:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
-        pass
 
 
 class CarWashStation:
@@ -16,10 +15,11 @@ class CarWashStation:
     ) -> None:
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
-        self.average_rating = average_rating
+        self.average_rating = round(average_rating, 1)
         self.count_of_ratings = count_of_ratings
 
-    def serve_cars(self, car: list) -> float:
+    def serve_cars(self, cars: list) -> float:
+        for car in cars:
+            if car.clean_mark < self.clean_power:
+                return income
 
-
-    pass
