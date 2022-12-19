@@ -1,6 +1,3 @@
-from typing import Any
-
-
 class Car:
     def __init__(
             self, comfort_class: int,
@@ -32,17 +29,15 @@ class CarWashStation:
         )
         return cost_of_washing
 
-    def wash_single_car(self, car: Car) -> Car:
-        car.clean_mark = int(self.clean_power)
-        return car
+    def wash_single_car(self, car: Car) -> None:
+        car.clean_mark = self.clean_power
 
-    def rate_service(self, mark: int) -> Any:
+    def rate_service(self, mark: int) -> None:
         self.average_rating = round(
             (self.average_rating * self.count_of_ratings + mark)
             / (self.count_of_ratings + 1), 1
         )
         self.count_of_ratings += 1
-        return self
 
     def serve_cars(self, list_of_cars: list) -> float:
         income = 0
