@@ -16,7 +16,7 @@ dirty - 1 to absolutely clean - 10
 3. `brand` - brand of the car
 
 Create class `CarWashStation`, its constructor takes and
-stores 4 arguments**:**
+stores 4 arguments:
 1. `distance_from_city_center` - how far station from
 the city center, from 1.0 to 10.0
 2. `clean_power` - `clean_mark` to which this car wash station
