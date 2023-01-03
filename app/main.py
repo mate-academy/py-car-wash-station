@@ -36,4 +36,3 @@ class CarWashStation:
                                      * self.count_of_ratings + new_rate)
                                     / (self.count_of_ratings + 1), 1)
         self.count_of_ratings += 1
-        return self.average_rating
