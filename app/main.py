@@ -34,4 +34,3 @@ class CarWashStation:
                                       * self.count_of_ratings) + single_rate)
                                     / (self.count_of_ratings + 1), 1)
         self.count_of_ratings += 1
-    pass
