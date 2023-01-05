@@ -14,16 +14,17 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-    # створимо метод для визначення вартості мийки для одного авто
     def calculate_washing_price(self, car: Car) -> float:
-        price = car.comfort_class * (self.clean_power - car.clean_mark)\
+        price = (
+            car.comfort_class * (self.clean_power - car.clean_mark)
             * self.average_rating / self.distance_from_city_center
+        )
+
         return round(price, 1)
 
     def wash_single_car(self, car: Car) -> None:
         car.clean_mark = self.clean_power
 
-    # створимо метод, який рахує вартість мийки для списку автомобілів
     def serve_cars(self, cars: list[Car]) -> float:
         income = 0
         for car in cars:
@@ -32,9 +33,10 @@ class CarWashStation:
                 self.wash_single_car(car)
         return income
 
-    # створимо метод для обчислення середнього рейтингу станції
     def rate_service(self, single_rate: float) -> None:
-        rating = ((self.average_rating * self.count_of_ratings) + single_rate)\
+        rating = (
+            (self.average_rating * self.count_of_ratings + single_rate)
             / (self.count_of_ratings + 1)
+        )
         self.average_rating = round(rating, 1)
         self.count_of_ratings += 1
