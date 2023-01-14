@@ -25,13 +25,13 @@ class CarWashStation:
             self.wash_single_car(x_car)
         return sum(prices)
 
-    def calculate_washing_price(self, car: object) -> float:
+    def calculate_washing_price(self, car: Car) -> float:
         return round(
             car.comfort_class * (self.clean_power - car.clean_mark)
             * self.average_rating / self.distance_from_city_center, 1
         )
 
-    def wash_single_car(self, ather: object) -> None:
+    def wash_single_car(self, other: Car) -> None:
         ather.clean_mark = self.clean_power
 
     def rate_service(self, number: int) -> None:
