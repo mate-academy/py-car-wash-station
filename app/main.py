@@ -22,7 +22,9 @@ class CarWashStation:
 
     def serve_cars(self, cars_list: list) -> float:
         ability_wash = [
-            i for i in cars_list if self.clean_power > i.clean_mark
+            clean_car
+            for clean_car in cars_list
+            if self.clean_power > clean_car.clean_mark
         ]
         prices = [self.calculate_washing_price(cleaning)
                   for cleaning in ability_wash]
