@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+
 class Car:
     def __init__(self,
                  comfort_class: int,
