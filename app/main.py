@@ -1,3 +1,4 @@
+# v.1.0
 class Car:
     def __init__(
             self,
@@ -56,4 +57,3 @@ class CarWashStation:
             ) / (
                 self.count_of_ratings + 1), 1)
         self.count_of_ratings += 1
-
