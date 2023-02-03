@@ -31,12 +31,12 @@ class CarWashStation:
 
     def calculate_washing_price(self, car: Car) -> float:
         diff_clean_power = self.clean_power - car.clean_mark
-        wash_price_wo_city_center = (car.comfort_class
-                                     * diff_clean_power
-                                     * self.average_rating)
-        washing_price_with_cc = (wash_price_wo_city_center
-                                 / self.distance_from_city_center)
-        return round(washing_price_with_cc, 1)
+        wash_price_wo_cc = self.wash_price_wo_center(car, diff_clean_power)
+        wash_price_result = wash_price_wo_cc / self.distance_from_city_center
+        return round(wash_price_result, 1)
+
+    def wash_price_wo_center(self, car: Car, diff_clean_power: float) -> float:
+        return car.comfort_class * diff_clean_power * self.average_rating
 
     def wash_single_car(self, car: Car) -> None:
         car.clean_mark = self.clean_power
