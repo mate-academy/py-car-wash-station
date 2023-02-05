@@ -1,6 +1,3 @@
-from typing import Callable
-
-
 class Car:
     def __init__(self,
                  comfort_class: int,
