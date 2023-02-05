@@ -30,28 +30,17 @@ class CarWashStation:
     def serve_cars(self, cars: list) -> float:
         income = 0.0
         for el in cars:
-            print(f"Before: {el.clean_mark}")
             if self.clean_power > el.clean_mark:
                 income += self.calculate_washing_price(el)
                 self.wash_single_car(el)
-                print(f"Income func: {self.calculate_washing_price(el)}")
-                print(el.clean_mark)
-                print(f"Income: {income}")
-        print(f"Before: {round(income * (-1), 1)}")
-        print()
+
         income = round(income * (-1), 1)
         return income
 
     def calculate_washing_price(self, car: Car) -> float:
-        number = 0.0
 
-        ccc = car.comfort_class
-        ccm = car.clean_mark
-        scp = self.clean_power
-        sar = self.average_rating
-        sdfcc = self.distance_from_city_center
-        number = (ccc * (ccm - scp) * sar) / sdfcc
-
+        number = (car.comfort_class * (car.clean_mark - self.clean_power)
+                  * self.average_rating) / self.distance_from_city_center
         return number
 
     def wash_single_car(self, car: Car) -> None:
@@ -62,8 +51,8 @@ class CarWashStation:
         return car.clean_mark
 
     def rate_service(self, rate: int) -> None:
-        temp = self.count_of_ratings
+
         self.count_of_ratings += 1
-        temp = round((((self.average_rating * temp)
-                       + rate) / self.count_of_ratings), 1)
-        self.average_rating = temp
+        self.average_rating = round((((self.average_rating
+                                       * (self.count_of_ratings - 1))
+                                      + rate) / self.count_of_ratings), 1)
