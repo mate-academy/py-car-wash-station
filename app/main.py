@@ -37,8 +37,9 @@ class CarWashStation:
 
         clean_car = self.clean_power - car.clean_mark
         level_of_service = car.comfort_class * clean_car
+        clean_price = level_of_service * self.average_rating
 
-        number = (level_of_service * self.average_rating) / self.distance_from_city_center
+        number = clean_price / self.distance_from_city_center
         return number
 
     def wash_single_car(self, car: Car) -> None:
@@ -49,5 +50,6 @@ class CarWashStation:
 
         self.count_of_ratings += 1
         rating_point = (self.average_rating * (self.count_of_ratings - 1))
+        average_marks = (rating_point + rate) / self.count_of_ratings
 
-        self.average_rating = round(((rating_point + rate) / self.count_of_ratings), 1)
+        self.average_rating = round(average_marks, 1)
