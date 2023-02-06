@@ -31,13 +31,13 @@ class CarWashStation:
                 self.wash_single_car(car)
         return income
 
-    def calculate_washing_price(self, car: Car) -> float:
+    def calculate_washing_price(self, car: list[Car]) -> float:
         price = (car.comfort_class * (self.clean_power - car.clean_mark)
                  * self.average_rating) / self.distance_from_city_center
         price = round(price, 1)
         return price
 
-    def wash_single_car(self, car: Car) -> None:
+    def wash_single_car(self, car: list[Car]) -> None:
         car.clean_mark = self.clean_power
 
     def rate_service(self, rating: float) -> None:
