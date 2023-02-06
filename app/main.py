@@ -50,4 +50,4 @@ class CarWashStation:
         self.count_of_ratings += 1
         self.average_rating = round((((self.average_rating
                                        * (self.count_of_ratings - 1))
-                                       + rate) / self.count_of_ratings), 1)
+                                      + rate) / self.count_of_ratings), 1)
