@@ -27,7 +27,7 @@ class CarWashStation:
         income = 0
         for car in cars_list:
             if self.car_is_allowed_to_wash(car):
-                income += round(self.calculate_washing_price(car), 1)
+                income += self.calculate_washing_price(car)
                 self.wash_single_car(car)
 
         return income
