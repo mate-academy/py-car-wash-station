@@ -2,27 +2,15 @@ class Car:
 
     def __init__(self, comfort_class: int,
                  clean_mark: int, brand: str) -> None:
-        if not isinstance(comfort_class and clean_mark, int):
-            raise TypeError(" Comfort class and clean mark"
-                            " must be only positive integer")
-        if not isinstance(brand, str):
-            raise TypeError("Brand must be only string")
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
-
-    def __str__(self) -> str:
-        return f"Comfort class - {self.comfort_class}, " \
-               f"clean mark - {self.clean_mark}, brand - {self.brand}"
 
 
 class CarWashStation:
 
     def __init__(self, distance_from_city_center: float, clean_power: int,
                  average_rating: float, count_of_ratings: int) -> None:
-        if not isinstance(clean_power and count_of_ratings, int):
-            raise TypeError("Clean power and count of ratings"
-                            " must be only positive integer")
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = average_rating
@@ -50,9 +38,3 @@ class CarWashStation:
         self.average_rating =\
             round(((average + rate) / (self.count_of_ratings + 1)), 1)
         self.count_of_ratings += 1
-
-    def __str__(self) -> str:
-        return f"Distance from center - {self.distance_from_city_center}, " \
-               f"clean power - {self.clean_power}, " \
-               f"average rating - {self.average_rating}," \
-               f" count of ratings - {self.count_of_ratings}"
