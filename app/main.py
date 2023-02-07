@@ -49,4 +49,4 @@ class CarWashStation:
             / (self.count_of_ratings + 1),
             1,
         )
-        self.count_of_ratings = self.count_of_ratings + 1
+        self.count_of_ratings += 1
