@@ -30,11 +30,11 @@ class CarWashStation:
                 income += self.calculate_washing_price(car)
                 self.wash_single_car(car)
 
-        return round(income, 1)  # pytest
+        return round(income, 1)
 
     def calculate_washing_price(self, car: Car) -> float:
         clean_car = self.clean_power - car.clean_mark
-        service_level = clean_car * car.comfort_class  # service_level car
+        service_level = clean_car * car.comfort_class
         quality_service = service_level * self.average_rating
         price = quality_service / self.distance_from_city_center
         return price
