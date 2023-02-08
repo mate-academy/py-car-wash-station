@@ -2,11 +2,12 @@ from __future__ import annotations
 
 
 class Car:
-    def __init__(self,
-                 comfort_class: int,
-                 clean_mark: int,
-                 brand: str
-                 ) -> None:
+    def __init__(
+            self,
+            comfort_class: int,
+            clean_mark: int,
+            brand: str
+    ) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -41,7 +42,9 @@ class CarWashStation:
         return car_wash_price
 
     def wash_single_car(self, car: Car) -> None:
-        car.clean_mark = self.clean_power
+
+        if self.clean_power > car.clean_mark:
+            car.clean_mark = self.clean_power
 
     def rate_service(self, rate: int) -> None:
         self.count_of_ratings += 1
