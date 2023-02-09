@@ -4,7 +4,6 @@ class Car:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
-    pass
 
 
 class CarWashStation:
@@ -14,7 +13,6 @@ class CarWashStation:
         self.clean_power = clean_power
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
-    pass
 
     def serve_cars(self, cars: list) -> float:
         total_cost = 0
@@ -37,4 +35,3 @@ class CarWashStation:
         new_count_of_rating = self.count_of_ratings + 1
         self.count_of_ratings += 1
         self.average_rating = round((new_rating_sum / new_count_of_rating), 1)
-        return
