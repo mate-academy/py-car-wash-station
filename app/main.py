@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Car:
     def __init__(
             self,
@@ -23,7 +26,7 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-    def serve_cars(self, cars: list) -> float:
+    def serve_cars(self, cars: List[Car]) -> float:
         income = 0
         for car in cars:
             if self.wash_single_car(car) == self.clean_power:
