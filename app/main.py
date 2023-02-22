@@ -26,7 +26,7 @@ class CarWashStation:
             car.clean_mark = self.clean_power
         return price
 
-    def serve_cars(self, cars: Car) -> int:
+    def serve_cars(self, cars: list[Car]) -> int:
         income = 0
         for car in cars:
             income += self.wash_single_car(car)
