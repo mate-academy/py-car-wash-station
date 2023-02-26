@@ -38,10 +38,11 @@ class CarWashStation:
         return income
 
     def calculate_washing_price(self, car: Car) -> float:
-        washing_cost = \
-            car.comfort_class * \
-            (self.clean_power - car.clean_mark) * \
-            (self.average_rating / self.distance_from_city_center)
+        washing_cost = (
+            car.comfort_class
+            * (self.clean_power - car.clean_mark)
+            * (self.average_rating / self.distance_from_city_center)
+        )
         return washing_cost
 
     def rate_service(self, rating: int) -> None:
