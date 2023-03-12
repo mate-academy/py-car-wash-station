@@ -53,19 +53,3 @@ class CarWashStation:
                                     , 1)
 
         self.count_of_ratings += 1
-
-
-wash_station = CarWashStation(
-    distance_from_city_center=6,
-    clean_power=8,
-    average_rating=3.9,
-    count_of_ratings=11
-)
-
-print(wash_station.average_rating)    # 3.9
-print(wash_station.count_of_ratings)  # 11
-
-wash_station.rate_service(5)
-
-print(wash_station.average_rating)    # 4.0
-print(wash_station.count_of_ratings)  # 12
