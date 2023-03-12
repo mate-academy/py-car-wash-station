@@ -114,6 +114,7 @@ Example:
 ```python
 bmw = Car(3, 3, 'BMW')
 audi = Car(4, 9, 'Audi')
+
 mercedes = Car(7, 1, 'Mercedes')
 
 ws = CarWashStation(6, 8, 3.9, 11)
