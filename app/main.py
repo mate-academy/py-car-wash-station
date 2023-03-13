@@ -24,14 +24,12 @@ class CarWashStation:
         self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars: list) -> float:
-        filtered_cars = filter(
-            lambda car: car.clean_mark < self.clean_power, cars
-        )
         income: float = 0
 
-        for car in filtered_cars:
-            income += self.calculate_washing_price(car)
-            self.wash_single_car(car)
+        for car in cars:
+            if car.clean_mark < self.clean_power:
+                income += self.calculate_washing_price(car)
+                self.wash_single_car(car)
 
         return round(income, 1)
 
