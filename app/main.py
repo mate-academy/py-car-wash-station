@@ -28,7 +28,7 @@ class CarWashStation:
         return income
 
     def calculate_washing_price(self, vehicle: Car) -> float:
-        if self.clean_power > vehicle.clean_mark:
+        if self.clean_power > vehicle.clean_mark:  # condition to exclude negative price
             price = (vehicle.comfort_class
                      * (self.clean_power
                         - vehicle.clean_mark)
