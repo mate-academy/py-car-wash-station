@@ -19,17 +19,7 @@ class Car:
 
         Returns:
             An instance of a Car class
-
-        Raises:
-            A ValueError if comfort class is not within 1 and 7
-            A ValueError if car cleanness level is not within 1 and 10
         """
-        if comfort_class < 1 or comfort_class > 7:
-            raise ValueError("Comfort class must be within 1 and 7")
-
-        if clean_mark < 1 or clean_mark > 10:
-            raise ValueError("Cleanness level must be within 1 and 10")
-
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -55,19 +45,7 @@ class CarWashStation:
 
         Returns:
             An instalce of a CarWashStation class
-
-        Raises:
-            A ValueError if distance from city center is not within 1 and 10
-            A ValueError if average rating is not within 1.0 and 5.0
         """
-        if distance_from_city_center < 1 or distance_from_city_center > 10:
-            raise ValueError(
-                "Distance from city center must be within 1 and 10"
-            )
-
-        if average_rating < 1 or average_rating > 5:
-            raise ValueError("Average rating must be within 1 and 5")
-
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = average_rating
@@ -122,9 +100,6 @@ class CarWashStation:
         Args:
             rating - rating from 1 to 5
         """
-        if rating < 1 or rating > 5:
-            raise ValueError("Rating should be within 1 and 5")
-
         current_total_rating = self.average_rating * self.count_of_ratings
         self.count_of_ratings += 1
         self.average_rating = round(
