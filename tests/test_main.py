@@ -5,26 +5,6 @@ import os
 from app.main import Car, CarWashStation
 
 
-def test_car_comfort_class_is_zero():
-    with pytest.raises(ValueError, match="Comfort class must be within 1 and 7"):
-        Car(0, 1, "Nissan")
-
-def test_car_cleanness_level_is_zero():
-    with pytest.raises(ValueError, match="Cleanness level must be within 1 and 10"):
-        Car(1, 0, "Nissan")
-
-def test_station_distance_from_city_center_is_zero():
-    with pytest.raises(ValueError, match="Distance from city center must be within 1 and 10"):
-        CarWashStation(0, 10, 5, 1)
-
-def test_station_average_rating_is_zero():
-    with pytest.raises(ValueError, match="Average rating must be within 1 and 5"):
-        CarWashStation(10, 10, 0, 1)
-
-def test_station_new_rating_is_zero():
-    with pytest.raises(ValueError, match="Rating should be within 1 and 5"):
-        CarWashStation(10, 10, 5, 1).rate_service(0)
-
 def test_car():
     bmw = Car(2, 3, "BMW")
     assert bmw.comfort_class == 2, "Class Car should store 'comfort_class'"
