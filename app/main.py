@@ -46,28 +46,3 @@ class CarWashStation:
                                      * self.count_of_ratings + rate)
                                     / (self.count_of_ratings + 1), 1)
         self.count_of_ratings += 1
-
-
-station = CarWashStation(
-    distance_from_city_center=5,
-    clean_power=6,
-    average_rating=3.5,
-    count_of_ratings=6
-)
-
-
-def serve_cars(cars: list[Car],
-               wash_station: CarWashStation = station) -> float:
-    income: float = 0
-    """
-    I don't know why I need to write this function again,
-    but the tests fail if it is only in the middle of the class.
-    I've deviated a bit from the task, because it seems to me that
-    if this function should be outside the class, we should specify
-    and station in the arguments to avoid rewriting the code every time.
-    """
-    for car in cars:
-        if car.clean_mark < wash_station.clean_power:
-            income += wash_station.calculate_washing_price(car)
-            wash_station.wash_single_car(car)
-    return round(income, 1)
