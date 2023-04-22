@@ -1,4 +1,4 @@
-from typing import Callable, Any
+from typing import Any
 
 
 class Car:
@@ -23,12 +23,7 @@ class CarWashStation:
         self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars: list) -> float:
-        served = 0
-        for car in cars:
-            if self.clean_power >= car.clean_mark:
-                served += self.calculate_washing_price(car)
-                self.wash_single_car(car)
-        return served
+        return sum(self.wash_single_car(car) for car in cars)
 
     def calculate_washing_price(self, car: Any) -> float:
         price = car.comfort_class * (
@@ -36,8 +31,12 @@ class CarWashStation:
         ) * self.average_rating / self.distance_from_city_center
         return round(price, 1)
 
-    def wash_single_car(self, car: Callable) -> None:
-        car.clean_mark = self.clean_power
+    def wash_single_car(self, car: Car) -> float:
+        served = 0
+        if self.clean_power >= car.clean_mark:
+            served += self.calculate_washing_price(car)
+            car.clean_mark = self.clean_power
+        return served
 
     def rate_service(self, rating_num: int) -> float:
         self.average_rating = round(
