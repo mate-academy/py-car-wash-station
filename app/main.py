@@ -1,4 +1,3 @@
-
 class Car:
     def __init__(self, comfort_class, clean_mark, brand):
         self.comfort_class = comfort_class
