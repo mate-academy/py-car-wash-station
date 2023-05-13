@@ -27,7 +27,7 @@ class CarWashStation:
                       * self.average_rating)
                      / self.distance_from_city_center, 1)
 
-    def serve_cars(self, cars: list) -> float:
+    def serve_cars(self, cars: list[Car]) -> float:
         income = 0
 
         for car in cars:
