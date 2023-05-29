@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Union
 
 
 class Car:
@@ -16,10 +16,10 @@ class Car:
 class CarWashStation:
     def __init__(
             self,
-            distance_from_city_center: [float, int],
-            clean_power: [float, int],
-            average_rating: [float, int],
-            count_of_ratings: [int, float],
+            distance_from_city_center: Union[float, int],
+            clean_power: Union[float, int],
+            average_rating: Union[float, int],
+            count_of_ratings: Union[int, float],
     ) -> None:
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
@@ -35,7 +35,7 @@ class CarWashStation:
 
         return washing_price_all_car
 
-    def calculate_washing_price(self, car: Car) -> int:
+    def calculate_washing_price(self, car: Car) -> Union[int, float]:
         washing_price = round(
             car.comfort_class
             * (self.clean_power
