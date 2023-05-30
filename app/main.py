@@ -44,4 +44,3 @@ class CarWashStation:
                 income += (self.calculate_washing_price(car))
                 self.wash_single_car(car)
         return round(income, 1)
-       
