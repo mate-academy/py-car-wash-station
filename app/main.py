@@ -7,7 +7,6 @@
         self.clean_mark = clean_mark
         self.brand = brand
 
-
 class CarWashStation:
     def __init__(self,
                  distance_from_city_center: int,
@@ -45,3 +44,4 @@ class CarWashStation:
                 income += (self.calculate_washing_price(car))
                 self.wash_single_car(car)
         return round(income, 1)
+
