@@ -1,4 +1,4 @@
-  class Car:
+ class Car:
     def __init__(self,
                  comfort_class: int,
                  clean_mark: int,
