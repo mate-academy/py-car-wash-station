@@ -24,10 +24,12 @@ class CarWashStation:
         amount = 0
         for car in cars:
             if car.clean_mark < self.clean_power:
-                amount += (car.comfort_class
-                           * (self.clean_power - car.clean_mark)
-                           * (self.average_rating
-                              / self.distance_from_city_center))
+                self.wash_single_car([car])
+                amount += (
+                    car.comfort_class
+                    * (self.clean_power - car.clean_mark)
+                    * (self.average_rating / self.distance_from_city_center)
+                )
                 car.clean_mark = self.clean_power
         return round(amount, 1)
 
