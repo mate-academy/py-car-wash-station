@@ -37,3 +37,11 @@ class CarWashStation:
                                     , 1)
         self.count_of_ratings += 1
                                         
+    def serve_cars(self, cars: list[Car]):
+        income = 0
+        for car in cars:
+            price = self.calculate_washing_price(car=car)
+            car = self.wash_single_car(car=car)
+            if car.clean_mark == self.clean_power:
+                income += price
+        return income 
