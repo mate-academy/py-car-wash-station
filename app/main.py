@@ -48,10 +48,8 @@ class CarWashStation:
         return round(income, 1)
 
     def can_wash_car(self, car: Car) -> bool:
-        if self.clean_power > car.clean_mark:
-            return True
 
-        return False
+        return self.clean_power > car.clean_mark
 
     def wash_single_car(self, car: Car) -> None:
 
