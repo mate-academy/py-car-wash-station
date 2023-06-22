@@ -3,7 +3,8 @@ class Car:
             self,
             comfort_class: int,
             clean_mark: int,
-            brand: str) -> None:
+            brand: str
+    ) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -22,10 +23,12 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-    #  washes only cars with clean_mark < clean_power of wash station
-    #  and returns income of CarWashStation for serving
-    #  this list of Car's, rounded to 1 decimal
     def serve_cars(self, list_cars: list[Car]) -> float:
+        """
+        washes only cars with clean_mark < clean_power of wash station
+        and returns income of CarWashStation for serving
+        this list of Car's, rounded to 1 decimal
+        """
         income = 0
         for car in list_cars:
             if car.clean_mark < self.clean_power:
@@ -33,8 +36,8 @@ class CarWashStation:
                 self.wash_single_car(car)
         return income
 
-    #  calculate cost of washing single car
     def calculate_washing_price(self, car: Car) -> float:
+        """calculate cost of washing single car"""
         cost = round(
             car.comfort_class * (self.clean_power - car.clean_mark)
             * self.average_rating / self.distance_from_city_center,
@@ -42,13 +45,15 @@ class CarWashStation:
         )
         return cost
 
-    #  change car clean_mark after washing
     def wash_single_car(self, car: Car) -> None:
+        """change car clean_mark after washing"""
         car.clean_mark = self.clean_power
 
-    #  change average_rating and count_of_ratings after receiving
-    #  new rate mark
     def rate_service(self, rate: int) -> None:
+        """
+        change average_rating and count_of_ratings
+        after receiving new rate mark
+         """
         self.average_rating = round(
             (self.average_rating * self.count_of_ratings + rate)
             / (self.count_of_ratings + 1),
