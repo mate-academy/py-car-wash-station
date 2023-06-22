@@ -25,7 +25,7 @@ class CarWashStation:
     #  washes only cars with clean_mark < clean_power of wash station
     #  and returns income of CarWashStation for serving
     #  this list of Car's, rounded to 1 decimal
-    def serve_cars(self, list_cars: list) -> float:
+    def serve_cars(self, list_cars: list[Car]) -> float:
         income = 0
         for car in list_cars:
             if car.clean_mark < self.clean_power:
