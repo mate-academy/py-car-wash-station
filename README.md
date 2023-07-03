@@ -33,7 +33,7 @@ rounded to 1 decimal:
 
 ```python
 bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
-audi = Car(comfort_class=4, clean_mark=9, brand='Audi')
+audi = Car(comfort_class=4, clean_mark=4, brand='Audi')
 
 print(bmw.clean_mark)  # 3
 
