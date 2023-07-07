@@ -3,7 +3,7 @@ from typing import List
 
 class Car:
     def __init__(
-            self, comfort_class: int, clean_mark: int, brand: str
+        self, comfort_class: int, clean_mark: int, brand: str
     ) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
@@ -27,20 +27,18 @@ class CarWashStation:
         total_income = 0.0
         for car in car_list:
             if car.clean_mark < self.clean_power:
-                original_clean_mark = car.clean_mark
-                self.wash_single_car(car)
-                wash_cost = self.calculate_washing_price(
-                    car, original_clean_mark
-                )
+                wash_cost = self.calculate_washing_price(car)
                 total_income += wash_cost
+                self.wash_single_car(car)
         return round(total_income, 1)
 
-    def calculate_washing_price(
-        self, car: Car, original_clean_mark: int
-    ) -> float:
+    def calculate_washing_price(self, car: Car) -> float:
+        original_clean_mark = car.clean_mark
         return round(
-            car.comfort_class * (self.clean_power - original_clean_mark)
-            * self.average_rating / self.distance_from_city_center,
+            car.comfort_class
+            * (self.clean_power - original_clean_mark)
+            * self.average_rating
+            / self.distance_from_city_center,
             1,
         )
 
@@ -65,10 +63,9 @@ wash_station = CarWashStation(5, 6, 3.5, 6)
 
 income = wash_station.serve_cars([bmw, audi, mercedes])
 
-print(income)  # 6.3
-print(bmw.clean_mark)  # 6
-
 wash_station.rate_service(5)
 
+print(income)  # 22.4
+print(bmw.clean_mark)  # 6
 print(wash_station.average_rating)  # 4.0
 print(wash_station.count_of_ratings)  # 7
