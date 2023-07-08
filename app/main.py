@@ -1,8 +1,68 @@
 class Car:
-    # write your code here
-    pass
+    def __init__(self, comfort_class: int,
+                 clean_mark: int,
+                 brand: str
+                 ) -> None:
+
+        self.comfort_class = comfort_class
+        self.clean_mark = clean_mark
+        self.brand = brand
 
 
 class CarWashStation:
-    # write your code here
-    pass
+    def __init__(self, distance_from_city_center: float,
+                 clean_power: int,
+                 average_rating: float,
+                 count_of_ratings: int
+                 ) -> None:
+
+        self.distance_from_city_center = distance_from_city_center
+        self.clean_power = clean_power
+        self.average_rating = round(average_rating, 1)
+        self.count_of_ratings = count_of_ratings
+
+    def serve_cars(self, car_list: list[Car]) -> float:
+        total_income = 0.0
+        for car in car_list:
+            if car.clean_mark < self.clean_power:
+                total_income += self.calculate_washing_price(car)
+                self.wash_single_car(car)
+        return round(total_income, 1)
+
+    def calculate_washing_price(self, car: Car) -> float:
+        return round((car.comfort_class
+                      * (self.clean_power - car.clean_mark)
+                      * self.average_rating)
+                     / self.distance_from_city_center, 1)
+
+    def wash_single_car(self, car: Car) -> None:
+        if self.clean_power > car.clean_mark:
+            car.clean_mark = self.clean_power
+
+    def rate_service(self, rating: float) -> None:
+        self.average_rating = round((self.average_rating
+                                    * self.count_of_ratings + rating)
+                                    / (self.count_of_ratings + 1), 1)
+        self.count_of_ratings += 1
+
+
+bmw = Car(3, 3, "BMW")
+audi = Car(4, 9, "Audi")
+mercedes = Car(7, 1, "Mercedes")
+
+wash_station = CarWashStation(6, 8, 3.9, 11)
+
+income = wash_station.serve_cars([bmw, audi, mercedes])
+print(income)
+
+print(bmw.clean_mark)
+print(audi.clean_mark)
+print(mercedes.clean_mark)
+
+ford = Car(2, 1, "Ford")
+wash_cost = wash_station.calculate_washing_price(ford)
+print(wash_cost)
+print(ford.clean_mark)
+
+wash_station.rate_service(5)
+print(wash_station.count_of_ratings)
