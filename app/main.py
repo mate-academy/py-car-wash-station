@@ -69,4 +69,3 @@ print(income)  # 22.4
 print(bmw.clean_mark)  # 6
 print(wash_station.average_rating)  # 4.0
 print(wash_station.count_of_ratings)  # 7
-
