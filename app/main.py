@@ -28,8 +28,8 @@ class CarWashStation:
     def rate_service(self, rate: int) -> None:
         whole_rate = self.average_rating * self.count_of_ratings
         self.count_of_ratings += 1
-        self.average_rating = \
-            round((whole_rate + rate) / self.count_of_ratings, 1)
+        self.average_rating = round\
+            ((whole_rate + rate) / self.count_of_ratings, 1)
 
     def calculate_washing_price(self, car_single: Any) -> float:
         return round(car_single.comfort_class
