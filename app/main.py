@@ -52,4 +52,3 @@ class CarWashStation:
             / self.count_of_ratings, 1
         )
         self.average_rating = updated_average_rating
-
