@@ -49,6 +49,6 @@ class CarWashStation:
 
     def rate_service(self, rating: float) -> None:
         total_ratings = self.average_rating * self.count_of_ratings
-        self.count_of_ratings += 1
+        self.count_of_ratings = self.count_of_ratings + 1
         self.average_rating = round((total_ratings + rating)
                                     / self.count_of_ratings, 1)
