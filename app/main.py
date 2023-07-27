@@ -1,8 +1,61 @@
 class Car:
-    # write your code here
-    pass
+    def __init__(
+            self,
+            comfort_class: int,
+            clean_mark: int,
+            brand: str) -> None:
+        self.comfort_class = comfort_class
+        self.clean_mark = clean_mark
+        self.brand = brand
 
 
 class CarWashStation:
-    # write your code here
-    pass
+    def __init__(
+            self,
+            distance_from_city_center: float,
+            clean_power: int,
+            average_rating: float,
+            count_of_ratings: int) -> None:
+        self.distance_from_city_center = distance_from_city_center
+        self.clean_power = clean_power
+        self.average_rating = average_rating
+        self.count_of_ratings = count_of_ratings
+
+    def calculate_washing_price(self, car: Car) -> float:
+        price = 0.0
+        if car.clean_mark < self.clean_power:
+            points_to_clean = self.clean_power - car.clean_mark
+            price_formula_up = car.comfort_class * \
+                points_to_clean * self.average_rating
+            # all formulas above are just for flake8
+            # to shut up about the line length)))
+            price += price_formula_up / self.distance_from_city_center
+        return round(price, 1)
+
+    def serve_cars(self, cars: list) -> float:
+        revenue = 0.0
+        for car in cars:
+            if car.clean_mark < self.clean_power:
+                points_to_clean = self.clean_power - car.clean_mark
+                rev_formula_up = car.comfort_class * \
+                    points_to_clean * self.average_rating
+                # all formulas above are just for flake8
+                # to shut up about the line length)))
+                revenue += rev_formula_up / self.distance_from_city_center
+                self.wash_single_car(car)
+        return round(revenue, 1)
+
+    def wash_single_car(self, car: Car) -> None:
+        if car.clean_mark < self.clean_power:
+            car.clean_mark = self.clean_power
+        else:
+            pass
+
+    def rate_service(self, rate: int) -> None:
+        formula_up = self.average_rating * self.count_of_ratings + rate
+        # formula above are just for flake8
+        # to shut up about the line length)))
+        self.average_rating = round(
+            formula_up / (self.count_of_ratings + 1),
+            1)
+        self.count_of_ratings += 1
