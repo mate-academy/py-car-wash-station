@@ -45,11 +45,3 @@ class CarWashStation:
         self.count_of_ratings += 1
         self.average_rating = round(total_rating / self.count_of_ratings, 1)
         return self.average_rating
-
-
-bmw = Car(3, 3, 'BMW')
-audi = Car(4, 3, 'Audi')
-wash_station = CarWashStation(6, 8, 3.9, 11)
-income = wash_station.serve_cars([bmw, audi])
-print(income)
-print(wash_station.rate_service(5))
