@@ -3,7 +3,8 @@ class Car:
             self,
             comfort_class: int,
             clean_mark: int,
-            brand: str) -> None:
+            brand: str
+    ) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -15,7 +16,8 @@ class CarWashStation:
             distance_from_city_center: float,
             clean_power: int,
             average_rating: float,
-            count_of_ratings: int) -> None:
+            count_of_ratings: int
+    ) -> None:
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = average_rating
@@ -27,8 +29,6 @@ class CarWashStation:
             points_to_clean = self.clean_power - car.clean_mark
             price_formula_up = car.comfort_class * \
                 points_to_clean * self.average_rating
-            # all formulas above are just for flake8
-            # to shut up about the line length)))
             price += price_formula_up / self.distance_from_city_center
         return round(price, 1)
 
@@ -39,8 +39,6 @@ class CarWashStation:
                 points_to_clean = self.clean_power - car.clean_mark
                 rev_formula_up = car.comfort_class * \
                     points_to_clean * self.average_rating
-                # all formulas above are just for flake8
-                # to shut up about the line length)))
                 revenue += rev_formula_up / self.distance_from_city_center
                 self.wash_single_car(car)
         return round(revenue, 1)
@@ -53,8 +51,6 @@ class CarWashStation:
 
     def rate_service(self, rate: int) -> None:
         formula_up = self.average_rating * self.count_of_ratings + rate
-        # formula above are just for flake8
-        # to shut up about the line length)))
         self.average_rating = round(
             formula_up / (self.count_of_ratings + 1),
             1)
