@@ -3,14 +3,14 @@ class Car:
         if comfort_class < 1 or comfort_class > 7:
             print(TypeError)
         if clean_mark < 1 or clean_mark > 10:
-            print(TypeError)          
+            print(TypeError)
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
 
 
 class CarWashStation:
-    def __init__(self, distance_from_city_center: float, clean_power: int, 
+    def __init__(self, distance_from_city_center: float, clean_power: int,
                  average_rating: float, count_of_ratings: int) -> None:
         if distance_from_city_center < 1 or distance_from_city_center > 10:
             print(TypeError)
