@@ -1,5 +1,5 @@
 class Car:
-    def __init__(self, comfort_class: int, 
+    def __init__(self, comfort_class: int,
                  clean_mark: int, brand: str) -> None:
         if comfort_class < 1 or comfort_class > 7:
             print(TypeError)
