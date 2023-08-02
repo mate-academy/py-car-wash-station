@@ -16,10 +16,12 @@ class CarWashStation:
 
     def serve_cars(self, cars: list) -> float:
         count_car_list = []
+        income = 0
         for car in cars:
             if self.clean_power > car.clean_mark:
                 count_price = self.calculate_washing_price(car)
                 self.wash_single_car(car)
+                income += 1
                 count_car_list.append(count_price)
         count_car = sum(count_car_list)
         print(count_car_list)
