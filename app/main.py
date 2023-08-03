@@ -67,6 +67,7 @@ class CarWashStation:
             Decimal(rating)
         # використовую біблеотеку для округлення в методі rate_service
         # так як інші способи округлення не проходять тести
+
         self.count_of_ratings += 1
         self.average_rating = float(total_rating / self.count_of_ratings)
         self.average_rating = round(self.average_rating, 1)
