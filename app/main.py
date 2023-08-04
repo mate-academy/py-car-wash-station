@@ -20,6 +20,15 @@ class CarWashStation:
         self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars: list) -> int:
+        """
+        Method, that takes a list of Car's,
+        washes only cars with clean_mark < clean_power of wash station.
+
+        :param cars: a list of cars we need to serve
+        :return: returns income of CarWashStation
+        for serving this list of Car's,
+        rounded to 1 decimal
+        """
         income = 0
         for car in cars:
             if self.clean_power > car.clean_mark:
@@ -29,6 +38,12 @@ class CarWashStation:
         return round(income, 1)
 
     def calculate_washing_price(self, car: Car) -> float:
+        """
+        Method, that calculates cost for a single car wash
+
+        :param car: a car that we need to calculate the price for
+        :return: returns number rounded to 1 decimal
+        """
         power_mark_difference = self.clean_power - car.clean_mark
         washing_price = (car.comfort_class
                          * power_mark_difference
@@ -37,11 +52,25 @@ class CarWashStation:
         return round(washing_price, 1)
 
     def wash_single_car(self, car: Car) -> None:
+        """
+        Method, that washes a single car
+
+        :param car: a car that we want to wash
+        :return: it should have clean_mark equals wash station's clean_power,
+        if wash_station.clean_power is greater than car.clean_mark
+        """
         if self.clean_power > car.clean_mark:
             car.clean_mark = self.clean_power
         return None
 
     def rate_service(self, rating: int) -> None:
+        """
+        Method that adds a single rate to the wash station
+
+        :param rating: rating that we want to add
+        :return: based on this single rate average_rating
+        and count_of_ratings should be changed
+        """
         new_average = round(
             (self.count_of_ratings * self.average_rating + rating)
             / (self.count_of_ratings + 1),
