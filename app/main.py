@@ -1,9 +1,11 @@
 class CarValidationError(Exception):
-    """There's Exception is for errors when initializing Car object"""
+    """There's Exception is for errors when initializing
+    Car object"""
 
 
 class CarWashStationError(Exception):
-    """There's Exception is for errors when initializing CarWashStation object"""
+    """There's Exception is for errors when initializing
+    CarWashStation object"""
 
 
 class Car:
