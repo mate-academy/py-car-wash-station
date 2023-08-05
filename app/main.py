@@ -44,12 +44,12 @@ class CarWashStation:
         :param car: a car that we need to calculate the price for
         :return: returns number rounded to 1 decimal
         """
-        power_mark_difference = self.clean_power - car.clean_mark
-        washing_price = (car.comfort_class
-                         * power_mark_difference
-                         * self.average_rating
-                         / self.distance_from_city_center)
-        return round(washing_price, 1)
+        return round(
+            car.comfort_class
+            * abs(self.clean_power - car.clean_mark)
+            * (self.average_rating / self.distance_from_city_center),
+            1
+        )
 
     def wash_single_car(self, car: Car) -> None:
         """
