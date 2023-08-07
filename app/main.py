@@ -1,8 +1,8 @@
 class Car:
     """
-    comfort_class - comfort class of a car, from 1 to 7
-    clean_mark - car cleanness mark, from very dirty to clean
-    brand - brand of the car
+    :param comfort_class: comfort class of a car, from 1 to 7
+    :param clean_mark: car cleanness mark, from very dirty to clean
+    :param brand: brand of the car
     """
     def __init__(
             self,
@@ -17,10 +17,10 @@ class Car:
 
 class CarWashStation:
     """
-    distance_from_city_center - how far station from the city center
-    clean_power - clean_mark to which this car wash station washes
-    average_rating - average rating of the station
-    count_of_ratings - number of people who rated
+    :param distance_from_city_center: how far station from the city center
+    :param clean_power: clean_mark to which this car wash station washes
+    :param average_rating: average rating of the station
+    :param count_of_ratings: number of people who rated
     """
     def __init__(
             self,
@@ -36,9 +36,10 @@ class CarWashStation:
     def serve_cars(self, client_cars: list) -> float:
         """
         method, that takes a list of Car's, washes only cars with
-        clean_mark < clean_power of wash station and returns
-        income of CarWashStation for serving this list of Car's,
-        rounded to 1 decimal:
+        clean_mark < clean_power of wash station
+
+        :param client_cars: income of CarWashStation for serving list of Car's
+        :return: returns income rounded to 1 decimal
         """
         income = 0
         washed_cars = [
@@ -51,7 +52,12 @@ class CarWashStation:
         return income
 
     def calculate_washing_price(self, car: Car) -> float:
-        """method, that calculates cost for a single car wash"""
+        """
+        method, that calculates cost for a single car wash
+
+        :param car: a car that we need to calculate the price for
+        :return: returns number rounded to 1 decimal
+        """
         return round(
             car.comfort_class
             * (self.clean_power - car.clean_mark)
@@ -61,12 +67,22 @@ class CarWashStation:
         )
 
     def wash_single_car(self, car: Car) -> None:
-        """method, that washes a single car"""
+        """
+        method, that washes a single car
+
+        :param car: single washed car
+        :return: new clean_mark of a car
+        """
         if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
 
     def rate_service(self, rate: float) -> None:
-        """method that adds a single rate to the wash station"""
+        """
+        method that adds a single rate to the wash station
+
+        :param rate: rate from client
+        :return: average_rating and count_of_ratings
+        """
         self.count_of_ratings += 1
         new_rating = ((self.average_rating
                        * (self.count_of_ratings - 1)
