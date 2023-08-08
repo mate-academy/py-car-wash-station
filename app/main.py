@@ -21,7 +21,7 @@ class Car:
 
         self.brand = brand
         if not isinstance(brand, str):
-            raise ValueError(
+            raise TypeError(
                 f"Type of brand must be str\n"
                 f"Your value have {type(brand)} type"
             )
@@ -61,7 +61,7 @@ class CarWashStation:
 
         self.count_of_ratings = count_of_ratings
         if not isinstance(count_of_ratings, int):
-            raise ValueError(
+            raise TypeError(
                 f"Type of count_of_ratings must be int\n"
                 f"Your value have {type(count_of_ratings)} type"
             )
