@@ -1,5 +1,6 @@
 class Car:
-    def __init__(self, comfort_class: int,
+    def __init__(self,
+                 comfort_class: int,
                  clean_mark: int,
                  brand: str) -> None:
         self.comfort_class = comfort_class
@@ -9,7 +10,8 @@ class Car:
 
 class CarWashStation:
 
-    def __init__(self, distance_from_city_center: float,
+    def __init__(self,
+                 distance_from_city_center: float,
                  clean_power: int,
                  average_rating: float,
                  count_of_ratings: int) -> None:
@@ -18,7 +20,7 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-    def serve_cars(self, cars_list: list) -> float:
+    def serve_cars(self, cars_list: list[Car]) -> float:
         income = 0
         for car in cars_list:
             if car.clean_mark < self.clean_power:
@@ -40,6 +42,4 @@ class CarWashStation:
         if 1.0 <= rate <= 5.0:
             self.count_of_ratings += 1
             calc = (self.average_rating * (self.count_of_ratings - 1) + rate)
-            self.average_rating = round((calc / self.count_of_ratings),
-                                        1)
-            # Postponing the calculation due to the fact that the flake8 tests
+            self.average_rating = round((calc / self.count_of_ratings), 1)
