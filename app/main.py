@@ -38,8 +38,7 @@ class CarWashStation:
             washing_price = self.calculate_washing_price(served_car)
             served_car.clean_mark = self.clean_power
             return washing_price
-        else:
-            return 0
+        return 0
 
     def rate_service(self, customer_mark: int) -> None:
         total_points = self.average_rating * self.count_of_ratings
