@@ -85,7 +85,7 @@ wash station's clean power and car's clean mark * car wash station
 rating / car wash station 
 distance to the center of the city, returns number rounded 
 to 1 decimal;
-3. `wash_single_car` - method, that washes a single car, so it should 
+3. `wash_single_car`s - method, that washes a single car, so it should 
 have `clean_mark` equals wash station's `clean_power`, if 
 `wash_station.clean_power` is greater than `car.clean_mark`;
 4. `rate_service` - method that adds a single rate to the wash station, and based on this single rate
