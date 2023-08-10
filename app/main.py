@@ -34,7 +34,6 @@ class CarWashStation:
             * self.average_rating
             / self.distance_from_city_center
         )
-
         return round(price, 1)
 
     def wash_single_car(self, car: Car) -> None:
