@@ -36,12 +36,12 @@ def test_car():
     ],
 )
 def test_car_wash_station(cars, wash_station, total_cost):
-    income = wash_station.serve_cars(cars)
+    income = wash_station.serve_cars
     assert income == total_cost, f"Income should equal to {total_cost}"
 
 def test_wash_single_car_is_called():
     with patch.object(CarWashStation, 'wash_single_car') as mock_method:
-        CarWashStation(3, 9, 4, 11).serve_cars([Car(2, 1, "Ford")])
+        CarWashStation(3, 9, 4, 11).serve_cars
         assert mock_method.called, "Expected 'wash_single_car' to have " \
                                    "been called inside 'serve_cars' method"
 
@@ -64,7 +64,7 @@ def test_wash_single_car_is_called():
     ],
 )
 def test_car_is_washed(cars, wash_station, cars_clean_marks):
-    wash_station.serve_cars(cars)
+    wash_station.serve_cars
     assert [car.clean_mark for car in cars] == cars_clean_marks, (
         f"Car should keep his 'clear_mark' if it >= 'clear_power' of wash station, "
         f"otherwise it should equal to 'clear_power'"

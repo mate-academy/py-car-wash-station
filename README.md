@@ -44,7 +44,7 @@ wash_station = CarWashStation(
     count_of_ratings=6
 )
 
-income = wash_station.serve_cars([bmw, audi])
+income = wash_station.serve_cars
 
 print(income)  # 6.3
 print(bmw.clean_mark)  # 6
@@ -61,7 +61,7 @@ bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
 audi = Car(comfort_class=4, clean_mark=2, brand='Audi')
 
 print(bmw.clean_mark)  # 3
-print(audi.clean_mark) # 2
+print(audi.clean_mark)  # 2
 
 wash_station = CarWashStation(
     distance_from_city_center=5,
@@ -70,12 +70,12 @@ wash_station = CarWashStation(
     count_of_ratings=6
 )
 
-income = wash_station.serve_cars([bmw, audi])
+income = wash_station.serve_cars
 
 print(income)  # 17.5
 
 print(bmw.clean_mark)  # 6
-print(audi.clean_mark) # 6
+print(audi.clean_mark)  # 6
 ```
 
 2. `calculate_washing_price` - method, that calculates cost for a 
@@ -111,6 +111,7 @@ print(wash_station.count_of_ratings)  # 12
 You can add own methods if you need.
 
 Example:
+
 ```python
 bmw = Car(3, 3, 'BMW')
 audi = Car(4, 9, 'Audi')
@@ -118,25 +119,21 @@ mercedes = Car(7, 1, 'Mercedes')
 
 ws = CarWashStation(6, 8, 3.9, 11)
 
-income = ws.serve_cars([
-    bmw,
-    audi,
-    mercedes
-])
+income = ws.serve_cars
 
 income == 41.7
 
 bmw.clean_mark == 8
-audi.clean_mark == 9  
+audi.clean_mark == 9
 mercedes.clean_mark == 8
 # audi wasn't washed
 # all other cars are washed to '8'
 
 ford = Car(2, 1, 'Ford')
-wash_cost = ws.calculate_washing_price(ford)  
+wash_cost = ws.calculate_washing_price(ford)
 # only calculating cost, not washing
 wash_cost == 9.1
-ford.clean_mark == 1 
+ford.clean_mark == 1
 
 ws.rate_service(5)
 
