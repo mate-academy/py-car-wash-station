@@ -29,7 +29,7 @@ class CarWashStation:
         multiply_and_ratings = car_class_multiply_between * self.average_rating
         return round(multiply_and_ratings / self.distance_from_city_center, 1)
 
-    def serve_cars(self, cars: list) -> float:
+    def serve_cars(self, cars: list[Car]) -> float:
         income = 0
         for car in cars:
             if car.clean_mark < self.clean_power:
