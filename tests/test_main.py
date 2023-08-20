@@ -80,7 +80,7 @@ def test_car_is_washed(cars, wash_station, cars_clean_marks):
     ],
 )
 def test_car_cost_check_not_washed(car, wash_station, mark):
-    wash_station.calculate_washing_price()
+    wash_station.calculate_washing_price(car)
     assert car.clean_mark == mark, (
         f"Method 'calculate_washing_price' should not change" f"'car.clean_mark'"
     )
