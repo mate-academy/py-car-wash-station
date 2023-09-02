@@ -1,6 +1,3 @@
-from typing import Callable
-
-
 class Car:
     def __init__(self, comfort_class: int,
                  clean_mark: int,
@@ -35,7 +32,7 @@ class CarWashStation:
             return car_washing_price
         return 0
 
-    def wash_single_car(self, car: Callable) -> None:
+    def wash_single_car(self, car: Car) -> None:
         if car.clean_mark <= self.clean_power:
             car.clean_mark = self.clean_power
 
