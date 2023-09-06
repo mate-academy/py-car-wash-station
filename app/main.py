@@ -25,7 +25,6 @@ class CarWashStation:
         self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars: list) -> None:
-        self.cars = cars
 
         income = 0
         for car in cars:
