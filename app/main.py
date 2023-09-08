@@ -1,6 +1,7 @@
 class Car:
 
-    def __init__(self, comfort_class: int,
+    def __init__(self,
+                 comfort_class: int,
                  clean_mark: int,
                  brand: str) -> None:
         self.comfort_class = comfort_class
@@ -10,14 +11,17 @@ class Car:
 
 class CarWashStation:
 
-    def __init__(self, distance_from_city_center: int, clean_power: int,
-                 average_rating: float, count_of_ratings: int) -> None:
+    def __init__(self,
+                 distance_from_city_center: int,
+                 clean_power: int,
+                 average_rating: float,
+                 count_of_ratings: int) -> None:
         self.distance_from_city_center = distance_from_city_center
         self.clear_power = clean_power
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-    def serve_cars(self, cars_of_clients: list) -> float:
+    def serve_cars(self, cars_of_clients: list[Car]) -> float:
         income = 0
         for car1 in cars_of_clients:
             if self.wash_single_car(car1):
