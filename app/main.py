@@ -36,4 +36,5 @@ class CarWashStation:
         self.count_of_ratings += 1
 
     def wash_single_car(self, car: Car) -> None:
-        car.clean_mark = self.clean_power
+        if self.clean_power > car.clean_mark:
+            car.clean_mark = self.clean_power
