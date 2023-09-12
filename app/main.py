@@ -2,9 +2,9 @@ class Car:
     def __init__(self, comfort_class: int,
                  clean_mark: int,
                  brand: str) -> None:
-        self.comfort_class = comfort_class  # from 1 to 7
+        self.comfort_class = comfort_class
         self.clean_mark = clean_mark
-        self.brand = brand  # brand of the car
+        self.brand = brand
 
 
 class CarWashStation:
@@ -35,9 +35,9 @@ class CarWashStation:
                                     / (self.count_of_ratings + 1), 1)
         self.count_of_ratings += 1
 
-    def serve_cars(self, list_of_cars: list[Car]) -> float:
+    def serve_cars(self, cars: list[Car]) -> float:
         income = 0
-        for car in list_of_cars:
+        for car in cars:
             if self.wash_single_car(car) is not None:
                 income += self.wash_single_car(car)
                 car.clean_mark = self.clean_power
