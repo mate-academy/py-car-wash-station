@@ -38,10 +38,10 @@ class CarWashStation:
             car: Car
     ) -> float:
         washing_price = (
-                car.comfort_class
-                * (self.clean_power - car.clean_mark)
-                * self.average_rating
-                / self.distance_from_city_center
+            car.comfort_class
+            * (self.clean_power - car.clean_mark)
+            * self.average_rating
+            / self.distance_from_city_center
         )
         return round(washing_price, 1)
 
@@ -57,9 +57,9 @@ class CarWashStation:
             rate: int
     ) -> float:
         new_rate = (
-                (self.average_rating
-                 * self.count_of_ratings + rate)
-                / (self.count_of_ratings + 1)
+            (self.average_rating
+             * self.count_of_ratings + rate)
+            / (self.count_of_ratings + 1)
         )
         self.average_rating = round(new_rate, 1)
         self.count_of_ratings += 1
