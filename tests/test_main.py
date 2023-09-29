@@ -4,6 +4,7 @@ import os
 
 from app.main import Car, CarWashStation
 
+
 def test_car():
     bmw = Car(2, 3, "BMW")
     assert bmw.comfort_class == 2, "Class Car should store 'comfort_class'"
