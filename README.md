@@ -124,7 +124,7 @@ income = ws.serve_cars([
     mercedes
 ])
 
-income == 41.7
+income == 41.6
 
 bmw.clean_mark == 8
 audi.clean_mark == 9  
