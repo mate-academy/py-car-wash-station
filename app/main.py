@@ -28,12 +28,13 @@ class CarWashStation:
                      / self.distance_from_city_center, 1)
 
     def wash_single_car(self, car: Car) -> None:
-        car.clean_mark = self.clean_power
+        if car.clean_mark < self.clean_power:
+            car.clean_mark = self.clean_power
 
-    def rate_service(self, wash_rating: int) -> None:
+    def rate_service(self, customer_satisfaction_score: int) -> None:
         self.count_of_ratings += 1
         self.average_rating = round(self.average_rating
-                                    + (wash_rating - self.average_rating)
+                                    + (customer_satisfaction_score - self.average_rating)
                                     / self.count_of_ratings, 1)
 
     def serve_cars(self, cars: list) -> float:
