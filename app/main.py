@@ -1,10 +1,9 @@
 class Car:
     def __init__(self, comfort_class: int,
                  clean_mark: int, brand: str) -> None:
-        if all([1 <= comfort_class <= 7, 1 <= clean_mark <= 10]):
-            self.comfort_class = comfort_class
-            self.clean_mark = clean_mark
-            self.brand = brand
+        self.comfort_class = comfort_class
+        self.clean_mark = clean_mark
+        self.brand = brand
 
 
 class CarWashStation:
@@ -12,13 +11,10 @@ class CarWashStation:
                  clean_power: int,
                  average_rating: float,
                  count_of_ratings: int) -> None:
-        if all([1 <= distance_of_city_center <= 10,
-                1 <= clean_power <= 10,
-                1 <= average_rating <= 5]):
-            self.distance_of_city_center = distance_of_city_center
-            self.clean_power = clean_power
-            self.average_rating = round(average_rating, 1)
-            self.count_of_ratings = count_of_ratings
+        self.distance_of_city_center = distance_of_city_center
+        self.clean_power = clean_power
+        self.average_rating = round(average_rating, 1)
+        self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars: list) -> float:
         income = 0
