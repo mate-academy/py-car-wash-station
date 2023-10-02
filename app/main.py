@@ -2,8 +2,7 @@ class Car:
     def __init__(self,
                  comfort_class: int,
                  clean_mark: int,
-                 brand: str,
-                 ) -> None:
+                 brand: str) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -14,8 +13,7 @@ class CarWashStation:
                  distance_from_city_center: float,
                  clean_power: int,
                  average_rating: float,
-                 count_of_ratings: int,
-                 ) -> None:
+                 count_of_ratings: int) -> None:
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = average_rating
@@ -35,15 +33,14 @@ class CarWashStation:
             single_car.clean_mark = self.clean_power
 
     def calculate_washing_price(self, car: Car) -> float:
-        part_1 = car.comfort_class * (self.clean_power - car.clean_mark)
-        part_2 = self.average_rating / self.distance_from_city_center
-        total = part_1 * part_2
-        return round(total, 1)
+        rating_and_distance = (self.average_rating
+                               / self.distance_from_city_center)
+        return round(car.comfort_class
+                     * (self.clean_power - car.clean_mark)
+                     * rating_and_distance, 1)
 
-    def rate_service(self, rating_number: float) -> object:
-        sum_old_points = self.average_rating * self.count_of_ratings
-        sum_new_points = sum_old_points + rating_number
+    def rate_service(self, rate_num: float) -> None:
+        sum_of_rates = self.average_rating * self.count_of_ratings + rate_num
+        self.average_rating = round(sum_of_rates
+                                    / (self.count_of_ratings + 1), 1)
         self.count_of_ratings += 1
-        new_average_rating = sum_new_points / self.count_of_ratings
-        self.average_rating = round(new_average_rating, 1)
-        return self.average_rating
