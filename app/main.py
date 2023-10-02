@@ -35,7 +35,7 @@ class CarWashStation:
     def wash_single_car(self, car: Car) -> None:
         car.clean_mark = self.clean_power
 
-    def rate_service(self, response) -> None:
+    def rate_service(self, response: float) -> None:
         new_average_rating = self.average_rating * self.count_of_ratings
         new_average_rating += response
         self.count_of_ratings += 1
