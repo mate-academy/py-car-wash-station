@@ -36,16 +36,13 @@ class CarWashStation:
             , 1)
         return washing_cost
 
-    def rate_service(self, new_rate: int) -> float:
+    def rate_service(self, new_rate: int) -> None:
         new_sum = (self.average_rating * self.count_of_ratings) + new_rate
         self.count_of_ratings += 1
 
         self.average_rating = round(new_sum / self.count_of_ratings, 1)
 
-        return self.average_rating
-
-    def wash_single_car(self, car: Car) -> float:
+    def wash_single_car(self, car: Car) -> None:
         if self.clean_power > car.clean_mark:
             self.income += self.calculate_washing_price(car)
             car.clean_mark = self.clean_power
-        return self.income
