@@ -24,13 +24,12 @@ class CarWashStation:
         for car in list_cars:
             if car.clean_mark < self.clean_power:
                 income += self.calculate_washing_price(car)
-                car.clean_mark = self.clean_power
                 self.wash_single_car(car)
         return income
 
-    def wash_single_car(self, single_car: Car) -> None:
-        if single_car.clean_mark < self.clean_power:
-            single_car.clean_mark = self.clean_power
+    def wash_single_car(self, car: Car) -> None:
+        if car.clean_mark < self.clean_power:
+            car.clean_mark = self.clean_power
 
     def calculate_washing_price(self, car: Car) -> float:
         rating_and_distance = (self.average_rating
