@@ -13,7 +13,7 @@ class Car:
         return mark > self.clean_mark
 
     def update_mark(self, mark: int) -> None:
-        if self.can_be_cleaned:
+        if self.can_be_cleaned(mark):
             self.clean_mark = mark
 
 
