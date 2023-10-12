@@ -7,7 +7,6 @@ class Car:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
-    pass
 
 
 class CarWashStation:
@@ -21,7 +20,6 @@ class CarWashStation:
         self.clean_power = clean_power
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
-    pass
 
     def serve_cars(self, cars: list) -> int | float:
         income = 0
@@ -40,7 +38,6 @@ class CarWashStation:
 
     def wash_single_car(self, car: Car) -> None:
         car.clean_mark = self.clean_power
-        pass
 
     def rate_service(self, mark: int) -> None:
         self.average_rating = \
@@ -48,4 +45,3 @@ class CarWashStation:
                 ((self.average_rating * self.count_of_ratings) + mark)
                 / (self.count_of_ratings + 1), 1)
         self.count_of_ratings += 1
-        pass
