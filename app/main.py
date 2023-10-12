@@ -10,8 +10,7 @@ class Car:
         self.brand = brand
 
     def can_be_cleaned(self, mark: int) -> bool:
-        if mark > self.clean_mark:
-            return True
+        return mark > self.clean_mark
 
     def update_mark(self, mark: int) -> None:
         if mark > self.clean_mark:
