@@ -9,6 +9,14 @@ class Car:
         self.clean_mark = clean_mark
         self.brand = brand
 
+    def can_be_cleaned(self, mark: int) -> bool:
+        if mark > self.clean_mark:
+            return True
+
+    def update_mark(self, mark: int) -> None:
+        if mark > self.clean_mark:
+            self.clean_mark = mark
+
 
 class CarWashStation:
     def __init__(
@@ -22,6 +30,17 @@ class CarWashStation:
         self.clean_power = clean_power
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
+
+    def serve_cars(self, cars: list[Car]) -> float:
+        total = 0
+        for car in cars:
+            if car.can_be_cleaned(self.clean_power):
+                total += self.calculate_washing_price(car)
+                self.wash_single_car(car)
+        return round(total, 1)
+
+    def wash_single_car(self, car: Car) -> None:
+        car.update_mark(self.clean_power)
 
     def calculate_washing_price(self, car: Car) -> float:
         return round(
