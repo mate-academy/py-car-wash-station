@@ -26,10 +26,10 @@ class CarWashStation:
         washing_price = first_part * second_part
         return washing_price
 
-    def wash_single_car(self, car: int) -> None:
+    def wash_single_car(self, car: Car) -> None:
         car.clean_mark = self.clean_power
 
-    def serve_cars(self, car_list: list) -> float:
+    def serve_cars(self, car_list: list[Car]) -> float:
         income = 0.0
         for car in car_list:
             if car.clean_mark < self.clean_power:
