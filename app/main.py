@@ -23,7 +23,7 @@ class CarWashStation:
         self.count_of_ratings = count_of_ratings
 
     def can_be_washed(self, car: Car) -> bool:
-        return True if self.clean_power > car.clean_mark else False
+        return self.clean_power > car.clean_mark
 
     def wash_single_car(self, car: Car) -> None:
         if self.can_be_washed(car):
