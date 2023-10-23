@@ -5,8 +5,8 @@ class Car:
             clean_mark: int,
             brand: str
     ) -> None:
-        self.comfort_class = comfort_class  # (1 - 7)
-        self.clean_mark = clean_mark  # (1 - 10)
+        self.comfort_class = comfort_class
+        self.clean_mark = clean_mark
         self.brand = brand
 
 
@@ -18,14 +18,9 @@ class CarWashStation:
             float, count_of_ratings: int
     ) -> None:
         self.distance_from_city_center = distance_from_city_center
-        # how far station from the city center, from 1.0 to 10.0
         self.clean_power = clean_power
-        # clean_mark to which this car wash station washes
-        # (yes, not all stations can clean your car completely)
         self.average_rating = average_rating
-        # average rating of the station, from 1.0 to 5.0, rounded to 1 decimal
         self.count_of_ratings = count_of_ratings
-        # number of people who rated
 
     def can_be_washed(self, car: Car) -> bool:
         return True if self.clean_power > car.clean_mark else False
@@ -47,7 +42,7 @@ class CarWashStation:
                                     / (self.count_of_ratings + 1), 1)
         self.count_of_ratings += 1
 
-    def serve_cars(self, list_of_cars: list) -> float:
+    def serve_cars(self, list_of_cars: list[Car]) -> float:
         income = 0
         for car in list_of_cars:
             income += self.calculate_washing_price(car)
