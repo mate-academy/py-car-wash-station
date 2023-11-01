@@ -51,7 +51,3 @@ class CarWashStation:
             self.wash_single_car(car)
 
         return income
-
-
-c = Car(1, 1, "1")
-print(type(c))
