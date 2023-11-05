@@ -19,25 +19,26 @@ def test_car():
         ([Car(2, 1, "Ford")], CarWashStation(3, 9, 4.2, 11), 22.4),
         ([Car(2, 9, "Ford")], CarWashStation(3, 8, 4.2, 11), 0),
         (
-            [Car(3, 3, "BMW"), Car(4, 5, "Audi"), Car(7, 1, "Mercedes")],
-            CarWashStation(6, 7, 3.9, 11),
-            40.3,
+                [Car(3, 3, "BMW"), Car(4, 5, "Audi"), Car(7, 1, "Mercedes")],
+                CarWashStation(6, 7, 3.9, 11),
+                40.3,
         ),
         (
-            [Car(3, 3, "BMW"), Car(4, 5, "Audi"), Car(7, 9, "Mercedes")],
-            CarWashStation(6, 7, 3.9, 11),
-            13.0,
+                [Car(3, 3, "BMW"), Car(4, 5, "Audi"), Car(7, 9, "Mercedes")],
+                CarWashStation(6, 7, 3.9, 11),
+                13.0,
         ),
         (
-            [Car(3, 8, "BMW"), Car(4, 8, "Audi"), Car(7, 9, "Mercedes")],
-            CarWashStation(6, 7, 3.9, 11),
-            0,
+                [Car(3, 8, "BMW"), Car(4, 8, "Audi"), Car(7, 9, "Mercedes")],
+                CarWashStation(6, 7, 3.9, 11),
+                0,
         ),
     ],
 )
 def test_car_wash_station(cars, wash_station, total_cost):
     income = wash_station.serve_cars(cars)
     assert income == total_cost, f"Income should equal to {total_cost}"
+
 
 def test_wash_single_car_is_called():
     with patch.object(CarWashStation, 'wash_single_car') as mock_method:
@@ -52,14 +53,14 @@ def test_wash_single_car_is_called():
         ([Car(2, 1, "Ford")], CarWashStation(3, 9, 4.2, 11), [9]),
         ([Car(2, 9, "Ford")], CarWashStation(3, 8, 4.2, 11), [9]),
         (
-            [Car(3, 3, "BMW"), Car(4, 5, "Audi"), Car(7, 1, "Mercedes")],
-            CarWashStation(6, 7, 3.9, 11),
-            [7, 7, 7],
+                [Car(3, 3, "BMW"), Car(4, 5, "Audi"), Car(7, 1, "Mercedes")],
+                CarWashStation(6, 7, 3.9, 11),
+                [7, 7, 7],
         ),
         (
-            [Car(3, 3, "BMW"), Car(4, 5, "Audi"), Car(7, 9, "Mercedes")],
-            CarWashStation(2, 8, 4.8, 13),
-            [8, 8, 9],
+                [Car(3, 3, "BMW"), Car(4, 5, "Audi"), Car(7, 9, "Mercedes")],
+                CarWashStation(2, 8, 4.8, 13),
+                [8, 8, 9],
         ),
     ],
 )
@@ -96,7 +97,7 @@ def test_car_cost_check_not_washed(car, wash_station, mark):
     ],
 )
 def test_rate_service(
-    init_avg_rating, init_num_ratings, mark, result_avg_rating, result_num_ratings
+        init_avg_rating, init_num_ratings, mark, result_avg_rating, result_num_ratings
 ):
     ws = CarWashStation(2, 9, init_avg_rating, init_num_ratings)
     ws.rate_service(mark)
