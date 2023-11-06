@@ -40,3 +40,8 @@ class CarWashStation:
                 income += self.calculate_washing_price(car)
                 self.wash_single_car(car)
         return round(income, 1)
+
+    def rate_service(self, balls: int) -> None:
+        new_rating = self.average_rating * self.count_of_ratings + balls
+        self.count_of_ratings += 1
+        self.average_rating = round(new_rating / self.count_of_ratings, 1)
