@@ -28,8 +28,18 @@ class CarWashStation:
             return round(num / de_num, 1)
 
     def wash_single_car(self, car_washing: Car):
+        print(f"""
+        Мощность мойки - {self.clean_power}
+        Мощность загрязнения до - {car_washing.clean_mark}
+        
+""")
         if self.clean_power > car_washing.clean_mark:
             car_washing.clean_mark = self.clean_power
+            print(f"""
+                Мощность мойки - {self.clean_power}
+                Мощность загрязнения  после - {car_washing.clean_mark}
+
+        """)
 
     def rate_service(self, rate: int):
 
