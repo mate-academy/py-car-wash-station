@@ -50,7 +50,7 @@ print(income)  # 6.3
 print(bmw.clean_mark)  # 6
 ```
 
-So, only bmw was washed, because `audi.clean_mark` > `wash_station.clean_power`,
+So, only bmw was washed, becaus e `audi.clean_mark` > `wash_station.clean_power`,
 and `bmw.clean_mark` has changed, because we washed it.
 
 If `audi.clean_mark` was below `wash_station.clean_power` then `audi` would have been washed as well
