@@ -37,7 +37,7 @@ class CarWashStation:
         price = round(multi / self.distance_from_city_center, 1)
         return price
 
-    def wash_single_car(self, car: Car) -> None:
+    def wash_single_car(self, car: list[Car]) -> None:
         if self.clean_power > car.clean_mark:
             car.clean_mark = self.clean_power
 
