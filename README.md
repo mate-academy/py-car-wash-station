@@ -118,7 +118,7 @@ mercedes = Car(7, 1, 'Mercedes')
 
 ws = CarWashStation(6, 8, 3.9, 11)
 
-income = ws.serve_cars([3
+income = ws.serve_cars([
     bmw,
     audi,
     mercedes
