@@ -26,7 +26,7 @@ class CarWashStation:
         # __________________________if there are no cars
         if len(cars) < 1:
             return 0
-        # __________________________takes one car and check for comliance on 'cleanpower'
+        # __________________________compliance check on clean_power
         for mark in cars:
             if mark.clean_mark < self.clean_power:
                 result += self.wash_single_car(mark)
