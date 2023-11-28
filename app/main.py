@@ -23,23 +23,17 @@ class CarWashStation:
 
     def serve_cars(self, cars: list) -> float:
         result = 0
-        # __________________________if there are no cars
-        if len(cars) < 1:
-            return 0
         # __________________________compliance check on clean_power
-        for mark in cars:
-            if mark.clean_mark < self.clean_power:
-                result += self.wash_single_car(mark)
-                mark.clean_mark = self.clean_power
+        for car in cars:
+            if car.clean_mark < self.clean_power:
+                result += self.calculate_washing_price(car)
+                self.wash_single_car(car)
 
         return round(result, 1)
 
         # __________________________wash single car
     def wash_single_car(self, mark: Any) -> float:
-
-        result_v2 = round(self.calculate_washing_price(mark), 1)
         mark.clean_mark = self.clean_power
-        return result_v2
 
     # ___________________________calculate price per car
     def calculate_washing_price(self, mark: Any) -> float:
