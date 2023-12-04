@@ -30,13 +30,13 @@ class CarWashStation:
                       / self.distance_from_city_center), 1)
 
     def serve_cars(self, cars: list[Car]) -> float:
-        coast = 0
+        cost_washing = 0
         for car in cars:
             if car.clean_mark < self.clean_power:
-                coast = coast + self.calculate_washing_price(car)
+                cost_washing = cost_washing + self.calculate_washing_price(car)
                 self.wash_single_car(car)
 
-        return coast
+        return cost_washing
 
     def wash_single_car(self, car: Car) -> None:
         if self.clean_power > car.clean_mark:
