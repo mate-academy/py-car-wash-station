@@ -8,8 +8,6 @@ class Car:
         self.clean_mark = clean_mark
         self.brand = brand
 
-    pass
-
 
 class CarWashStation:
     def __init__(self
@@ -24,7 +22,7 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-    def serve_cars(self, cars: list) -> float:
+    def serve_cars(self, cars: list[Car]) -> float:
         income = 0.0
         for car in cars:
             if car.clean_mark < self.clean_power:
@@ -47,7 +45,3 @@ class CarWashStation:
         total_rating += rating
         self.count_of_ratings += 1
         self.average_rating = round(total_rating / self.count_of_ratings, 1)
-
-    # Example usage
-
-    pass
