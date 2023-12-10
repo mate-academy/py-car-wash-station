@@ -25,17 +25,18 @@ class CarWashStation:
 
     def wash_single_car(self, car: Car) -> bool:
         if car.clean_mark < self.clean_power:
+            income = self.calculate_washing_price(car)
             car.clean_mark = self.clean_power
+            return income
 
     def serve_cars(self, cars: List[Car]) -> int:
-        income = 0
+        total_income = 0
 
         for car in cars:
             if car.clean_mark < self.clean_power:
-                income += self.calculate_washing_price(car)
-                self.wash_single_car(car)
+                total_income += self.wash_single_car(car)
 
-        return income
+        return total_income
 
     def rate_service(self, rate: int) -> None:
         self.average_rating = self.average_rating * self.count_of_ratings
