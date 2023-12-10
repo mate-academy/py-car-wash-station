@@ -2,7 +2,8 @@ from typing import List
 
 
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+    def __init__(self, comfort_class: int,
+                 clean_mark: int, brand: str) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -15,7 +16,7 @@ class CarWashStation:
         self.clean_power = clean_power
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
-    
+
     def calculate_washing_price(self, car: Car) -> int:
         clean_difference = self.clean_power - car.clean_mark
         price = car.comfort_class * clean_difference * self.average_rating
@@ -33,9 +34,9 @@ class CarWashStation:
             if car.clean_mark < self.clean_power:
                 income += self.calculate_washing_price(car)
                 self.wash_single_car(car)
-        
+
         return income
-    
+
     def rate_service(self, rate: int) -> None:
         self.average_rating = self.average_rating * self.count_of_ratings
         self.average_rating += rate
