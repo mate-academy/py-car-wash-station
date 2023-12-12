@@ -25,7 +25,8 @@ class CarWashStation:
 
     def calculate_washing_price(self, car: Car) -> float:
         comfort_diff = self.clean_power - car.clean_mark
-        price = (car.comfort_class * comfort_diff * self.average_rating / self.dist_cent)
+        price = (car.comfort_class * comfort_diff * self.average_rating)
+        price /= self.dist_cent
         result = round(price, 1)
         return result
 
