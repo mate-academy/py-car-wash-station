@@ -13,11 +13,16 @@ class Car:
 
 
 class CarWashStation:
-    def __init__(self, dfcc: float, cp: int, ar: float, cor: int) -> None:
-        self.dist_cent = dfcc
-        self.clean_power = cp
-        self.average_rating = ar
-        self.count_of_ratings = cor
+    def __init__(self,
+                 distance_from_city_center: float,
+                 clean_power: int,
+                 average_rating: float,
+                 count_of_ratings: int
+                 ) -> None:
+        self.distance_from_city_center = distance_from_city_center
+        self.clean_power = clean_power
+        self.average_rating = average_rating
+        self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars: List[Car]) -> float:
         income = 0.0
@@ -30,7 +35,7 @@ class CarWashStation:
     def calculate_washing_price(self, car: Car) -> float:
         comfort_diff = self.clean_power - car.clean_mark
         price = (car.comfort_class * comfort_diff * self.average_rating)
-        price /= self.dist_cent
+        price /= self.distance_from_city_center
         result = round(price, 1)
         return result
 
