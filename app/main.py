@@ -17,10 +17,10 @@ class CarWashStation:
 
     def serve_cars(self, list_car: list) -> int:
         result = 0
-        for i in list_car:
-            if self.clean_power > i.clean_mark:
-                result += self.calculate_washing_price(i)
-                self.wash_single_car(i)
+        for car in list_car:
+            if self.clean_power > car.clean_mark:
+                result += self.calculate_washing_price(car)
+                self.wash_single_car(car)
         return result
 
     def calculate_washing_price(self, car: str) -> int:
