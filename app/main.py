@@ -36,7 +36,7 @@ class CarWashStation:
         self.average_rating = round(current_total_rate / self
                                     .count_of_ratings, 1)
 
-    def serve_cars(self, cars: [Car]) -> float:
+    def serve_cars(self, cars: list[Car]) -> float:
         income = 0.0
 
         for car in cars:
