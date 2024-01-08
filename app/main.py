@@ -26,9 +26,6 @@ class CarWashStation:
     def _should_wash(self, car: Car) -> bool:
         return car.clean_mark < self.clean_power
 
-    def need_to_wash(self, car: Car) -> bool:
-        return self._should_wash(car)
-
     def calculate_washing_price(self, car: Car) -> float:
         if self._should_wash(car):
             result = (
@@ -39,7 +36,7 @@ class CarWashStation:
             )
             return round(result, 1)
 
-    def serve_cars(self, car_list: list) -> float:
+    def serve_cars(self, car_list: list[Car]) -> float:
         income = 0
         for car in car_list:
             if self._should_wash(car):
