@@ -25,7 +25,7 @@ class CarWashStation:
 
     def serve_cars(
             self,
-            cars_list: list
+            cars_list: list[Car]
     ) -> float:
         result = 0
         for car in cars_list:
