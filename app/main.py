@@ -22,12 +22,12 @@ class CarWashStation:
         total_income = 0.0
         for car in cars:
             if car.clean_mark < self.clean_power:
-
-                car.clean_mark = self.clean_power
+                # Call wash_single_car method to wash the car
+                self.wash_single_car(car)
+                # Calculating income for this car
                 income_from_car = self.calculate_washing_price(car)
                 total_income += income_from_car
         return round(total_income, 1)
-
 
     def calculate_washing_price(self, car) -> None:
         if self.clean_power > car.clean_mark:
