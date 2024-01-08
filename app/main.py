@@ -7,6 +7,19 @@ class Car:
 class CarWashStation:
     def __init__(self, distance_from_city_center: float, clean_power: int, average_rating: float, count_of_ratings: int):
        self.distance_from_city_center = distance_from_city_center
-       self.clean_power = clean_power
+       self.clean_power = clean_power-Car
        self.average_rating = average_rating
        self.count_of_ratings =count_of_ratings
+
+       def serve_cars(self, cars):
+
+           pass
+
+       def calculate_washing_price(self, car):
+           pass
+
+       def wash_single_car(self, car):
+           pass
+
+       def rate_service(self, new_rating):
+           pass
