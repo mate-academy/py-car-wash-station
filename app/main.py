@@ -21,7 +21,6 @@ class CarWashStation:
         total_income = 0.0
         for car in cars:
             if car.clean_mark < self.clean_power:
-                income = self.calculate_washing_price(car)
                 total_income += self.calculate_washing_price(car)
                 self.wash_single_car(car)
 
