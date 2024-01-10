@@ -7,6 +7,7 @@ class Car:
         self.clean_mark = clean_mark
         self.brand = brand
 
+
 class CarWashStation:
     def __init__(self,
                  distance_from_city_center: float,
