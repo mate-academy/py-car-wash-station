@@ -3,13 +3,18 @@ class Car:
             self,
             comfort_class: int,
             clean_mark: int,
-            brand: str) -> None:
+            brand: str
+    ) -> None:
 
         if comfort_class < 1 or comfort_class > 7:
-            raise ValueError("error")
+            raise ValueError("Error, "
+                             "you need to change the value of comfort_class, "
+                             "it has to be from 1 to 7")
 
         if clean_mark < 1 or clean_mark > 10:
-            raise ValueError("error")
+            raise ValueError("Error, "
+                             "you need to change the value of clean_mark, "
+                             "it has to be from 1 to 10")
 
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
@@ -18,33 +23,34 @@ class Car:
 
 class CarWashStation:
     def __init__(
-            self, distance_from_city_center: float,
+            self,
+            distance_from_city_center: float,
             clean_power: int,
             average_rating: float,
-            count_of_ratings: int) -> None:
+            count_of_ratings: int
+    ) -> None:
 
         if distance_from_city_center < 1.0 or distance_from_city_center > 10.0:
-            raise ValueError("error")
+            raise ValueError("Error, "
+                             "istance_from_city_center "
+                             "has to be from 1.0 to 10.0")
 
         if average_rating < 1.0 or average_rating > 5.0:
-            raise ValueError("error")
+            raise ValueError("Error, "
+                             "you need to change the value of average_rating, "
+                             "it has to be from 1.0 to 5.o")
         self.average_rating = average_rating
         self.clean_power = clean_power
         self.count_of_ratings = count_of_ratings
         self.distance_from_city_center = distance_from_city_center
 
     def wash_single_car(self, car: Car) -> None:
-        if car.clean_mark >= self.clean_power:
-            car.clean_mark = car.clean_mark
-        else:
-            car.clean_mark = self.clean_power
+        car.clean_mark = self.clean_power
 
-    def serve_cars(self, cars: list) -> int:
+    def serve_cars(self, cars: list[Car]) -> int:
         income = 0
         for car in cars:
-            if car.clean_mark > self.clean_power:
-                continue
-            else:
+            if car.clean_mark < self.clean_power:
                 income += self.calculate_washing_price(car)
                 self.wash_single_car(car)
         return round(income, 1)
