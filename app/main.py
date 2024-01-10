@@ -22,7 +22,7 @@ class CarWashStation:
         for car in cars:
             if car.clean_mark < self.clean_power:
                 income = self.calculate_washing_price(car)
-                total_income += income
+                total_income += self.calculate_washing_price(car)
                 self.wash_single_car(car)
 
         return round(total_income, 1)
@@ -41,8 +41,6 @@ class CarWashStation:
         self.count_of_ratings += 1
         self.average_rating = (total_ratings + rating) / self.count_of_ratings
         self.average_rating = round(self.average_rating, 1)
-
-# Example usage:
 
 
 bmw = Car(3, 3, "BMW")
