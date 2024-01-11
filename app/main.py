@@ -6,10 +6,18 @@ class Car:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
-        if comfort_class > 7 or comfort_class < 1:
-            print("invalid class value")
-        if clean_mark > 10 or clean_mark < 1:
-            print("invalid clean_mark")
+        try:
+            if comfort_class > 7 or comfort_class < 1:
+                raise ValueError("invalid class value")
+        except ValueError as class_value_error:
+            print(class_value_error)
+        try:
+            if clean_mark > 10 or clean_mark < 1:
+                raise ValueError("invalid clean_mark")
+        except ValueError as clean_mark_value_error:
+            print(clean_mark_value_error)
+
+
 
 
 class CarWashStation:
@@ -49,3 +57,21 @@ class CarWashStation:
         self.count_of_ratings += 1
         self.average_rating = round((total_rating + rating)
                                     / self.count_of_ratings, 1)
+
+
+bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
+audi = Car(comfort_class=4, clean_mark=9, brand='Audi')
+
+print(bmw.clean_mark)  # 3
+
+wash_station = CarWashStation(
+    distance_from_city_center=5,
+    clean_power=6,
+    average_rating=3.5,
+    count_of_ratings=6
+)
+
+income = wash_station.serve_cars([bmw, audi])
+
+print(income)  # 6.3
+print(bmw.clean_mark)  # 6
