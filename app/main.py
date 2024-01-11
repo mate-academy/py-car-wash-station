@@ -51,8 +51,8 @@ class CarWashStation:
         """Calculate price for washing single car"""
 
         clean_effect = self.clean_power - car.clean_mark
-        carwash_merit_index = self.average_rating / self.distance_from_city_center
-        price = car.comfort_class * clean_effect * carwash_merit_index
+        carwash_merit = self.average_rating / self.distance_from_city_center
+        price = car.comfort_class * clean_effect * carwash_merit
 
         return round(price, 1)
 
