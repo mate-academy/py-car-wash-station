@@ -6,16 +6,10 @@ class Car:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
-        try:
-            if comfort_class > 7 or comfort_class < 1:
-                raise ValueError("invalid class value")
-        except ValueError as class_value_error:
-            print(class_value_error)
-        try:
-            if clean_mark > 10 or clean_mark < 1:
-                raise ValueError("invalid clean_mark")
-        except ValueError as clean_mark_value_error:
-            print(clean_mark_value_error)
+        if comfort_class > 7 or comfort_class < 1:
+            raise ValueError("invalid car class value: it must be from 1 to 7")
+        if clean_mark > 10 or clean_mark < 1:
+            raise ValueError("invalid clean_mark: it must be from 1 to 10")
 
 
 class CarWashStation:
@@ -28,6 +22,12 @@ class CarWashStation:
         self.clean_power = clean_power
         self.average_rating = round(average_rating, 1)
         self.count_of_ratings = count_of_ratings
+        if distance_from_city_center < 1.0 or distance_from_city_center > 10.0:
+            raise ValueError("invalid distance from city center:"
+                             " it must be from 1.0 to 10.0")
+        if average_rating < 1.0 or average_rating > 5.0:
+            raise ValueError("invalid average_rating:"
+                             " it must be from 1.0 to 5.0")
 
     def calculate_washing_price(self, car: Car) -> float:
         price = (
