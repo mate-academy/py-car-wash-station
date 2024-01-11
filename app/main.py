@@ -4,8 +4,9 @@ class Car:
                  comfort_class: int,
                  clean_mark: int,
                  brand: str) -> None:
-        """Takes 3 arguments: `comfort_class` - comfort class of a car, from 1 to 7;
-        `clean_mark` - car cleanness mark, from 1 to 10;
+        """Takes 3 arguments:
+        `comfort_class` - comfort class of a car,  1 -> 7;
+        `clean_mark` - car cleanness mark,  1 -> 10;
         `brand` - brand of the car.
         """
         self.comfort_class = comfort_class
@@ -22,8 +23,9 @@ class CarWashStation:
                  count_of_ratings: int) -> None:
         """Takes 4 arguments:
         `distance_from_city_center` - from 1.0 to 10.0
-        `clean_power` - clean_mark to which this car wash station washes from 1 to 10
-        `average_rating` - average rating of the station, from 1.0 to 5.0, rounded to 1 decimal
+        `clean_power` to which this car wash station washes 1 -> 10
+        `average_rating` - average rating of the station,
+              1.0 -> 5.0, rounded to 1 decimal
         `count_of_ratings` - number of people who rated
         """
         self.distance_from_city_center = distance_from_city_center
