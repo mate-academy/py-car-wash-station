@@ -1,5 +1,6 @@
 class Car:
-    def __init__(self, comfort_class: int,
+    def __init__(self,
+                 comfort_class: int,
                  clean_mark: int,
                  brand: str) -> None:
 
@@ -9,7 +10,8 @@ class Car:
 
 
 class CarWashStation:
-    def __init__(self, distance_from_city_center: int,
+    def __init__(self,
+                 distance_from_city_center: int,
                  clean_power: int,
                  average_rating: int,
                  count_of_ratings: int) -> None:
