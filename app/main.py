@@ -48,10 +48,7 @@ class CarWashStation:
             return True
         return False
 
-    def rate_service(
-            self,
-            rate: float
-    ) -> None:
+    def rate_service(self, rate: float) -> None:
         self.rating_list.append(rate)
         self.count_of_ratings = len(self.rating_list)
         self.average_rating = round(sum(self.rating_list)
