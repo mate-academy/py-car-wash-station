@@ -42,10 +42,7 @@ class CarWashStation:
                      * (self.average_rating / self.distance_from_city_center),
                      1)
 
-    def wash_single_car(
-            self,
-            car: Car
-    ) -> bool:
+    def wash_single_car(self, car: Car) -> bool:
         if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
             return True
