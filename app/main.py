@@ -6,7 +6,8 @@ class Car:
 
 
 class CarWashStation:
-    def __init__(self, distance_from_city_center, clean_power, average_rating, count_of_ratings):
+    def __init__(self, distance_from_city_center, clean_power,
+                 average_rating, count_of_ratings):
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = average_rating
