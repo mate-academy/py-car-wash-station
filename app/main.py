@@ -22,7 +22,7 @@ class CarWashStation:
         self.distance_from_city_center = distance_from_city_center
         self.average_rating = average_rating
 
-    def serve_cars(self, cars: list) -> float:
+    def serve_cars(self, cars: list[Car]) -> float:
         total_price = 0
         for car in cars:
             if self.clean_power > car.clean_mark:
