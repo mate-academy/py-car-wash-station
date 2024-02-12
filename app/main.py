@@ -41,9 +41,7 @@ class CarWashStation:
         return round(cost, 1)
 
     def wash_single_car(self, car: Car) -> None:
-        # works without condition, cause I check above
-        if self.clean_power > car.clean_mark:
-            car.clean_mark = self.clean_power
+        car.clean_mark = self.clean_power
 
     def rate_service(self, mark: int) -> None:
         all_ratings = self.average_rating * self.count_of_ratings
