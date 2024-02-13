@@ -2,7 +2,6 @@ from typing import Any
 
 
 class Car:
-    # write your code here
     def __init__(self, comfort_class, clean_mark, brand):
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
@@ -10,7 +9,6 @@ class Car:
 
 
 class CarWashStation:
-    # write your code here
     def __init__(self, distance_from_city, clean_power, average_rating, count_of_ratings):
         self.distance_from_city = distance_from_city
         self.clean_power = clean_power
@@ -53,13 +51,3 @@ income = ws.serve_cars([
     audi,
     mercedes
 ])
-
-# print(ws.calculate_washing_price(ford))
-# ws.rate_service(5)
-# print(ws.count_of_ratings)
-# print(ws.average_rating)
-# print(income)
-# print(ws.calculate_washing_price(bmw))
-# print(bmw.clean_mark)
-# print(audi.clean_mark)
-# print(mercedes.clean_mark)
