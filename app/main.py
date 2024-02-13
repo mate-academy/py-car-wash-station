@@ -59,7 +59,7 @@ income = ws.serve_cars([
 # ws.rate_service(5)
 # print(ws.count_of_ratings)
 # print(ws.average_rating)
-print(income)
+# print(income)
 # print(ws.calculate_washing_price(bmw))
 # print(bmw.clean_mark)
 # print(audi.clean_mark)
