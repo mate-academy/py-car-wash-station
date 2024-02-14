@@ -27,20 +27,25 @@ class CarWashStation:
         income_counter = 0
         for car in cars:
             if car.clean_mark < self.clean_power:
-                income_counter += \
-                    (car.comfort_class
-                     * (self.clean_power - car.clean_mark)
-                     * (self.average_rating / self.distance_from_city))
+                comfort_factor = car.comfort_class
+                cleanliness_factor = self.clean_power - car.clean_mark
+                rating_factor = self.average_rating
+                distance_factor = 1 / self.distance_from_city
+                count_factor_dist = rating_factor * distance_factor
+                clean_and_comfort = comfort_factor * cleanliness_factor
+                income_counter += (clean_and_comfort * count_factor_dist)
                 car.clean_mark = self.clean_power
                 self.wash_single_car(car)
         return round(income_counter, 1)
 
     def calculate_washing_price(self, car: Car) -> float:
-        return round(
-            car.comfort_class
-            * (self.clean_power - car.clean_mark)
-            * (self.average_rating / self.distance_from_city),
-            1)
+        comfort_factor = car.comfort_class
+        cleanliness_factor = self.clean_power - car.clean_mark
+        rating_factor = self.average_rating
+        distance_factor = 1 / self.distance_from_city
+        general_factor = rating_factor / distance_factor
+        washing_price = comfort_factor * cleanliness_factor * general_factor
+        return round(washing_price, 1)
 
     def wash_single_car(self, car: Car) -> None:
         if self.clean_power > car.clean_mark:
@@ -48,20 +53,7 @@ class CarWashStation:
 
     def rate_service(self, rate: float) -> None:
         self.count_of_ratings += 1
-        total_ratings_sum = (self.average_rating
-                             * (self.count_of_ratings - 1) + rate)
-        self.average_rating = (
-            round((total_ratings_sum / self.count_of_ratings), 1))
-
-
-bmw = Car(3, 3, "BMW")
-audi = Car(4, 9, "Audi")
-mercedes = Car(7, 1, "Mercedes")
-
-ws = CarWashStation(6, 8, 3.9, 11)
-
-income = ws.serve_cars([
-    bmw,
-    audi,
-    mercedes
-])
+        multiply_res = self.count_of_ratings * self.average_rating
+        total_ratings_sum = multiply_res + rate - self.average_rating
+        result_count = total_ratings_sum / self.count_of_ratings
+        self.average_rating = round(result_count, 1)
