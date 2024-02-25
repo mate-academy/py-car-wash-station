@@ -45,4 +45,3 @@ class CarWashStation:
         self.average_rating = round((self.average_rating
                                      * (self.count_of_ratings - 1) + rating)
                                     / self.count_of_ratings, 1)
-        print(self.count_of_ratings)
