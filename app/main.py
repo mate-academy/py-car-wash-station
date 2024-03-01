@@ -1,11 +1,12 @@
 from typing import List
+from dataclasses import dataclass
 
 
+@dataclass
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
-        self.comfort_class = comfort_class
-        self.clean_mark = clean_mark
-        self.brand = brand
+    comfort_class: int
+    clean_mark: int
+    brand: str
 
 
 class CarWashStation:
