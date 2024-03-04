@@ -9,7 +9,6 @@ class Car:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
-        return
 
 
 class CarWashStation:
@@ -31,13 +30,14 @@ class CarWashStation:
         for car in cars_list:
             if car.clean_mark < self.clean_power:
                 wash_income += self.calculate_washing_price(car)
-                print(self.calculate_washing_price(car))
             self.wash_single_car(car)
         return round(wash_income, 1)
 
     def calculate_washing_price(self, car: Car) -> float:
-        return car.comfort_class * (self.clean_power - car.clean_mark) *\
-            self.average_rating / self.distance_from_city_center
+        return (car.comfort_class
+                * (self.clean_power - car.clean_mark)
+                * (self.average_rating / self.distance_from_city_center)
+                )
 
     def wash_single_car(self, car: Car) -> None:
         if self.clean_power > car.clean_mark:
