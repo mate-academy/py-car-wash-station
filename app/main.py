@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+
 class Car:
     def __init__(self,
                  comfort_class: int,
@@ -18,7 +21,7 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-    def serve_cars(self, cars: list) -> float:
+    def serve_cars(self, cars: list[Car]) -> float:
         total_income = 0
         for car in cars:
             if self.clean_power > car.clean_mark:
@@ -28,8 +31,8 @@ class CarWashStation:
         return total_income
 
     def calculate_washing_price(self, car: Car) -> float:
-        price = car.comfort_class * (self.clean_power - car.clean_mark) * \
-            self.average_rating / self.distance_from_city_center
+        price = (car.comfort_class * (self.clean_power - car.clean_mark) * (
+                 self.average_rating / self.distance_from_city_center))
         return round(price, 1)
 
     def wash_single_car(self, car: Car) -> None:
@@ -39,5 +42,5 @@ class CarWashStation:
         rating = self.count_of_ratings * self.average_rating
         self.count_of_ratings += 1
         rating += rate
-        self.average_rating = round(float(rating / self.count_of_ratings), 1)
+        self.average_rating = round(rating / self.count_of_ratings, 1)
         return self.average_rating
