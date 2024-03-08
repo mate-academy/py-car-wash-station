@@ -23,7 +23,7 @@ class CarWashStation:
         cost_final = cost_progress2 / self.distance_from_city_center
         return round(cost_final, 1)
 
-    def serve_cars(self, cars_list: list) -> float:
+    def serve_cars(self, cars: list[Car]) -> float:
         price = 0
         for car in cars_list:
             if car.clean_mark < self.clean_power:
