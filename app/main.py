@@ -27,19 +27,13 @@ class CarWashStation:
                      * self.average_rating / self.dist_to_center, 1)
 
     def serve_cars(self, cars: list) -> float:
-        income = 0
-        for car in cars:
-            if car.clean_mark < self.clean_power:
-                income += self.calculate_washing_price(car)
-                car.clean_mark = self.clean_power
-                # i don't know why. to get tests
-                self.wash_single_car(car)
-        return income
+        return sum([self.wash_single_car(car) for car in cars])
 
     def wash_single_car(self, car: Car) -> float:
         if car.clean_mark < self.clean_power:
+            res = self.calculate_washing_price(car)
             car.clean_mark = self.clean_power
-            return self.calculate_washing_price(car)
+            return res
         return 0.0
 
     def rate_service(self, rate: int) -> None:
