@@ -20,7 +20,7 @@ class CarWashStation:
                      * self.average_rating / self.dist_to_center, 1)
 
     def serve_cars(self, cars: list) -> float:
-        return sum([self.wash_single_car(car) for car in cars])
+        return sum(self.wash_single_car(car) for car in cars)
 
     def wash_single_car(self, car: Car) -> float:
         if car.clean_mark < self.clean_power:
