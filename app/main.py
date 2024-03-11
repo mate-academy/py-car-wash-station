@@ -35,10 +35,10 @@ class CarWashStation:
         diff_wash_car = self.clean_power - car.clean_mark
         return round(
             (
-                    car.comfort_class
-                    * diff_wash_car
-                    * self.average_rating
-                    / self.distance_from_city_center
+                car.comfort_class
+                * diff_wash_car
+                * self.average_rating
+                / self.distance_from_city_center
             ), 1)
 
     def wash_single_car(self, car: Car) -> None:
