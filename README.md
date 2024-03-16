@@ -32,34 +32,6 @@ and returns income of `CarWashStation` for serving this list of Car's,
 rounded to 1 decimal:
 
 
-У вас є автомийка. Розрахунок вартості мийки займає багато часу, 
-ви вирішили автоматизувати цей розрахунок. 
-Вартість мийки буде залежати від класу комфорту автомобіля, 
-ступеня чистоти автомобіля, середнього рейтингу мийки та відстані мийки від центру міста.
-
-
-Створіть клас `Car`, його метод `__init__` отримує і зберігає 3 аргументи:
-
-
-1. `comfort_class` - клас комфорту автомобіля, від 1 до 7
-2. `clean_mark` - оцінка чистоти автомобіля, від дуже брудного - 1 до абсолютно чистого - 10
-3. `brand` - марка автомобіля
-
-
-Створіть клас `CarWashStation`, його метод `__init__` отримує і зберігає 4 аргументи:
-
-1. `distance_from_city_center` - відстань станції від центру міста, від 1.0 до 10.0
-2. `clean_power` - `clean_mark` - оцінка, до якої миє дана автомийка (так, не всі станції можуть повністю вимити ваше авто)
-3. `average_rating` - середній рейтинг станції, від 1.0 до 5.0, округлений до 1 знаку після коми
-4. `count_of_ratings` - кількість людей, які поставили оцінку
-
-
-`CarWashStation` повинна мати такі методи:
-
-1. `serve_cars` - метод, який отримує список Car's, 
-миє тільки автомобілі з `clean_mark` < `clean_power` мийки 
-та повертає дохід `CarWashStation` за обслуговування цього списку Car's, 
-округлений до 1 знаку після коми:
 ```python
 bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
 audi = Car(comfort_class=4, clean_mark=9, brand='Audi')
@@ -85,11 +57,6 @@ and `bmw.clean_mark` has changed, because we washed it.
 If `audi.clean_mark` was below `wash_station.clean_power` then `audi` would have been washed as well
 and the income would have raised:
 
-Отже, помили тільки bmw, тому що `audi.clean_mark` > `wash_station.clean_power`, 
-а `bmw.clean_mark` змінився, тому що ми його помили.
-
-Якби `audi.clean_mark` був нижчим за `wash_station.clean_power`, то `audi` також були б помиті, 
-і дохід збільшився б:
 
 ```python
 bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
@@ -126,18 +93,7 @@ have `clean_mark` equals wash station's `clean_power`, if
 4. `rate_service` - method that adds a single rate to the wash station, and based on this single rate
 `average_rating` and `count_of_ratings` should be changed:
 
-
-2. `calculate_washing_price` - метод, який обчислює вартість мийки одного автомобіля, 
-вартість обчислюється як: 
-клас комфорту автомобіля * різниця між потужністю мийки та 
-маркою чистоти автомобіля * рейтинг мийки / відстань від мийки до центру міста, 
-повертає число, округлене до 1 знаку після коми;
-3. `wash_single_car` - метод, який миє один автомобіль, тому він повинен мати `clean_mark`, 
-що дорівнює `clean_power` мийки, якщо `wash_station.clean_power` більша за `car.clean_mark`;
-4. `rate_service` - метод, який додає один тариф на мийку, 
-і на основі цього тарифу змінюється `average_rating` та `count_of_ratings`:
-
-
+   
 ```python
 wash_station = CarWashStation(
     distance_from_city_center=6,
@@ -159,9 +115,6 @@ You can add own methods if you need.
 
 Example:
 
-Ви можете додати власні методи, якщо вам потрібно.
-
-Приклад:
 
 ```python
 bmw = Car(3, 3, 'BMW')
