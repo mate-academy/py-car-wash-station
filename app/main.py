@@ -1,5 +1,5 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str):
+    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -12,7 +12,7 @@ class CarWashStation:
         clean_power: int,
         average_rating: float,
         count_of_ratings: int,
-    ):
+    ) -> None:
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = average_rating
@@ -39,7 +39,7 @@ class CarWashStation:
         if self.clean_power > car.clean_mark:
             car.clean_mark = self.clean_power
 
-    def rate_service(self, rating: int):
+    def rate_service(self, rating: int) -> None:
         total_ratings = self.average_rating * self.count_of_ratings
         total_ratings += rating
         self.count_of_ratings += 1
