@@ -27,7 +27,7 @@ class CarWashStation:
                 self.wash_single_car(car)
         return round(income, 1)
 
-    def calculate_washing_price(self, cars: Car) -> list:
+    def calculate_washing_price(self, cars: list[Car]) -> float:
         return (cars.comfort_class
                 * (self.clean_power - cars.clean_mark)
                 * self.average_rating
