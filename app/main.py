@@ -41,7 +41,7 @@ class CarWashStation:
             total_rating = self.average_rating * self.count_of_ratings
             self.count_of_ratings += 1
             total_rating += rate
-            self.average_rating = round(total_rating 
+            self.average_rating = round(total_rating
                                         / self.count_of_ratings, 1)
 
     def serve_cars(self, cars: List[Car]) -> float:
