@@ -36,9 +36,9 @@ class CarWashStation:
             print(car.clean_mark)
         return car.clean_mark
 
-    def serve_cars(self, queue: list[Car]) -> float:
+    def serve_cars(self, cars: list[Car]) -> float:
         income = 0
-        for car in queue:
+        for car in cars:
             comfort = car.comfort_class
             power = self.clean_power
             mark = car.clean_mark
