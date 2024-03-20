@@ -1,7 +1,13 @@
+from typing import List
+
+
 class Car:
-    def __init__(self, comfort_class: int,
-                 clean_mark: int, brand: str
-                 ) -> None:
+    def __init__(
+            self,
+            comfort_class: int,
+            clean_mark: int,
+            brand: str
+    ) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -20,7 +26,7 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-    def serve_cars(self, cars: list) -> int:
+    def serve_cars(self, cars: List[Car]) -> int:
         total_cost = 0
         for car in cars:
             if self.clean_power > car.clean_mark:
@@ -28,7 +34,7 @@ class CarWashStation:
                 self.wash_single_car(car)
         return total_cost
 
-    def wash_single_car(self, car: Car) -> None:
+    def wash_single_car(self, car: List[Car]) -> None:
         car.clean_mark = self.clean_power
 
     def calculate_washing_price(self, car: Car) -> float:
@@ -40,12 +46,10 @@ class CarWashStation:
         )
 
     def rate_service(self, rate: int) -> None:
-        too_brilliant_rating_system = [self.average_rating] \
-            * self.count_of_ratings
-        too_brilliant_rating_system.append(rate)
+        cnt_rating = [self.average_rating] * self.count_of_ratings
+        cnt_rating.append(rate)
         self.count_of_ratings += 1
         self.average_rating = round(
-            sum(too_brilliant_rating_system)
-            / len(too_brilliant_rating_system),
+            sum(cnt_rating) / len(cnt_rating),
             1
         )
