@@ -39,11 +39,14 @@ def test_car_wash_station(cars, wash_station, total_cost):
     income = wash_station.serve_cars(cars)
     assert income == total_cost, f"Income should equal to {total_cost}"
 
+
 def test_wash_single_car_is_called():
-    with patch.object(CarWashStation, 'wash_single_car') as mock_method:
+    with patch.object(CarWashStation, "wash_single_car") as mock_method:
         CarWashStation(3, 9, 4, 11).serve_cars([Car(2, 1, "Ford")])
-        assert mock_method.called, "Expected 'wash_single_car' to have " \
-                                   "been called inside 'serve_cars' method"
+        assert mock_method.called, (
+            "Expected 'wash_single_car' to have "
+            "been called inside 'serve_cars' method"
+        )
 
 
 @pytest.mark.parametrize(
@@ -82,7 +85,8 @@ def test_car_is_washed(cars, wash_station, cars_clean_marks):
 def test_car_cost_check_not_washed(car, wash_station, mark):
     wash_station.calculate_washing_price(car)
     assert car.clean_mark == mark, (
-        f"Method 'calculate_washing_price' should not change" f"'car.clean_mark'"
+        f"Method 'calculate_washing_price' should not change"
+        f"'car.clean_mark'"
     )
 
 
@@ -96,7 +100,11 @@ def test_car_cost_check_not_washed(car, wash_station, mark):
     ],
 )
 def test_rate_service(
-    init_avg_rating, init_num_ratings, mark, result_avg_rating, result_num_ratings
+    init_avg_rating,
+    init_num_ratings,
+    mark,
+    result_avg_rating,
+    result_num_ratings,
 ):
     ws = CarWashStation(2, 9, init_avg_rating, init_num_ratings)
     ws.rate_service(mark)
@@ -121,5 +129,5 @@ def test_unnecessary_comment():
         main_content = main.read()
 
         assert (
-                "# write your code here" not in main_content
+            "# write your code here" not in main_content
         ), "Remove unnecessary comment"
