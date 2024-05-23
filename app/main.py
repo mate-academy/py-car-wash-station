@@ -43,4 +43,3 @@ class CarWashStation:
                 - 1)
              + mark)
             / self.count_of_ratings, 1)
-    
