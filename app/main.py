@@ -1,5 +1,5 @@
 class Car:
-    def __init__(self, comfort_class, clean_mark, brand):
+    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
         # Властивості авто. Приклад: bmw = Car(3, 2, 'BMW')
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
@@ -7,7 +7,13 @@ class Car:
 
 
 class CarWashStation:
-    def __init__(self, distance_from_city_center, clean_power, average_rating, count_of_ratings):
+    def __init__(
+            self,
+            distance_from_city_center: int,
+            clean_power: int,
+            average_rating: float,
+            count_of_ratings: int
+            ) -> None:
         # Відстань до центру міста
         self.distance_from_city_center = distance_from_city_center
         # Здатність до очищення
@@ -17,24 +23,24 @@ class CarWashStation:
         # Кількість оцінок
         self.count_of_ratings = count_of_ratings
 
-    def serve_cars(self, cars):
-        total_income = 0.0
+    def serve_cars(self, cars: list[Car]) -> int:
+        total_income = 0
         for car in cars:
             if car.clean_mark < self.clean_power:
                 total_income += self.calculate_washing_price(car)
                 self.wash_single_car(car)
-        return round(total_income, 1)
+        return total_income
 
-    def calculate_washing_price(self, car):
+    def calculate_washing_price(self, car: Car) -> float:
         return round((car.comfort_class
                      * (self.clean_power - car.clean_mark)
                      * self.average_rating)
                      / self.distance_from_city_center, 1)
 
-    def wash_single_car(self, car):
+    def wash_single_car(self, car: Car) -> None:
         car.clean_mark = self.clean_power
 
-    def rate_service(self, rating):
+    def rate_service(self, rating: int) -> None:
         total_rating = self.average_rating * self.count_of_ratings
         total_rating += rating
         self.count_of_ratings += 1
