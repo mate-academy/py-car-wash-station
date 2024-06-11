@@ -4,7 +4,6 @@ class Car:
                  clean_mark: int,
                  brand: str
                  ) -> None:
-        # Властивості авто. Приклад: bmw = Car(3, 2, 'BMW')
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -17,13 +16,9 @@ class CarWashStation:
                  average_rating: float,
                  count_of_ratings: int
                  ) -> None:
-        # Відстань до центру міста
         self.distance_from_city_center = distance_from_city_center
-        # Здатність до очищення
         self.clean_power = clean_power
-        # Оцінка автмийки
         self.average_rating = average_rating
-        # Кількість оцінок
         self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars: list[Car]) -> int:
