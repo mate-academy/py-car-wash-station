@@ -23,7 +23,6 @@ class CarWashStation:
             , 1)
 
     def wash_single_car(self, car: Car) -> None:
-        if self.clean_power >= car.clean_mark:
             car.clean_mark = self.clean_power
 
     def rate_service(self, new_rating: int) -> None:
