@@ -4,7 +4,6 @@ class Car:
                  clean_mark: int,
                  brand: str
                  ) -> None:
-
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -19,7 +18,7 @@ class CarWashStation:
 
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
-        self.average_rating = average_rating
+        self.average_rating = round(average_rating, 1)
         self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars: list[Car]) -> float:
@@ -29,7 +28,8 @@ class CarWashStation:
 
             if self.clean_power > car.clean_mark:
                 washing_price_sum += self.calculate_washing_price(car)
-                self.wash_single_car(car)
+
+            self.wash_single_car(car)
 
         return washing_price_sum
 
@@ -40,7 +40,8 @@ class CarWashStation:
         )
 
     def wash_single_car(self, car: Car) -> None:
-        car.clean_mark = self.clean_power
+        if self.clean_power > car.clean_mark:
+            car.clean_mark = self.clean_power
 
     def rate_service(self, rating: int) -> None:
         old_count_of_ratings = self.count_of_ratings
