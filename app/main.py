@@ -1,12 +1,25 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str):
+    def __init__(
+            self,
+            comfort_class: int,
+            clean_mark: int,
+            brand: str
+    ) -> None:
+
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
 
 
 class CarWashStation:
-    def __init__(self, distance_from_city_center: float, clean_power: int, average_rating: float, count_of_ratings: int):
+    def __init__(
+            self,
+            distance_from_city_center: float,
+            clean_power: int,
+            average_rating: float,
+            count_of_ratings: int
+    ) -> None:
+
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = average_rating
@@ -30,25 +43,14 @@ class CarWashStation:
 
         return round(income, 1)
 
-    def wash_single_car(self, car: Car):
+    def wash_single_car(self, car: Car) -> None:
         if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
 
-    def rate_service(self, rate: int):
+    def rate_service(self, rate: int) -> None:
         if rate < 1 or rate > 5:
-            raise ValueError("Rate must be between 1 and 5. From very good - 5 to absolutely bad - 1")
+            raise ValueError("Rate must be between 1 and 5.")
 
         total_rating = self.average_rating * self.count_of_ratings + rate
         self.count_of_ratings += 1
         self.average_rating = round(total_rating / self.count_of_ratings, 1)
-
-
-bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
-audi = Car(comfort_class=4, clean_mark=9, brand='Audi')
-
-wash_station = CarWashStation(
-    distance_from_city_center=5,
-    clean_power=10,
-    average_rating=3.5,
-    count_of_ratings=6
-)
