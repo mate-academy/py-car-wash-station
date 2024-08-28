@@ -49,7 +49,7 @@ class CarWashStation:
 
     def rate_service(self, rate: int) -> None:
         if rate < 1 or rate > 5:
-            raise ValueError("Rate must be between 1 and 5.")
+            raise ValueError("Rate must be between 1 and 5")
 
         total_rating = self.average_rating * self.count_of_ratings + rate
         self.count_of_ratings += 1
