@@ -52,8 +52,3 @@ wash_station = CarWashStation(
     average_rating=3.5,
     count_of_ratings=6
 )
-
-income = wash_station.serve_cars([bmw, audi])
-
-print(income)  # 6.3
-print(bmw.clean_mark)  # 6
