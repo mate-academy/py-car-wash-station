@@ -18,7 +18,11 @@ class CarWashStation:
 
     def serve_cars(self, cars: list[Car]) -> float:
         cars_for_wash = filter(lambda car: car.clean_mark < self.clean_power, cars)
-        income = sum([self.calculate_washing_price(car) for car in cars_for_wash])
+        income = 0
+        for car in cars_for_wash:
+            income += self.calculate_washing_price(car)
+            self.wash_single_car(car)
+            
         return round(income, 1)
 
     def calculate_washing_price(self, car: Car) -> float:
@@ -26,3 +30,9 @@ class CarWashStation:
         gen_price = car.comfort_class * clean_difference * self.average_rating
         price = gen_price / self.distance_from_city_center
         return round(price, 1)
+    
+    def wash_single_car(self, car: Car) -> None:
+        if self.clean_power > car.clean_mark:
+            car.clean_mark = self.clean_power
+
+    
