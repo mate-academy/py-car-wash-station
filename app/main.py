@@ -16,6 +16,11 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
+    def serve_cars(self, cars: list[Car]) -> float:
+        cars_for_wash = filter(lambda car: car.clean_mark < self.clean_power, cars)
+        income = sum([self.calculate_washing_price(car) for car in cars_for_wash])
+        return round(income, 1)
+
     def calculate_washing_price(self, car: Car) -> float:
         clean_difference = (self.clean_power - car.clean_mark)
         gen_price = car.comfort_class * clean_difference * self.average_rating
