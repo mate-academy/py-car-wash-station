@@ -37,11 +37,11 @@ class CarWashStation:
         for car in cars:
             if car.clean_mark < self.clean_power:
                 income += round(
-                                car.comfort_class
-                                * (self.clean_power - car.clean_mark)
-                                * self.average_rating
-                                / self.distance_from_city_center,
-                                1
+                    car.comfort_class
+                    * (self.clean_power - car.clean_mark)
+                    * self.average_rating
+                    / self.distance_from_city_center,
+                    1
                 )
                 self.wash_single_car(car)
         return income
