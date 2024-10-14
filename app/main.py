@@ -18,13 +18,11 @@ class CarWashStation:
             base_price_multiplier = car.comfort_class * self.average_rating
             single_car_cost = base_price_multiplier * cleanliness_difference / self.distance_from_city_center
             return round(single_car_cost, 1)
+    
         return 0.0
 
     def wash_single_car(self, car: Car) -> None:
         """Washes a single car by setting its clean_mark to clean_power."""
-        if car.clean_mark >= self.clean_power:
-            return
-
         car.clean_mark = self.clean_power
 
     def serve_cars(self, cars: list[Car]) -> float:
