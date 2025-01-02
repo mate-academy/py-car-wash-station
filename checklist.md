@@ -30,7 +30,7 @@ Bad example:
 
 ```python
 how_much_fuel_needed = max_fuel_consumption \
-                       * height_fuel_consumption_coeficient \
+                      '' * height_fuel_consumption_coeficient \
                        * distance_to_the_destinatoin / (
                                plan_max_speed 
                                - wind_awerage_speed 
