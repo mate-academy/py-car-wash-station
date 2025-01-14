@@ -1,0 +1,62 @@
+#the new solve 
+
+class Car:
+    def __init__(self, comfort_class, clean_mark, brand):
+        self.comfort_class = comfort_class
+        self.clean_mark = clean_mark
+        self.brand = brand
+
+
+class CarWashStation:
+    def __init__(self, distance_from_city_center, clean_power, average_rating, count_of_ratings):
+        self.distance_from_city_center = distance_from_city_center
+        self.clean_power = clean_power
+        self.average_rating = average_rating
+        self.count_of_ratings = count_of_ratings
+
+    def calculate_washing_price(self, car):
+        price = (
+            car.comfort_class
+            * (self.clean_power - car.clean_mark)
+            * self.average_rating
+            / self.distance_from_city_center
+        )
+        return round(price, 1)
+
+    def wash_single_car(self, car):
+        if car.clean_mark < self.clean_power:
+            car.clean_mark = self.clean_power
+
+    def serve_cars(self, cars):
+        total_income = 0
+        for car in cars:
+            if car.clean_mark < self.clean_power:
+                total_income += self.calculate_washing_price(car)
+                self.wash_single_car(car)
+        return round(total_income, 1)
+
+    def rate_service(self, new_rating):
+        total_rating = (self.average_rating * self.count_of_ratings) + new_rating
+        self.count_of_ratings += 1
+        self.average_rating = round(total_rating / self.count_of_ratings, 1)
+
+
+# Example usage:
+car1 = Car(comfort_class=5, clean_mark=2, brand="Toyota")
+car2 = Car(comfort_class=3, clean_mark=1, brand="Honda")
+
+station = CarWashStation(
+    distance_from_city_center=10,
+    clean_power=5,
+    average_rating=4.5,
+    count_of_ratings=10
+)
+
+# Wash cars and calculate income
+cars = [car1, car2]
+income = station.serve_cars(cars)
+print("Total income from washing cars:", income)
+
+# Rate the service
+station.rate_service(5)
+print("New average rating:", station.average_rating)
