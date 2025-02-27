@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Car:
     def __init__(self, comfort_class: int,
                  clean_mark: int, brand: str) -> None:
@@ -23,8 +24,8 @@ class CarWashStation:
 
     def calculate_washing_price(self, car: Car) -> float:
         old_clean_mark = car.clean_mark
-        price = car.comfort_class * (self.clean_power - old_clean_mark) * (
-                    self.average_rating / self.distance_from_city_center)
+        price = (car.comfort_class * (self.clean_power - old_clean_mark)
+                 * (self.average_rating / self.distance_from_city_center))
         return round(price, 1)
 
     def serve_cars(self, cars: List[Car]) -> float:
@@ -52,6 +53,7 @@ wash_station = CarWashStation(
 
 
 income = wash_station.serve_cars([bmw, audi])
+
 
 print(income)  # 6.3
 print(bmw.clean_mark)  # 6
