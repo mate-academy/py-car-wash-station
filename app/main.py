@@ -1,12 +1,14 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+    def __init__(self, comfort_class: int,
+                 clean_mark: int, brand: str) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
 
 
 class CarWashStation:
-    def __init__(self, distance_from_city_center: int, clean_power: int, average_rating: float, count_of_ratings: int) -> None:
+    def __init__(self, distance_from_city_center: int, clean_power: int,
+                 average_rating: float, count_of_ratings: int) -> None:
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = average_rating
@@ -18,15 +20,18 @@ class CarWashStation:
             if car.clean_mark < self.clean_power:
                 old_clean_mark = car.clean_mark
                 car.clean_mark = min(self.clean_power, 10)
-                price_washing_station = car.comfort_class * (self.clean_power - old_clean_mark) * (self.average_rating / self.distance_from_city_center)
+                price_washing_station = (car.comfort_class
+                                         * (self.clean_power - old_clean_mark)
+                                         * (self.average_rating
+                                            / self.distance_from_city_center))
                 total_income += price_washing_station
         return round(total_income, 1)
 
     def rate_service(self, new_rating: float) -> None:
-        total_rating = self.average_rating * self.count_of_ratings + new_rating
+        total_rating = (self.average_rating
+                        * self.count_of_ratings + new_rating)
         self.count_of_ratings += 1
         self.average_rating = round(total_rating / self.count_of_ratings, 1)
-
 
 
 wash_station = CarWashStation(
@@ -48,9 +53,8 @@ print(wash_station.average_rating)  # 4.0
 print(wash_station.count_of_ratings)  # 12
 
 
-
-bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
-audi = Car(comfort_class=4, clean_mark=9, brand='Audi')
+bmw = Car(comfort_class=3, clean_mark=3, brand="BMW")
+audi = Car(comfort_class=4, clean_mark=9, brand="Audi")
 
 
 print(bmw.clean_mark)  # 3
