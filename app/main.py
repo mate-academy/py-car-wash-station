@@ -24,6 +24,8 @@ class CarWashStation:
         self.count_of_ratings = count_of_ratings
 
     def calculate_washing_price(self, car: Car) -> float:
+        if self.distance_from_city_center == 0:
+            raise ValueError("Distance from city center cannot be zero.")
         return round(car.comfort_class * (self.clean_power - car.clean_mark)
                      * self.average_rating / self.distance_from_city_center, 1)
 
@@ -42,6 +44,9 @@ class CarWashStation:
         return round(total, 1)
 
     def rate_service(self, new_rating: int) -> None:
+        if not 1 <= new_rating <= 5:
+            raise ValueError("Rating must be between 1 and 5.")
+
         total_rating = self.average_rating * self.count_of_ratings
         total_rating += new_rating
         self.count_of_ratings += 1
