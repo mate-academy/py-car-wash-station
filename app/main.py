@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Car:
     def __init__(self, comfort_class: int,
                  clean_mark: int, brand: str) -> None:
@@ -20,19 +23,20 @@ class CarWashStation:
             car.clean_mark = min(self.clean_power, 10)
 
     def calculate_washing_price(self, car: Car) -> float:
-        if car.clean_mark < self.clean_power:
-            old_clean_mark = car.clean_mark
-            price = (car.comfort_class * (self.clean_power - old_clean_mark)
-                     * (self.average_rating / self.distance_from_city_center))
-            return round(price, 1)
-        else:
-            return 0.0
+        old_clean_mark = car.clean_mark
+        print(f"Calculating price for car {car.brand} "
+              f"with clean mark {old_clean_mark}")  # Отладка
+        price = (car.comfort_class * (self.clean_power - old_clean_mark)
+                 * (self.average_rating / self.distance_from_city_center))
+        print(f"Calculated price: {price}")  # Отладка
+        return round(price, 1)
 
-    def serve_cars(self, cars: list) -> float:
+    def serve_cars(self, cars: List[Car]) -> float:
         total_income = 0
         for car in cars:
-            self.wash_single_car(car)
-            total_income += round(self.calculate_washing_price(car), 1)
+            car_income = self.calculate_washing_price(car)
+            print(f"Income for {car.brand}: {car_income}")  # Для отладки
+            total_income += car_income
         return round(total_income, 1)
 
     def rate_service(self, new_rating: float) -> None:
@@ -51,8 +55,8 @@ wash_station = CarWashStation(
     count_of_ratings=6
 )
 
-
 income = wash_station.serve_cars([bmw, audi])
 
-print(income)  # 6.3
-print(bmw.clean_mark)  # 6
+print(f"Total income: {income}")
+print(f"BMW clean mark after wash: {bmw.clean_mark}")
+print(f"Audi clean mark after wash: {audi.clean_mark}")
