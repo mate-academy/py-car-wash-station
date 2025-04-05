@@ -33,7 +33,7 @@ class CarWashStation:
             self.wash_single_car(car)
         return round(total_income, 1)
 
-    def wash_single_car(self, car: str) -> None:
+    def wash_single_car(self, car: Car) -> None:
         """
         method, that washes a single car, so it should
         have `clean_mark` equals wash station's `clean_power`, if
@@ -42,7 +42,7 @@ class CarWashStation:
         if self.clean_power > car.clean_mark:
             car.clean_mark = self.clean_power
 
-    def calculate_washing_price(self, car: str) -> float:
+    def calculate_washing_price(self, car: Car) -> float:
         """
         method, that calculates cost for a
         single car wash,
