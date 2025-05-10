@@ -1,8 +1,8 @@
-# Washing Station
+**# Washing Station
 
 Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before starting.
 
-You own a car washing station. Washing cost calculation 
+You own a car washing station. Washing cost calculation** 
 takes a lot of time, and you decide to automate this
 calculation. The washing cost will depend on car comfort 
 class, car cleanness degree, wash station average rating
