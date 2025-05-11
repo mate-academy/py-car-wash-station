@@ -40,4 +40,4 @@ class CarWashStation:
         total = (self.average_rating * Decimal(self.count_of_ratings)) + new
         self.count_of_ratings += 1
         updated_average = total / Decimal(self.count_of_ratings)
-        self.average_rating = float(updated_average.quantize(Decimal('0.1'), rounding=ROUND_HALF_UP))
+        self.average_rating = updated_average.quantize(Decimal('0.1'), rounding=ROUND_HALF_UP)
