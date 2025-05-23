@@ -6,7 +6,13 @@ class Car:
 
 
 class CarWashStation:
-    def __init__(self, distance_from_city_center: float, clean_power: int, average_rating: float, count_of_ratings: int) -> None:
+    def __init__(
+            self,
+            distance_from_city_center: float,
+            clean_power: int,
+            average_rating: float,
+            count_of_ratings: int
+    ) -> None:
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = average_rating
@@ -24,12 +30,13 @@ class CarWashStation:
         if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
 
-    def serve_cars(self, cars: list) -> float:
+    def serve_cars(self, cars: list[Car]) -> float:
         total_income = 0.0
         for car in cars:
             if car.clean_mark < self.clean_power:
                 price = self.calculate_washing_price(car)
                 total_income += price
+                self.wash_single_car(car)
         return round(total_income, 1)
 
     def rate_service(self, new_rating: float) -> None:
