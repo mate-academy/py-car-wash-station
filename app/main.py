@@ -1,19 +1,23 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
-        self.comfort_class = comfort_class  # comfort class of a car, from 1 to 7
-        self.clean_mark = clean_mark        # car cleanness mark, from very dirty - 1 to absolutely clean - 10
-        self.brand = brand                  # brand of the car
+    def __init__(
+            self, comfort_class: int,
+            clean_mark: int,
+            brand: str) -> None:
+        self.comfort_class = comfort_class  # from 1 to 7
+        self.clean_mark = clean_mark  # very dirty - 1, absolutely clean - 10
+        self.brand = brand  # brand of the car
 
 
 class CarWashStation:
     def __init__(
-            self,
-            distance_from_city_center: float,  # how far station from the city center, from 1.0 to 10.0
-            clean_power: int,                  # An integer representing the washing power of the station (cars with clean_mark < clean_power can be washed).
-            average_rating: float,             # average rating of the station, from 1.0 to 5.0, rounded to 1 decimal
-            count_of_ratings: int,             # number of people who rated
-
+        self,
+        distance_from_city_center: float,  # from 1.0 to 10.0
+        clean_power: int,  # (cars with clean_mark < clean_power
+                           # can be washed).
+        average_rating: float,  # from 1.0 to 5.0, rounded to 1 decimal
+        count_of_ratings: int,  # number of people who rated
     ) -> None:
+
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = round(average_rating, 1)
@@ -32,10 +36,10 @@ class CarWashStation:
         if car.clean_mark >= self.clean_power:
             return 0.0
         price = (
-                car.comfort_class
-                * (self.clean_power - car.clean_mark)
-                * self.average_rating
-                / self.distance_from_city_center
+            car.comfort_class
+            * (self.clean_power - car.clean_mark)
+            * self.average_rating
+            / self.distance_from_city_center
         )
         return round(price, 1)
 
@@ -49,12 +53,13 @@ class CarWashStation:
 
         total_rating = self.average_rating * self.count_of_ratings
         self.count_of_ratings += 1
-        self.average_rating = round((total_rating + rating) / self.count_of_ratings, 1)
+        self.average_rating = round(
+            (total_rating + rating) / self.count_of_ratings, 1)
         return self.average_rating
 
 
 ford = Car(2, 1, "Ford")
-audi = Car(comfort_class=4, clean_mark=9, brand='Audi')
+audi = Car(comfort_class=4, clean_mark=9, brand="Audi")
 
 print(ford.clean_mark)
 
