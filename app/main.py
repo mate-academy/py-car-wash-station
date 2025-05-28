@@ -6,6 +6,9 @@ class Car:
         self.clean_mark = clean_mark
         self.brand = brand
 
+def __str__(self) -> str:
+    return f"{self.brand} (Comfort class: {self.comfort_class}, Clean mark: {self.clean_mark})"
+
 
 class CarWashStation:
     def __init__(self, distance_from_city_center: float,
