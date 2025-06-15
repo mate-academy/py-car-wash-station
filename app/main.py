@@ -1,5 +1,6 @@
 from station import CarWashStation
 
+
 def main() -> None:
     station = CarWashStation()
     station.wash(5)
