@@ -1,8 +1,10 @@
-class Car:
-    # write your code here
-    pass
+from station import CarWashStation
 
+def main() -> None:
+    station = CarWashStation()
+    station.wash(5)
+    station.wash(3)
+    print(station.status())  # Очікувано: Мийка обробила 8 машин.
 
-class CarWashStation:
-    # write your code here
-    pass
+if __name__ == "__main__":
+    main()
