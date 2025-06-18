@@ -14,3 +14,12 @@ class CarWashStation:
 
     def serve_cars(self, cars: list):
         pass
+
+    def calculate_washing_price(self):
+        pass
+
+    def wash_single_car(self, car: Car):
+        pass
+
+    def rate_service(self):
+        pass
