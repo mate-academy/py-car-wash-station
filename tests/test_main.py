@@ -11,7 +11,6 @@ def test_car():
     assert bmw.clean_mark == 3, "Class Car should store 'clean_mark'"
     assert bmw.brand == "BMW", "Class Car should store 'brand'"
 
-
 @pytest.mark.parametrize(
     "cars,wash_station,total_cost",
     [
