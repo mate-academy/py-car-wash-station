@@ -3,7 +3,8 @@ from typing import List
 
 class Car:
 
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+    def __init__(self, comfort_class: int,
+                 clean_mark: int, brand: str) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -34,7 +35,8 @@ class CarWashStation:
         return round(sum_of_costs, 1)
 
     def calculate_washing_price(self, car: Car) -> float:
-        difference_between_clean_power_and_mark = self.clean_power - car.clean_mark
+        difference_between_clean_power_and_mark =\
+            self.clean_power - car.clean_mark
         result = (
             car.comfort_class
             * difference_between_clean_power_and_mark
