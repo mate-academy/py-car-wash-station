@@ -23,16 +23,14 @@ class CarWashStation:
 
     def serve_cars(self, cars_list: list) -> None:
         income = 0
+        washed_cars = []
+
         for car in cars_list:
             if car.clean_mark < self.clean_power:
-                income += (
-                    car.comfort_class
-                    * (self.clean_power - car.clean_mark)
-                    * self.average_rating
-                    / self.distance_from_city_center
-                )
+                income += self.calculate_washing_price(car)
                 self.wash_single_car(car)
-        return round(income, 1)
+                washed_cars.append(car)
+        return income, washed_cars
 
     def calculate_washing_price(self, car: Car) -> float:
         cost = (
