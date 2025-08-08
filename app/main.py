@@ -30,7 +30,7 @@ class CarWashStation:
                 price = self.calculate_washing_price(car)
                 income += price
                 self.wash_single_car(car)
-        return income
+        return round(income, 1)
 
     def calculate_washing_price(self, car: Car) -> float:
         return round(
