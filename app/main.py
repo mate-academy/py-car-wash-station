@@ -55,3 +55,21 @@ class CarWashStation:
         total_rating = self.average_rating * self.count_of_ratings + rating
         self.count_of_ratings += 1
         self.average_rating = round(total_rating / self.count_of_ratings, 1)
+
+def calculate_comfort_score(comfort_class, distance_from_city_center):
+    if not (1 <= comfort_class <= 7):
+        raise ValueError(
+            "comfort_class must be between 1 and 7"
+        )
+
+    if not (1.0 <= distance_from_city_center <= 10.0):
+        raise ValueError(
+            "distance_from_city_center must be between 1.0 and 10.0"
+        )
+
+    base_score = comfort_class * 10
+    distance_penalty = (10.0 - distance_from_city_center) * 2
+
+    final_score = base_score + distance_penalty
+    return round(final_score, 2)
+
