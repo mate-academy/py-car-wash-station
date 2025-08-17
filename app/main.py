@@ -1,11 +1,3 @@
-class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
-        self.comfort_class = comfort_class  # int de 1 a 7
-        self.clean_mark = clean_mark        # int de 1 a 10
-        self.brand = brand                  # string
-
-
-
 from typing import List
 
 
