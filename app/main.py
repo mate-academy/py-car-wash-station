@@ -1,34 +1,38 @@
+class Car:
+    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+        self.comfort_class = comfort_class  # int de 1 a 7
+        self.clean_mark = clean_mark        # int de 1 a 10
+        self.brand = brand                  # string
+
+
+
 from typing import List
 
 
-class Car:
-    def __init__(self, license_plate: str, color: str, is_dirty: bool = True) -> None:
-        self.license_plate = license_plate
-        self.color = color
-        self.is_dirty = is_dirty
-
-    def wash(self) -> None:
-        self.is_dirty = False
-
-    def __repr__(self) -> str:
-        status = "dirty" if self.is_dirty else "clean"
-        return f"Car({self.license_plate}, {self.color}, {status})"
-
-
 class CarWashStation:
-    def __init__(self) -> None:
-        self.queue: List[Car] = []
+    def __init__(self, distance_from_city_center: float, clean_power: int) -> None:
+        self.distance_from_city_center = distance_from_city_center  # float
+        self.clean_power = clean_power                              # int
+        self.average_rating = 0.0                                   # float
+        self.count_of_ratings = 0                                   # int
 
-    def add_car(self, car: Car) -> None:
-        self.queue.append(car)
+    def calculate_washing_price(self, car: Car) -> float:
+        return round((car.comfort_class * 10) / self.distance_from_city_center, 2)
 
-    def wash_next_car(self) -> None:
-        if self.queue:
-            car = self.queue.pop(0)
-            car.wash()
-            print(f"{car.license_plate} has been washed.")
-        else:
-            print("No cars in the queue.")
+    def wash_single_car(self, car: Car) -> None:
+        car.clean_mark += self.clean_power
+        if car.clean_mark > 10:
+            car.clean_mark = 10
 
-    def __repr__(self) -> str:
-        return f"CarWashStation({len(self.queue)} cars in queue)"
+    def serve_cars(self, cars: List[Car]) -> List[float]:
+        prices: List[float] = []
+        for car in cars:
+            self.wash_single_car(car)
+            price = self.calculate_washing_price(car)
+            prices.append(price)
+        return prices
+
+    def rate_service(self, rating: int) -> None:
+        total = self.average_rating * self.count_of_ratings + rating
+        self.count_of_ratings += 1
+        self.average_rating = round(total / self.count_of_ratings, 2)
