@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Car:
     def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
         if not (1 <= comfort_class <= 7):
@@ -9,8 +12,6 @@ class Car:
         self.clean_mark = clean_mark
         self.brand = brand
 
-
-from typing import List
 
 class CarWashStation:
     def __init__(
@@ -40,7 +41,7 @@ class CarWashStation:
             car.clean_mark = self.clean_power
 
     def serve_cars(self, cars: List[Car]) -> List[float]:
-        prices: List[float] = []
+        prices = []
         for car in cars:
             self.wash_single_car(car)
             price = self.calculate_washing_price(car)
