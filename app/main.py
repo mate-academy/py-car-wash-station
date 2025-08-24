@@ -1,6 +1,10 @@
 class Car:
     def __init__(self, comfort_class: int,
                  clean_mark: int, brand: str) -> None:
+        if (not isinstance(comfort_class, int)
+                or not isinstance(clean_mark, int)):
+            raise TypeError("comfort_class and clean_mark must be integers")
+
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -10,15 +14,24 @@ class CarWashStation:
     def __init__(self, distance_from_city_center: float,
                  clean_power: int, average_rating: float,
                  count_of_ratings: int) -> None:
+        if (not isinstance(distance_from_city_center, float)
+                or not isinstance(clean_power, int)):
+            raise TypeError("distance_from_city_center "
+                            "must be float and clean_power must be int")
+        if (not isinstance(average_rating, float)
+                or not isinstance(count_of_ratings, int)):
+            raise TypeError("average_rating must be float "
+                            "and count_of_ratings must be int")
+
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = round(average_rating, 1)
         self.count_of_ratings = count_of_ratings
 
     def calculate_washing_price(self, car: Car) -> float:
-        price = (car.comfort_class
-                 * (self.clean_power - car.clean_mark)
-                 * self.average_rating / self.distance_from_city_center)
+        price = (car.comfort_class * (self.clean_power - car.clean_mark)
+                 * self.average_rating
+                 / self.distance_from_city_center)
         return round(price, 1)
 
     def wash_single_car(self, car: Car) -> None:
@@ -35,8 +48,11 @@ class CarWashStation:
         return round(total_income, 1)
 
     def rate_service(self, rate: float | int) -> None:
+        if not isinstance(rate, (int, float)):
+            raise TypeError("Rate must be an integer or float")
+
         self.count_of_ratings += 1
         self.average_rating = round(
             ((self.average_rating
-              * (self.count_of_ratings - 1))
-             + rate) / self.count_of_ratings, 1)
+              * (self.count_of_ratings - 1)) + rate)
+            / self.count_of_ratings, 1)
