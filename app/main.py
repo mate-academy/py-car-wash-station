@@ -1,6 +1,13 @@
 class Car:
     def __init__(self, comfort_class: int, clean_mark: int,
                  brand: str) -> None:
+        if not isinstance(comfort_class, int):
+            raise TypeError("comfort_class must be an int")
+        if not isinstance(clean_mark, int):
+            raise TypeError("clean_mark must be an int")
+        if not isinstance(brand, str):
+            raise TypeError("brand must be a str")
+
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
