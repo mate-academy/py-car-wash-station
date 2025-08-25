@@ -1,20 +1,25 @@
 class Car:
     def __init__(self, comfort_class: int, clean_mark: int,
                  brand: str) -> None:
-        if not isinstance(comfort_class, int):
-            raise TypeError("comfort_class must be an int")
-        if not isinstance(clean_mark, int):
-            raise TypeError("clean_mark must be an int")
+        try:
+            self.comfort_class = int(comfort_class)
+        except (TypeError, ValueError):
+            raise TypeError("comfort_class must be an int "
+                            "or convertible to int")
+
+        try:
+            self.clean_mark = int(clean_mark)
+        except (TypeError, ValueError):
+            raise TypeError("clean_mark must be an int or convertible to int")
+
         if not isinstance(brand, str):
             raise TypeError("brand must be a str")
 
-        if not 1 <= clean_mark <= 10:
-            raise ValueError("clean_mark must be between 1 and 10")
-        if not 1 <= comfort_class <= 7:
+        if not 1 <= self.comfort_class <= 7:
             raise ValueError("comfort_class must be between 1 and 7")
+        if not 1 <= self.clean_mark <= 10:
+            raise ValueError("clean_mark must be between 1 and 10")
 
-        self.comfort_class = comfort_class
-        self.clean_mark = clean_mark
         self.brand = brand
 
 
