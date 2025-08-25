@@ -8,6 +8,11 @@ class Car:
         if not isinstance(brand, str):
             raise TypeError("brand must be a str")
 
+        if not 1 <= clean_mark <= 10:
+            raise ValueError("clean_mark must be between 1 and 10")
+        if not 1 <= comfort_class <= 7:
+            raise ValueError("comfort_class must be between 1 and 7")
+
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
