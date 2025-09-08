@@ -145,3 +145,4 @@ ws.average_rating == 4.0
 ```
 
 ### Note: Check your code using this [checklist](checklist.md) before pushing your solution.
+Test PR from NovaGilka
