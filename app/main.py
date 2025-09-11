@@ -46,10 +46,10 @@ class CarWashStation:
         wash_station_rating = self.average_rating
         wash_station_distance = self.distance_from_city_center
 
-        washing_price = (car_comfort_class *
-                         power_and_mark_difference *
-                         wash_station_rating /
-                         wash_station_distance)
+        washing_price = (
+            car_comfort_class * power_and_mark_difference *
+            wash_station_rating / wash_station_distance
+        )
 
         rounded_washing_price = round(washing_price, 1)
 
