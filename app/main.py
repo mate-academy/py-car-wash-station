@@ -12,11 +12,11 @@ class Car:
 
 class CarWashStation:
     def __init__(
-    self,
-    distance_from_city_center: float,
-    clean_power: int,
-    average_rating: float,
-    count_of_ratings: int,
+        self,
+        distance_from_city_center: float,
+        clean_power: int,
+        average_rating: float,
+        count_of_ratings: int,
     ) -> None:
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
@@ -34,7 +34,7 @@ class CarWashStation:
     def calculate_washing_price(self, car: Car) -> float:
         dirtiness = max(0, self.clean_power - car.clean_mark)
         price = (
-        car.comfort_class * dirtiness * self.average_rating
+            car.comfort_class * dirtiness * self.average_rating
         ) / self.distance_from_city_center
         return round(price, 1)
 
