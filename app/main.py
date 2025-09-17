@@ -45,7 +45,7 @@ class CarWashStation:
 
     def wash_single_car(self, car: Car) -> None:
         """
-        Wash the car up to station's 
+        Wash the car up to station's
         clean_power if it's currently dirtier.
         """
         if self.clean_power > car.clean_mark:
