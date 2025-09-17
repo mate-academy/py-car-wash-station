@@ -2,7 +2,12 @@ from typing import List
 
 
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+    def __init__(
+        self,
+        comfort_class: int,
+        clean_mark: int,
+        brand: str
+    ) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -30,11 +35,19 @@ class CarWashStation:
         Rounded to 1 decimal.
         """
         diff = self.clean_power - car.clean_mark
-        price = car.comfort_class * diff * self.average_rating / self.distance_from_city_center
+        price = (
+            car.comfort_class
+            * diff
+            * self.average_rating
+            / self.distance_from_city_center
+        )
         return round(price, 1)
 
     def wash_single_car(self, car: Car) -> None:
-        """Wash the car up to station's clean_power if it's currently dirtier."""
+        """
+        Wash the car up to station's 
+        clean_power if it's currently dirtier.
+        """
         if self.clean_power > car.clean_mark:
             car.clean_mark = self.clean_power
 
