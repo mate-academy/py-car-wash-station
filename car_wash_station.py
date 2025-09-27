@@ -12,13 +12,12 @@ class CarWashStation:
     def __init__(
         self,
         distance_from_city_center: float,
-        clean_power: float,
+        clean_power: int,               # must be int (same scale as Car.clean_mark)
         average_rating: float,
         count_of_ratings: int,
     ) -> None:
         self.distance_from_city_center = distance_from_city_center
-        self.clean_power = clean_power
-        # store average rating rounded to 1 decimal as required
+        self.clean_power = int(clean_power)  # enforce int
         self.average_rating = round(average_rating, 1)
         self.count_of_ratings = count_of_ratings
 
@@ -26,7 +25,8 @@ class CarWashStation:
         """
         Cost formula:
         comfort_class * (clean_power - car.clean_mark) * average_rating / distance
-        Returned rounded to 1 decimal. If no cleaning needed (diff <= 0), returns 0.0.
+        Returns cost rounded to 1 decimal.
+        If the car is already clean enough (clean_mark >= clean_power), cost is 0.
         """
         diff = self.clean_power - car.clean_mark
         if diff <= 0:
@@ -37,29 +37,26 @@ class CarWashStation:
         return round(price, 1)
 
     def wash_single_car(self, car: Car) -> None:
-        """Wash a single car to 'clean_power' if it is below that."""
+        """Wash a single car to the station's clean_power if it is dirtier than that."""
         if car.clean_mark < self.clean_power:
-            car.clean_mark = self.clean_power
+            car.clean_mark = self.clean_power  # always int
 
     def serve_cars(self, cars: List[Car]) -> float:
         """
-        Wash cars with clean_mark < clean_power.
-        Sum the per-car prices (each already rounded to 1 decimal).
+        Wash all cars with clean_mark < clean_power.
+        Sum their washing prices (each rounded to 1 decimal).
         Return total rounded to 1 decimal.
         """
         total = 0.0
         for car in cars:
             if car.clean_mark < self.clean_power:
-                # per-car price must be rounded individually to match example totals
-                price = self.calculate_washing_price(car)
-                total += price
-                # then actually wash the car
+                total += self.calculate_washing_price(car)
                 self.wash_single_car(car)
         return round(total, 1)
 
     def rate_service(self, rate: float) -> None:
         """
-        Add a single rate and update average_rating (rounded to 1 decimal)
+        Add a new rating, updating both average_rating (rounded to 1 decimal)
         and count_of_ratings.
         """
         total_sum = self.average_rating * self.count_of_ratings + rate
