@@ -51,3 +51,4 @@ class CarWashStation:
         self.count_of_ratings += 1
         new_total_rate: float = previous_total_rate + single_rate
         self.average_rating = round(new_total_rate / self.count_of_ratings, 1)
+        # testando pra ver se agora vai
