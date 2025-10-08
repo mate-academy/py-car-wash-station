@@ -27,7 +27,8 @@ class CarWashStation:
     ) -> None:
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
-        self.average_rating = average_rating
+        # Fix 1: Round the average_rating on assignment.
+        self.average_rating = round(average_rating, 1)
         self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars: List[Car]) -> float:
@@ -45,12 +46,11 @@ class CarWashStation:
         """
         Calculates the washing price for a single car based on a formula.
         """
-        price = (
-            car.comfort_class
-            * (self.clean_power - car.clean_mark)
-            * self.average_rating
-            / self.distance_from_city_center
-        )
+        # Fix 2: Reformat the long expression to follow style guides.
+        price = (car.comfort_class
+                 * (self.clean_power - car.clean_mark)
+                 * self.average_rating
+                 / self.distance_from_city_center)
         return round(price, 1)
 
     def wash_single_car(self, car: Car) -> None:
