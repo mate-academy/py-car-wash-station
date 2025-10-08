@@ -5,7 +5,9 @@ class Car:
     """
     Represents a car with its comfort class, cleanness mark, and brand.
     """
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+    def __init__(
+        self, comfort_class: int, clean_mark: int, brand: str
+    ) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -62,7 +64,11 @@ class CarWashStation:
         """
         Adds a new rating and recalculates the average rating.
         """
-        current_total_rating = self.average_rating * self.count_of_ratings
+        current_total_rating = (
+            self.average_rating * self.count_of_ratings
+        )
         new_total_rating = current_total_rating + new_rate
         self.count_of_ratings += 1
-        self.average_rating = round(new_total_rating / self.count_of_ratings, 1)
+        self.average_rating = round(
+            new_total_rating / self.count_of_ratings, 1
+        )
