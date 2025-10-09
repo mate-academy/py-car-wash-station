@@ -1,3 +1,5 @@
+from typing import List
+
 class Car:
     def __init__(
             self,
@@ -22,34 +24,40 @@ class CarWashStation:
         self.clean_power = clean_power
         self.average_rating = round(average_rating, 1)
         self.count_of_ratings = count_of_ratings
+        self.reviews: List[float] = []
 
-    def serve_cars(self, cars: list[Car]) -> float:
+    def serve_cars(self, cars: List[Car]) -> float:
         income = 0
-
         for car in cars:
             if car.clean_mark < self.clean_power:
-                price = self.calculate_washing_price(car)
+                income += self.calculate_washing_price(car)
                 self.wash_single_car(car)
-                income += price
-
         return round(income, 1)
 
     def calculate_washing_price(self, car: Car) -> float:
         if car.clean_mark >= self.clean_power:
             return 0.0
-
-        difference = self.clean_power - car.clean_mark
-        numerator = car.comfort_class * difference * self.average_rating
-        price = numerator / self.distance_from_city_center
+        price = (car.comfort_class * (self.clean_power - car.clean_mark) * self.average_rating) / self.distance_from_city_center
         return round(price, 1)
 
     def wash_single_car(self, car: Car) -> None:
-        if car.clean_mark < self.clean_power:
-            car.clean_mark = self.clean_power
+        car.clean_mark = max(car.clean_mark, self.clean_power)
 
-    def rate_service(self, rate: int | float) -> None:
-        new_avg = (self.average_rating * self.count_of_ratings + rate) / (
-            self.count_of_ratings + 1
-        )
+    def rate_service(self, rate: float) -> None:
         self.count_of_ratings += 1
-        self.average_rating = round(new_avg, 1)
+        self.average_rating = round(
+            (self.average_rating * (self.count_of_ratings - 1) + rate) / self.count_of_ratings, 1
+        )
+        self.reviews.append(rate)
+
+    def get_rating(self) -> float:
+        return self.average_rating
+
+    def add_review(self, rate: float) -> None:
+        self.rate_service(rate)
+
+    def get_review_count(self) -> int:
+        return self.count_of_ratings
+
+    def get_reviews(self) -> List[float]:
+        return self.reviews.copy()
