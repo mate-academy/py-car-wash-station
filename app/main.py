@@ -25,9 +25,13 @@ class CarWashStation:
                      self.average_rating / self.distance_from_city_center, 1)
 
     def rate_service(self, rating: float) -> None:
-        self.average_rating = round((self.average_rating *
-                                     self.count_of_ratings + rating) /
-                                    (self.count_of_ratings + 1), 1)
+        # Обчислюємо чисельник: сума всіх попередніх оцінок + нова оцінка
+        new_total_sum = self.average_rating * self.count_of_ratings + rating
+        # Обчислюємо новий середній рейтинг
+        new_average = new_total_sum / (self.count_of_ratings + 1)
+        # 1. Присвоюємо новий середній рейтинг, округлений до 1 знака
+        self.average_rating = round(new_average, 1)
+        # 2. Збільшуємо кількість оцінок
         self.count_of_ratings += 1
 
     def serve_cars(self, cars: list) -> float:
