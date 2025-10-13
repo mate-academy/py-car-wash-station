@@ -1,7 +1,7 @@
 class Car:
     """Модель авто: клас комфорту, поточна чистота, бренд."""
 
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str):
+    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
         self.comfort_class = comfort_class       # 1–7
         self.clean_mark = clean_mark             # 1–10
         self.brand = brand
@@ -22,10 +22,10 @@ class CarWashStation:
         clean_power: int,
         average_rating: float,
         count_of_ratings: int,
-    ):
+    ) -> None:
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
-        self.average_rating = average_rating
+        self.average_rating = round(average_rating, 1)
         self.count_of_ratings = count_of_ratings
 
     def wash_single_car(self, car: Car) -> None:
