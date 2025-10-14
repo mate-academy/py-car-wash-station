@@ -27,7 +27,7 @@ class CarWashStation:
             if price_of_car is not None:
                 price += price_of_car
 
-        return price
+        return round(price, 1)
 
     def calculate_washing_price(self, car: Car) -> float:
         coast = (car.comfort_class * (
@@ -36,11 +36,11 @@ class CarWashStation:
         return round(coast, 1)
 
     def wash_single_car(self, car: Car) -> float | None:
-        if car.clean_mark > self.clean_power:
+        if car.clean_mark >= self.clean_power:
             return
-        coast = self.calculate_washing_price(car)
+        cost = self.calculate_washing_price(car)
         car.clean_mark = self.clean_power
-        return coast
+        return cost
 
     def rate_service(self, number: int) -> None:
 
