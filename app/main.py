@@ -20,7 +20,7 @@ class CarWashStation:
     ) -> None:
         self.distance_from_city_center: float = distance_from_city_center
         self.clean_power: int = clean_power
-        self.average_rating: float = average_rating
+        self.average_rating: float = round(average_rating, 1)
         self.count_of_ratings: int = count_of_ratings
 
     def calculate_washing_price(self, car: Car) -> float:
