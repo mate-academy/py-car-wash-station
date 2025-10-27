@@ -44,7 +44,7 @@ class CarWashStation:
                 price = self.calculate_washing_price(car)
                 self.wash_single_car(car)
                 total_price += price
-        return total_price
+        return round(total_price, 1)
 
     def rate_service(self, rate: int) -> None:
         self.average_rating = round(
