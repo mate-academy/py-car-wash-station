@@ -19,7 +19,6 @@ class Car:
 class CarWashStation:
     def __init__(self, distance_from_city_center: float, clean_power: int,
                  average_rating: float, count_of_ratings: int) -> None:
-        # Перевірка діапазонів
         if not 1.0 <= distance_from_city_center <= 10.0:
             raise ValueError("distance_from_city_center має бути в"
                              " діапазоні від 1.0 до 10.0")
@@ -41,13 +40,11 @@ class CarWashStation:
         return round(result, 1)
 
     def wash_single_car(self, car: Car) -> float:
+        price = 0.0
         if self.clean_power > car.clean_mark:
             price = self.calculate_washing_price(car)
-            # Миємо автомобіль
             car.clean_mark = self.clean_power
-            return price
-        else:
-            return 0
+        return price
 
     def rate_service(self, rating: int) -> None:
         if not 1 <= rating <= 5:
