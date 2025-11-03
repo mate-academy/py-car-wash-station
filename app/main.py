@@ -36,5 +36,5 @@ class CarWashStation:
         self.count_of_ratings += 1
         self.average_rating = round(total / self.count_of_ratings, 1)
 
-    def _round (x: float) -> float:
+    def _round (self, x: float) -> float:
         return float(Decimal(str(x)).quantize(Decimal('0.0'), rounding=ROUND_HALF_UP))
