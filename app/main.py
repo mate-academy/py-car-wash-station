@@ -44,7 +44,8 @@ class CarWashStation:
         return self.average_rating
 
     def wash_single_car(self, car: "Car") -> int:
-        car.clean_mark = int(self.clean_power)
+        if self.clean_power > car.clean_mark:
+            car.clean_mark = int(self.clean_power)
 
         return car.clean_mark
 
