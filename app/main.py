@@ -1,6 +1,5 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int,
-                 brand: str) -> None:
+    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -9,10 +8,8 @@ class Car:
         return (f"{self.brand}(comfort={self.comfort_class}, "
                 f"clean={self.clean_mark})")
 
-
 class CarWashStation:
-    def __init__(self, distance_from_city_center: float,
-                 clean_power: int | float,
+    def __init__(self, distance_from_city_center: float, clean_power: int | float,
                  average_rating: float, count_of_ratings: int) -> None:
         if not (1.0 <= distance_from_city_center <= 10.0):
             raise ValueError("distance_from_city_center must be between 1.0 and 10.0")
@@ -29,7 +26,6 @@ class CarWashStation:
         return (f"distance={self.distance_from_city_center}, power={self.clean_power}, "
                 f"rating={self.average_rating}, count={self.count_of_ratings}")
 
-
     def rate_service(self, rate: int | float) -> float:
         if not (1.0 <= rate <= 5.0):
             raise ValueError("rate must be between 1.0 and 5.0")
@@ -41,14 +37,12 @@ class CarWashStation:
 
         return self.average_rating
 
-
-    def wash_single_car(self, car):
+    def wash_single_car(self, car: "Car") -> int:
         car.clean_mark = int(self.clean_power)
 
         return car.clean_mark
 
-
-    def calculate_washing_price(self, car) -> float:
+    def calculate_washing_price(self, car: "Car") -> float:
         diff = self.clean_power - car.clean_mark
         if diff <= 0:
             return 0.0
@@ -56,8 +50,7 @@ class CarWashStation:
 
         return round(price, 1)
 
-
-    def serve_cars(self, cars: list) -> float:
+    def serve_cars(self, cars: list["Car"]) -> float:
         income = 0
 
         for car in cars:
