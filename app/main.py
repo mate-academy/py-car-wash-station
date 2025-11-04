@@ -1,15 +1,18 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+    def __init__(self, comfort_class: int, clean_mark: int,
+                 brand: str) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
 
     def __repr__(self) -> str:
-        return f"{self.brand}(comfort={self.comfort_class}, clean={self.clean_mark})"
+        return (f"{self.brand}(comfort={self.comfort_class}, "
+                f"clean={self.clean_mark})")
 
 
 class CarWashStation:
-    def __init__(self, distance_from_city_center: float, clean_power: int | float,
+    def __init__(self, distance_from_city_center: float,
+                 clean_power: int | float,
                  average_rating: float, count_of_ratings: int) -> None:
         if not (1.0 <= distance_from_city_center <= 10.0):
             raise ValueError("distance_from_city_center must be between 1.0 and 10.0")
@@ -63,4 +66,3 @@ class CarWashStation:
                 self.wash_single_car(car)
 
         return round(income, 1)
-
