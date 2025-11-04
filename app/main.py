@@ -8,6 +8,7 @@ class Car:
         return (f"{self.brand}(comfort={self.comfort_class}, "
                 f"clean={self.clean_mark})")
 
+
 class CarWashStation:
     def __init__(self, distance_from_city_center: float, clean_power: int | float,
                  average_rating: float, count_of_ratings: int) -> None:
