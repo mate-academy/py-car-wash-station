@@ -1,5 +1,6 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+    def __init__(self, comfort_class: int, clean_mark: int,
+                 brand: str) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -10,10 +11,12 @@ class Car:
 
 
 class CarWashStation:
-    def __init__(self, distance_from_city_center: float, clean_power: int | float,
+    def __init__(self, distance_from_city_center: float,
+                 clean_power: int | float,
                  average_rating: float, count_of_ratings: int) -> None:
         if not (1.0 <= distance_from_city_center <= 10.0):
-            raise ValueError("distance_from_city_center must be between 1.0 and 10.0")
+            raise ValueError("distance_from_city_center "
+                             "must be between 1.0 and 10.0")
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         if not (1.0 <= average_rating <= 5.0):
@@ -24,7 +27,8 @@ class CarWashStation:
         self.count_of_ratings = count_of_ratings
 
     def __repr__(self) -> str:
-        return (f"distance={self.distance_from_city_center}, power={self.clean_power}, "
+        return (f"distance={self.distance_from_city_center}, "
+                f"power={self.clean_power}, "
                 f"rating={self.average_rating}, count={self.count_of_ratings}")
 
     def rate_service(self, rate: int | float) -> float:
@@ -32,7 +36,8 @@ class CarWashStation:
             raise ValueError("rate must be between 1.0 and 5.0")
         current_counts = self.count_of_ratings
 
-        self.average_rating = (self.average_rating * current_counts + rate) / (current_counts + 1)
+        self.average_rating = ((self.average_rating * current_counts + rate)
+                               / (current_counts + 1))
         self.average_rating = round(self.average_rating, 1)
         self.count_of_ratings += 1
 
@@ -47,7 +52,8 @@ class CarWashStation:
         diff = self.clean_power - car.clean_mark
         if diff <= 0:
             return 0.0
-        price = (car.comfort_class * diff * self.average_rating) / self.distance_from_city_center
+        price = ((car.comfort_class * diff * self.average_rating)
+                 / self.distance_from_city_center)
 
         return round(price, 1)
 
