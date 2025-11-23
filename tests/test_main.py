@@ -2,7 +2,7 @@ from unittest.mock import patch
 import pytest
 import os
 
-from app.main import Car, CarWashStation
+from app.CarWash import Car, CarWashStation
 
 
 def test_car():
@@ -112,10 +112,10 @@ def test_rate_service(
 
 
 def test_unnecessary_comment():
-    if os.path.exists(os.path.join(os.pardir, "app", "main.py")):
-        main_path = os.path.join(os.pardir, "app", "main.py")
+    if os.path.exists(os.path.join(os.pardir, "app", "CarWash.py")):
+        main_path = os.path.join(os.pardir, "app", "CarWash.py")
     else:
-        main_path = os.path.join("app", "main.py")
+        main_path = os.path.join("app", "CarWash.py")
 
     with open(main_path, "r") as main:
         main_content = main.read()
