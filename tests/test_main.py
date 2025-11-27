@@ -41,7 +41,7 @@ def test_car_wash_station(cars, wash_station, total_cost):
 
 def test_wash_single_car_is_called():
     with patch.object(CarWashStation, 'wash_single_car') as mock_method:
-        CarWashStation(3, 9, 4, 11).serve_cars([])
+        CarWashStation(3, 9, 4, 11).serve_cars([Car(2, 3, "BMW")])
         assert mock_method.called, "Expected 'wash_single_car' to have " \
                                    "been called inside 'serve_cars' method"
 
