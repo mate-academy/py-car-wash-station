@@ -34,22 +34,4 @@ class CarWashStation:
     def rate_service(self, rate):
         service_avg = (self.average_rating * self.count_of_ratings + rate) / (self.count_of_ratings + 1)
         self.count_of_ratings += 1
-        average_rating = round(service_avg, 1)
-        return average_rating
-
-
-
-bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
-audi = Car(comfort_class=4, clean_mark=2, brand='Audi')
-
-wash_station = CarWashStation(
-    distance_from_city_center=5,
-    clean_power=6,
-    average_rating=3.5,
-    count_of_ratings=6
-)
-
-income = wash_station.serve_cars([bmw, audi])
-print(income)       # 6.3
-print(bmw.clean_mark)  # 6
-print(audi.clean_mark) #
+        self.average_rating = round(service_avg, 1)
