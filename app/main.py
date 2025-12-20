@@ -29,9 +29,7 @@ class CarWashStation:
         return income
 
     def calculate_washing_price(self, car: Car) -> float:
-        max_difference = max(self.clean_power, car.clean_mark)
-        min_difference = min(self.clean_power, car.clean_mark)
-        clean_difference = max_difference - min_difference
+        clean_difference = self.clean_power - car.clean_mark
         comfort = car.comfort_class
         avg_rating = self.average_rating
         car_clean_average = comfort * clean_difference * avg_rating
