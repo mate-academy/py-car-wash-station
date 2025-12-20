@@ -31,7 +31,8 @@ cars with `clean_mark` < `clean_power` of wash station
 and returns income of `CarWashStation` for serving this list of Car's, 
 rounded to 1 decimal:
 
-```python
+'''
+python
 bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
 audi = Car(comfort_class=4, clean_mark=9, brand='Audi')
 
@@ -44,11 +45,12 @@ wash_station = CarWashStation(
     count_of_ratings=6
 )
 
+
 income = wash_station.serve_cars([bmw, audi])
 
 print(income)  # 6.3
 print(bmw.clean_mark)  # 6
-```
+
 
 So, only bmw was washed, because `audi.clean_mark` > `wash_station.clean_power`,
 and `bmw.clean_mark` has changed, because we washed it.
