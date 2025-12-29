@@ -1,11 +1,20 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+    def __init__(
+        self,
+        comfort_class: int,
+        clean_mark: int,
+        brand: str,
+    ) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
 
     def __repr__(self) -> str:
-        return f"Car(comfort_class={self.comfort_class}, clean_mark={self.clean_mark}, brand={self.brand})"
+        return (
+            f"Car(comfort_class={self.comfort_class},"
+            f"clean_mark={self.clean_mark},"
+            f"brand={self.brand})"
+        )
 
 
 class CarWashStation:
@@ -22,7 +31,8 @@ class CarWashStation:
         self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars_list: list[Car]) -> float:
-        """this method serve a list of cars and return the total income from washing them"""
+        """this method serve a list of cars and return the total
+        income from washing them"""
         total_income = 0.0
         for car in cars_list:
             if self.clean_power > car.clean_mark:
@@ -45,7 +55,8 @@ class CarWashStation:
         return round(cust, 1)
 
     def rate_service(self, mark: int) -> None:
-        """this method update the average rating of the car wash station based on a new mark"""
+        """this method update the average rating of the
+        car wash station based on a new mark"""
         total_rating = self.average_rating * self.count_of_ratings
         total_rating += mark
         self.count_of_ratings += 1
