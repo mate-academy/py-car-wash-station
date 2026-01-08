@@ -17,7 +17,7 @@ class CarWashStation:
         for car_class in car:
             if car_class.clean_mark > self.clean_power:
                 continue
-            income += self.calculate_washing_price(car_class) # no formula in README so asking GPT
+            income += self.calculate_washing_price(car_class)
             self.wash_single_car(car_class)
         return round(income, 1)
 
@@ -28,9 +28,9 @@ class CarWashStation:
 
     def wash_single_car(self, car : Car) -> None:
         if self.clean_power > car.clean_mark:
-            car.clean_mark = self.clean_power #we don't return result, just apply data inside class method,                                     # so maybe will need to rewrite this method after
+            car.clean_mark = self.clean_power
 
     def rate_service(self, client_rating : float) -> None:
         self.count_of_ratings += 1
         self.average_rating = (self.average_rating * (self.count_of_ratings - 1) + client_rating) / self.count_of_ratings
-        self.average_rating = round(self.average_rating,1)
+        self.average_rating = round(self.average_rating, 1)
