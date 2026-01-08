@@ -20,9 +20,8 @@ class CarWashStation:
             if car_class.clean_mark > self.clean_power:
                 continue
             else:
-                income += (car_class.comfort_class * (self.clean_power - car_class.clean_mark)
-                           * self.average_rating / self.distance_from_city_center) # no formula in README so asking GPT
-                car_class.clean_mark = self.clean_power
+                income += self.calculate_washing_price(car_class) # no formula in README so asking GPT
+                self.wash_single_car(car_class)
         return round(income, 1)
 
     '''Create a method to calculate washing price for a single car(stored through Car class)'''
