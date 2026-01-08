@@ -31,12 +31,13 @@ class CarWashStation:
         return round(washing_price, 1)
 
     '''Create a one car wash method, and we just change parameter clean_mark in Car'''
-    def wash_single_car(self, car : Car) -> None:
+    def wash_single_car(self, car : Car) -> int:
         if self.clean_power > car.clean_mark:
             car.clean_mark = self.clean_power #we don't return result, just apply data inside class method,
-                                              # so maybe will need to rewrite this method after
+        return car.clean_mark                                      # so maybe will need to rewrite this method after
 
     '''Change rating of our WAsh station after client ratings'''
-    def rate_service(self, client_rating : float) -> None:
+    def rate_service(self, client_rating : float) -> tuple[float, int]:
         self.count_of_ratings += 1
         self.average_rating = (self.average_rating + client_rating) / self.count_of_ratings
+        return self.average_rating, self.count_of_ratings
