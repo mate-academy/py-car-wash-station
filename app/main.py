@@ -41,8 +41,3 @@ class CarWashStation:
         self.count_of_ratings += 1
         self.average_rating = (self.average_rating * (self.count_of_ratings - 1) + client_rating) / self.count_of_ratings
         self.average_rating = round(self.average_rating,1)
-
-test_rating = CarWashStation(2, 9, 2.4 , 11)
-test_rating.rate_service(5)
-print(test_rating.average_rating)
-print(test_rating.count_of_ratings)
