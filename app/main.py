@@ -12,3 +12,16 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
+    '''Create a method to provide a service of  car washing and calculate income from all cars(stored through Car class)
+        that we washed'''
+    def serve_cars(self, car : list[Car]) -> float:
+        income = 0
+        for car_class in car:
+            if car_class.clean_mark > self.clean_power:
+                continue
+            else:
+                income += (car_class.comfort_class * (self.clean_power - car_class.clean_mark)
+                           * self.average_rating / self.distance_from_city_center) # no formula in README so asking GPT
+                car_class.clean_mark = self.clean_power
+        return round(income, 1)
+
