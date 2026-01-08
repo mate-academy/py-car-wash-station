@@ -12,32 +12,25 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-    '''Create a method to provide a service of  car washing and calculate income from all cars(stored through Car class)
-        that we washed'''
     def serve_cars(self, car : list[Car]) -> float:
         income = 0
         for car_class in car:
             if car_class.clean_mark > self.clean_power:
                 continue
-            else:
-                income += self.calculate_washing_price(car_class) # no formula in README so asking GPT
-                self.wash_single_car(car_class)
+            income += self.calculate_washing_price(car_class) # no formula in README so asking GPT
+            self.wash_single_car(car_class)
         return round(income, 1)
 
-    '''Create a method to calculate washing price for a single car(stored through Car class)'''
     def calculate_washing_price(self, car : Car) -> float:
         washing_price = (car.comfort_class * (self.clean_power - car.clean_mark)
                          * self.average_rating / self.distance_from_city_center)
         return round(washing_price, 1)
 
-    '''Create a one car wash method, and we just change parameter clean_mark in Car'''
-    def wash_single_car(self, car : Car) -> int:
+    def wash_single_car(self, car : Car) -> None:
         if self.clean_power > car.clean_mark:
-            car.clean_mark = self.clean_power #we don't return result, just apply data inside class method,
-        return car.clean_mark                                      # so maybe will need to rewrite this method after
+            car.clean_mark = self.clean_power #we don't return result, just apply data inside class method,                                     # so maybe will need to rewrite this method after
 
-    '''Change rating of our WAsh station after client ratings'''
-    def rate_service(self, client_rating : float) -> tuple[float, int]:
+    def rate_service(self, client_rating : float) -> None:
         self.count_of_ratings += 1
         self.average_rating = (self.average_rating * (self.count_of_ratings - 1) + client_rating) / self.count_of_ratings
         self.average_rating = round(self.average_rating,1)
