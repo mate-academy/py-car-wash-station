@@ -1,6 +1,6 @@
 class Car:
-    def __init__(self, comfort_class: str, clean_mark: str,
-                 brand: int) -> None:
+    def __init__(self, comfort_class: str, clean_mark: int,
+                 brand: str) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
