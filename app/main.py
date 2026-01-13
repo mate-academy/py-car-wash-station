@@ -52,3 +52,4 @@ class CarWashStation:
         total = self.average_rating * self.count_of_ratings
         self.count_of_ratings += 1
         self.average_rating = round((total + mark) / self.count_of_ratings, 1)
+#
