@@ -27,15 +27,15 @@ class CarWashStation:
         total_price = 0
         for car in cars:
             total_price += self.wash_single_car(car)
-        return total_price
+        return round(total_price, 1)
 
     def wash_single_car(self, car: Car) -> float:
-        total_price = 0
-        if self.clean_power < car.clean_mark:
+        car_wash_price = 0
+        if self.clean_power <= car.clean_mark:
             return 0
-        total_price += self.calculate_washing_price(car)
+        car_wash_price += self.calculate_washing_price(car)
         car.clean_mark = self.clean_power
-        return total_price
+        return car_wash_price
 
     def calculate_washing_price(self, car: Car) -> float:
         price = (
