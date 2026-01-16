@@ -27,7 +27,7 @@ class CarWashStation:
             if car.clean_mark < self.clean_power:
                 list_incomes.append(self.calculate_washing_price(car))
                 self.wash_single_car(car)
-        return sum(list_incomes)
+        return round(sum(list_incomes), 1)
 
     def calculate_washing_price(self, car: Car) -> float:
         return round(
