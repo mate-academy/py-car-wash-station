@@ -1,5 +1,5 @@
 class Car:
-    def __init__(self, comfort_class: str, clean_mark: str, brand: str):
+    def __init__(self, comfort_class: int, clean_mark: int, brand: str):
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -19,7 +19,7 @@ class CarWashStation:
            return round(price, 1)
         return 0.0
 
-    def wash_single_car(self, car: Car) -> float:
+    def wash_single_car(self, car: Car) -> None:
         if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
 
