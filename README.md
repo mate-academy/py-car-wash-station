@@ -35,7 +35,7 @@ rounded to 1 decimal:
 bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
 audi = Car(comfort_class=4, clean_mark=9, brand='Audi')
 
-print(bmw.clean_mark)  # 3
+print(bmw.clean_car)  # 3
 
 wash_station = CarWashStation(
     distance_from_city_center=5,
@@ -47,7 +47,7 @@ wash_station = CarWashStation(
 income = wash_station.serve_cars([bmw, audi])
 
 print(income)  # 6.3
-print(bmw.clean_mark)  # 6
+print(bmw.clean_car)  # 6
 ```
 
 So, only bmw was washed, because `audi.clean_mark` > `wash_station.clean_power`,
@@ -60,8 +60,8 @@ and the income would have raised:
 bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
 audi = Car(comfort_class=4, clean_mark=2, brand='Audi')
 
-print(bmw.clean_mark)  # 3
-print(audi.clean_mark) # 2
+print(bmw.clean_car)  # 3
+print(audi.clean_car)  # 2
 
 wash_station = CarWashStation(
     distance_from_city_center=5,
@@ -74,8 +74,8 @@ income = wash_station.serve_cars([bmw, audi])
 
 print(income)  # 17.5
 
-print(bmw.clean_mark)  # 6
-print(audi.clean_mark) # 6
+print(bmw.clean_car)  # 6
+print(audi.clean_car)  # 6
 ```
 
 2. `calculate_washing_price` - method, that calculates cost for a 
@@ -99,18 +99,19 @@ wash_station = CarWashStation(
     count_of_ratings=11
 )
 
-print(wash_station.average_rating)    # 3.9
-print(wash_station.count_of_ratings)  # 11
+print(wash_station.rating)  # 3.9
+print(wash_station.count_ratings)  # 11
 
 wash_station.rate_service(5)
 
-print(wash_station.average_rating)    # 4.0
-print(wash_station.count_of_ratings)  # 12
+print(wash_station.rating)  # 4.0
+print(wash_station.count_ratings)  # 12
 ```
 
 You can add own methods if you need.
 
 Example:
+
 ```python
 bmw = Car(3, 3, 'BMW')
 audi = Car(4, 9, 'Audi')
@@ -126,22 +127,22 @@ income = ws.serve_cars([
 
 income == 41.7
 
-bmw.clean_mark == 8
-audi.clean_mark == 9  
-mercedes.clean_mark == 8
+bmw.clean_car == 8
+audi.clean_car == 9
+mercedes.clean_car == 8
 # audi wasn't washed
 # all other cars are washed to '8'
 
 ford = Car(2, 1, 'Ford')
-wash_cost = ws.calculate_washing_price(ford)  
+wash_cost = ws.calculate_washing_price(ford)
 # only calculating cost, not washing
 wash_cost == 9.1
-ford.clean_mark == 1 
+ford.clean_car == 1
 
 ws.rate_service(5)
 
-ws.count_of_ratings == 12
-ws.average_rating == 4.0
+ws.count_ratings == 12
+ws.rating == 4.0
 ```
 
 ### Note: Check your code using this [checklist](checklist.md) before pushing your solution.

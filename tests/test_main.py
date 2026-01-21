@@ -7,8 +7,8 @@ from app.main import Car, CarWashStation
 
 def test_car():
     bmw = Car(2, 3, "BMW")
-    assert bmw.comfort_class == 2, "Class Car should store 'comfort_class'"
-    assert bmw.clean_mark == 3, "Class Car should store 'clean_mark'"
+    assert bmw.cf_class == 2, "Class Car should store 'comfort_class'"
+    assert bmw.clean_car == 3, "Class Car should store 'clean_mark'"
     assert bmw.brand == "BMW", "Class Car should store 'brand'"
 
 
@@ -65,7 +65,7 @@ def test_wash_single_car_is_called():
 )
 def test_car_is_washed(cars, wash_station, cars_clean_marks):
     wash_station.serve_cars(cars)
-    assert [car.clean_mark for car in cars] == cars_clean_marks, (
+    assert [car.clean_car for car in cars] == cars_clean_marks, (
         f"Car should keep his 'clear_mark' if it >= 'clear_power' of wash station, "
         f"otherwise it should equal to 'clear_power'"
     )
@@ -81,7 +81,7 @@ def test_car_is_washed(cars, wash_station, cars_clean_marks):
 )
 def test_car_cost_check_not_washed(car, wash_station, mark):
     wash_station.calculate_washing_price(car)
-    assert car.clean_mark == mark, (
+    assert car.clean_car == mark, (
         f"Method 'calculate_washing_price' should not change" f"'car.clean_mark'"
     )
 
@@ -100,12 +100,12 @@ def test_rate_service(
 ):
     ws = CarWashStation(2, 9, init_avg_rating, init_num_ratings)
     ws.rate_service(mark)
-    assert ws.average_rating == result_avg_rating, (
+    assert ws.rating == result_avg_rating, (
         f"'average_rating' should equal to {result_avg_rating}, "
         f"when initial 'average_rating' was {init_avg_rating}, "
         f"and initial 'count_of_ratings' was {init_num_ratings}"
     )
-    assert ws.count_of_ratings == result_num_ratings, (
+    assert ws.count_ratings == result_num_ratings, (
         f"'count_of_ratings' should equal to {result_num_ratings}, "
         f"when initial 'count_of_ratings' was {init_num_ratings}"
     )
