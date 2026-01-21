@@ -31,6 +31,7 @@ cars with `clean_mark` < `clean_power` of wash station
 and returns income of `CarWashStation` for serving this list of Car's, 
 rounded to 1 decimal:
 
+
 ```python
 bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
 audi = Car(comfort_class=4, clean_mark=9, brand='Audi')
@@ -55,6 +56,7 @@ and `bmw.clean_mark` has changed, because we washed it.
 
 If `audi.clean_mark` was below `wash_station.clean_power` then `audi` would have been washed as well
 and the income would have raised:
+
 
 ```python
 bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
@@ -91,6 +93,7 @@ have `clean_mark` equals wash station's `clean_power`, if
 4. `rate_service` - method that adds a single rate to the wash station, and based on this single rate
 `average_rating` and `count_of_ratings` should be changed:
 
+   
 ```python
 wash_station = CarWashStation(
     distance_from_city_center=6,
@@ -111,6 +114,8 @@ print(wash_station.count_of_ratings)  # 12
 You can add own methods if you need.
 
 Example:
+
+
 ```python
 bmw = Car(3, 3, 'BMW')
 audi = Car(4, 9, 'Audi')
