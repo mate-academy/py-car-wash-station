@@ -6,7 +6,7 @@
 or break after binary operations (not before - it cause the W504 errors)
 
 Good example:
-
+                              
 ```python
 fuel_consumption = max_fuel_consumption * height_fuel_consumption_coeficient
 estimated_speed = plan_max_speed - wind_awerage_speed * wind_angle_coefisient
