@@ -40,11 +40,11 @@ def test_car_wash_station(cars, wash_station, total_cost):
     assert income == total_cost, f"Income should equal to {total_cost}"
 
 def test_wash_single_car_is_called():
-    with patch.object(CarWashStation, 'wash_single_car') as mock_method:
-        CarWashStation(3, 9, 4, 11).serve_cars([Car(2, 1, "Ford")])
-        assert mock_method.called, "Expected 'wash_single_car' to have " \
-                                   "been called inside 'serve_cars' method"
-
+    car_wash_station = CarWashStation(3, 9, 4, 11)
+    car = Car(2, 1, "Ford")
+    with patch.object(car_wash_station, 'calculate_washing_price') as mock_calculate_washing_price:  # Патчимо calculate_washing_price
+        car_wash_station.serve_cars([car])
+        mock_calculate_washing_price.assert_called_once_with(car)
 
 @pytest.mark.parametrize(
     "cars,wash_station,cars_clean_marks",
