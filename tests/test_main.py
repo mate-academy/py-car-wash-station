@@ -43,7 +43,7 @@ def test_wash_single_car_is_called():
     with patch.object(CarWashStation, 'wash_single_car') as mock_method:
         CarWashStation(3, 9, 4, 11).serve_cars([Car(2, 1, "Ford")])
         assert mock_method.called, "Expected 'wash_single_car' to have " \
-                                   "been called inside 'serve_cars' method"
+                                "been called inside 'serve_cars' method"
 
 
 @pytest.mark.parametrize(
