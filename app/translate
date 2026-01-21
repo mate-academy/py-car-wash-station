@@ -1,0 +1,124 @@
+Мийна станція
+Прочитайте інструкцію перед початком.
+
+У вас є автомийка. Розрахунок вартості прання займає багато часу, і ви вирішили автоматизувати цей розрахунок.
+Вартість мийки буде залежати від класу комфортності автомобіля, ступеня чистоти авто, середнього рейтингу мийки
+та віддаленості мийки від центру міста.
+
+Створіть клас Car, його конструктор приймає та зберігає 3 аргументи:
+
+comfort_class- клас комфорту автомобіля від 1 до 7
+clean_mark- відмітка чистоти автомобіля від дуже брудного - 1 до абсолютно чистого - 10
+brand- марка автомобіля
+Створіть клас CarWashStation, його конструктор приймає та зберігає 4 аргументи:
+
+distance_from_city_center- як далеко станція від центру міста, від 1,0 до 10,0
+clean_power- clean_markдо якого миє дана станція автомийки (так, не всі станції можуть помити вашу машину повністю)
+average_rating- середня оцінка станції від 1,0 до 5,0 з округленням до 1 знака після коми
+count_of_ratings- кількість людей, які оцінили
+CarWashStation повинні мати такі методи:
+
+serve_cars- метод, який приймає список автомобілів Car, миє лише автомобілі з clean_mark< clean_power станції мийки та
+повертає дохід від CarWashStation обслуговування цього списку автомобілів, округлений до 1 десяткового знака:
+bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
+audi = Car(comfort_class=4, clean_mark=9, brand='Audi')
+
+print(bmw.clean_mark)  # 3
+
+wash_station = CarWashStation(
+    distance_from_city_center=5,
+    clean_power=6,
+    average_rating=3.5,
+    count_of_ratings=6
+)
+
+income = wash_station.serve_cars([bmw, audi])
+
+print(income)  # 6.3
+print(bmw.clean_mark)  # 6
+Отже, мили тільки bmw, тому що audi.clean_mark> wash_station.clean_power, і bmw.clean_mark змінили, тому що ми його мили.
+
+Якби audi.clean_mark було нижче , wash_station.clean_power то audiтакож було б вимито, і дохід підвищився б:
+
+bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
+audi = Car(comfort_class=4, clean_mark=2, brand='Audi')
+
+print(bmw.clean_mark)  # 3
+print(audi.clean_mark) # 2
+
+wash_station = CarWashStation(
+    distance_from_city_center=5,
+    clean_power=6,
+    average_rating=3.5,
+    count_of_ratings=6
+)
+
+income = wash_station.serve_cars([bmw, audi])
+
+print(income)  # 17.5
+
+print(bmw.clean_mark)  # 6
+print(audi.clean_mark) # 6
+calculate_washing_price- метод, який обчислює вартість однієї автомийки, вартість розраховується як: клас комфорту автомобіля
+* різниця між чистою потужністю мийки та маркою чистоти автомобіля * рейтинг автомийки / відстань автомийки до центру міста,
+повертає число округлено до 1 десяткового;
+wash_single_car- метод, який миє один автомобіль, тому він повинен clean_mark дорівнювати станції мийки clean_power,
+якщо wash_station.clean_power більше ніж car.clean_mark;
+
+3. `wash_single_car` - method, that washes a single car, so it should
+have `clean_mark` equals wash station's `clean_power`, if
+`wash_station.clean_power` is greater than `car.clean_mark`;
+
+if wash_station.clean_power > car.clean_mark:
+    clean_mark == clean_power
+
+rate_service- метод, який додає єдину ставку до мийної станції, і на основі цієї єдиної ставки average_rating
+слід count_of_ratings змінити:
+wash_station = CarWashStation(
+    distance_from_city_center=6,
+    clean_power=8,
+    average_rating=3.9,
+    count_of_ratings=11
+)
+
+print(wash_station.average_rating)    # 3.9
+print(wash_station.count_of_ratings)  # 11
+
+wash_station.rate_service(5)
+
+print(wash_station.average_rating)    # 4.0
+print(wash_station.count_of_ratings)  # 12
+Ви можете додати власні методи, якщо вам потрібно.
+
+приклад:
+
+bmw = Car(3, 3, 'BMW')
+audi = Car(4, 9, 'Audi')
+mercedes = Car(7, 1, 'Mercedes')
+
+ws = CarWashStation(6, 8, 3.9, 11)
+
+income = ws.serve_cars([
+    bmw,
+    audi,
+    mercedes
+])
+
+income == 41.7
+
+bmw.clean_mark == 8
+audi.clean_mark == 9  
+mercedes.clean_mark == 8
+# audi wasn't washed
+# all other cars are washed to '8'
+
+ford = Car(2, 1, 'Ford')
+wash_cost = ws.calculate_washing_price(ford)  
+# only calculating cost, not washing
+wash_cost == 9.1
+ford.clean_mark == 1 
+
+ws.rate_service(5)
+
+ws.count_of_ratings == 12
+ws.average_rating == 4.0
