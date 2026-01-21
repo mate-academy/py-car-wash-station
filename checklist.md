@@ -13,7 +13,7 @@ estimated_speed = plan_max_speed - wind_awerage_speed * wind_angle_coefisient
 estimated_time = distance_to_the_destinatoin / estimated_speed
 how_much_fuel_needed = fuel_consumption * estimated_time * overlap_coeficient
 ```
-
+    
 Good example:
 
 ```python
