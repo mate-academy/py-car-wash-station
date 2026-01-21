@@ -15,22 +15,22 @@ def test_car():
 @pytest.mark.parametrize(
     "cars,wash_station,total_cost",
     [
-        ([], CarWashStation(3, 9, 4.4, 144), 0),
-        ([Car(2, 1, "Ford")], CarWashStation(3, 9, 4.2, 11), 22.4),
-        ([Car(2, 9, "Ford")], CarWashStation(3, 8, 4.2, 11), 0),
+        ([], CarWashStation(3, 4.4, 9, 144), 0),
+        ([Car(2, 1, "Ford")], CarWashStation(3, 4.2, 9, 11), 22.4),
+        ([Car(2, 9, "Ford")], CarWashStation(3, 4.2, 8, 11), 0),
         (
             [Car(3, 3, "BMW"), Car(4, 5, "Audi"), Car(7, 1, "Mercedes")],
-            CarWashStation(6, 7, 3.9, 11),
+            CarWashStation(6, 3.9, 7, 11),
             40.3,
         ),
         (
             [Car(3, 3, "BMW"), Car(4, 5, "Audi"), Car(7, 9, "Mercedes")],
-            CarWashStation(6, 7, 3.9, 11),
+            CarWashStation(6, 3.9, 7, 11),
             13.0,
         ),
         (
             [Car(3, 8, "BMW"), Car(4, 8, "Audi"), Car(7, 9, "Mercedes")],
-            CarWashStation(6, 7, 3.9, 11),
+            CarWashStation(6, 3.9, 7, 11),
             0,
         ),
     ],
@@ -41,7 +41,7 @@ def test_car_wash_station(cars, wash_station, total_cost):
 
 def test_wash_single_car_is_called():
     with patch.object(CarWashStation, 'wash_single_car') as mock_method:
-        CarWashStation(3, 9, 4, 11).serve_cars([Car(2, 1, "Ford")])
+        CarWashStation(3, 4, 9, 11).serve_cars([Car(2, 1, "Ford")])
         assert mock_method.called, "Expected 'wash_single_car' to have " \
                                    "been called inside 'serve_cars' method"
 
@@ -49,16 +49,16 @@ def test_wash_single_car_is_called():
 @pytest.mark.parametrize(
     "cars,wash_station,cars_clean_marks",
     [
-        ([Car(2, 1, "Ford")], CarWashStation(3, 9, 4.2, 11), [9]),
-        ([Car(2, 9, "Ford")], CarWashStation(3, 8, 4.2, 11), [9]),
+        ([Car(2, 1, "Ford")], CarWashStation(3, 4.2, 9, 11), [9]),
+        ([Car(2, 9, "Ford")], CarWashStation(3, 4.2, 8, 11), [9]),
         (
             [Car(3, 3, "BMW"), Car(4, 5, "Audi"), Car(7, 1, "Mercedes")],
-            CarWashStation(6, 7, 3.9, 11),
+            CarWashStation(6, 3.9, 7, 11),
             [7, 7, 7],
         ),
         (
             [Car(3, 3, "BMW"), Car(4, 5, "Audi"), Car(7, 9, "Mercedes")],
-            CarWashStation(2, 8, 4.8, 13),
+            CarWashStation(2, 4.8, 8, 13),
             [8, 8, 9],
         ),
     ],
@@ -74,9 +74,9 @@ def test_car_is_washed(cars, wash_station, cars_clean_marks):
 @pytest.mark.parametrize(
     "car,wash_station,mark",
     [
-        (Car(2, 1, "Ford"), CarWashStation(3, 10, 4.2, 11), 1),
-        (Car(4, 5, "Audi"), CarWashStation(6, 8, 3.9, 11), 5),
-        (Car(3, 3, "BMW"), CarWashStation(2, 9, 4.8, 13), 3),
+        (Car(2, 1, "Ford"), CarWashStation(3, 4.2, 10, 11), 1),
+        (Car(4, 5, "Audi"), CarWashStation(6, 3.9, 8, 11), 5),
+        (Car(3, 3, "BMW"), CarWashStation(2, 4.8, 9, 13), 3),
     ],
 )
 def test_car_cost_check_not_washed(car, wash_station, mark):
@@ -98,7 +98,7 @@ def test_car_cost_check_not_washed(car, wash_station, mark):
 def test_rate_service(
     init_avg_rating, init_num_ratings, mark, result_avg_rating, result_num_ratings
 ):
-    ws = CarWashStation(2, 9, init_avg_rating, init_num_ratings)
+    ws = CarWashStation(2, init_avg_rating, 9, init_num_ratings)
     ws.rate_service(mark)
     assert ws.average_rating == result_avg_rating, (
         f"'average_rating' should equal to {result_avg_rating}, "
