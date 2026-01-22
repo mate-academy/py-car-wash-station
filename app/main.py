@@ -1,8 +1,48 @@
 class Car:
-    # write your code here
-    pass
+    def __init__(
+            self, comfort_class: int, clean_mark: int, brand: str
+    ) -> None:
+        self.comfort_class = comfort_class
+        self.clean_mark = clean_mark
+        self.brand = brand
+
+    def set_clean_mark(self, number: int) -> None:
+        self.clean_mark = number
 
 
 class CarWashStation:
-    # write your code here
-    pass
+    def __init__(
+            self,
+            distance_from_city_center: int,
+            clean_power: int,
+            average_rating: int | float,
+            count_of_ratings: int
+    ) -> None:
+        self.distance_from_city_center = distance_from_city_center
+        self.clean_power = clean_power
+        self.average_rating = average_rating
+        self.count_of_ratings = count_of_ratings
+
+    def serve_cars(self, items: [Car]) -> int | float:
+        price = 0
+        for item in items:
+            if item.clean_mark < self.clean_power:
+                price += self.calculate_washing_price(item)
+                self.wash_single_car(item)
+
+        return round(price, 1)
+
+    def rate_service(self, new_rate: int) -> None:
+        self.average_rating = round(
+            ((self.average_rating * self.count_of_ratings) + new_rate)
+            / (self.count_of_ratings + 1)
+            , 1
+        )
+        self.count_of_ratings += 1
+
+    def calculate_washing_price(self, item: Car) -> int | float:
+        return ((item.comfort_class * (self.clean_power - item.clean_mark))
+                * (self.average_rating / self.distance_from_city_center))
+
+    def wash_single_car(self, item: Car) -> None:
+        item.set_clean_mark(self.clean_power)
