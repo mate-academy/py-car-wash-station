@@ -17,7 +17,7 @@ dirty - 1 to absolutely clean - 10
 
 Create class `CarWashStation`, its `__init__` method takes and
 stores 4 arguments:
-1. `distance_from_city_center` - how far station from
+1. `_city_distance_fromcenter` - how far station from
 the city center, from 1.0 to 10.0
 2. `clean_power` - `clean_mark` to which this car wash station
 washes (yes, not all stations can clean your car completely)
@@ -78,19 +78,10 @@ print(bmw.clean_mark)  # 6
 print(audi.clean_mark) # 6
 ```
 
-2. `calculate_washing_price` - method, that calculates cost for a 
-single car wash,
-cost is calculated as: car's comfort class * difference between
-wash station's clean power and car's clean mark * car wash station 
-rating / car wash station 
-distance to the center of the city, returns number rounded 
-to 1 decimal;
-3. `wash_single_car` - method, that washes a single car, so it should 
-have `clean_mark` equals wash station's `clean_power`, if 
-`wash_station.clean_power` is greater than `car.clean_mark`;
-4. `rate_service` - method that adds a single rate to the wash station, and based on this single rate
-`average_rating` and `count_of_ratings` should be changed:
-
+2. ``serve_cars` - method, that takes a list of `Car`'s, washes only
+cars with `clean_mark` < `clean_power` of wash station
+and returns income of `CarWashStation` for serving this list of Car's, 
+rounded to 1 decimal:
 ```python
 wash_station = CarWashStation(
     distance_from_city_center=6,
