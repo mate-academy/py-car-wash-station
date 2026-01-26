@@ -51,4 +51,4 @@ class CarWashStation:
         new_average = round(new_average, 1)
         self.average_rating = new_average
         self.count_of_ratings += 1
-        return round(new_average, 1)
+        return new_average
