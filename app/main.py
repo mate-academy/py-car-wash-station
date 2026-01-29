@@ -36,7 +36,7 @@ class CarWashStation:
                           / self.distance_from_city_center)
         return income_one_car
 
-    def rate_service(self, rate: int):
+    def rate_service(self, rate: int) -> None:
         self.average_rating = round((self.average_rating
                                      * self.count_of_ratings + rate)
                                     / (self.count_of_ratings + 1), 1)
