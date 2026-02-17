@@ -3,7 +3,7 @@ from typing import Any
 
 class Car:
     def __init__(self, comfort_class: Any,
-                 clean_mark: Any, brand: Any) -> None:
+                 clean_mark: Any, brand: Any) -> Any:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
