@@ -28,14 +28,14 @@ class CarWashStation:
                             * (self.clean_power - car.clean_mark)
                             * (self.average_rating
                                / self.distance_from_city_center))
-        return count_of_washing
+        return round(count_of_washing, 1)
 
     def wash_single_car(self, car: Car) -> None:
         if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
 
-    def rate_service(self, nums: float) -> tuple:
-        self.average_rating = round(((self.average_rating * self.count_of_ratings + nums)  # noqa: E501
+    def rate_service(self, rate: float) -> tuple:
+        self.average_rating = round(((self.average_rating * self.count_of_ratings + rate)  # noqa: E501
                                      / (self.count_of_ratings + 1)), 1)
         self.count_of_ratings += 1
         return self.average_rating, self.count_of_ratings
