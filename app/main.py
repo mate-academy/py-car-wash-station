@@ -45,27 +45,3 @@ class CarWashStation:
 
         new_average = (total_rating_points + new_rating) / self.count_of_ratings
         self.average_rating = round(new_average, 1)
-
-bmw = Car(comfort_class=3, clean_mark=3, brand='BMW')
-audi = Car(comfort_class=4, clean_mark=9, brand='Audi')
-
-wash_station = CarWashStation(
-    distance_from_city_center=5,
-    clean_power=6,
-    average_rating=3.5,
-    count_of_ratings=6
-)
-
-income = wash_station.serve_cars([bmw, audi])
-print(f"Income: {income}")
-print(f"BMW Clean: {bmw.clean_mark}")
-
-wash_station_2 = CarWashStation(
-    distance_from_city_center=6,
-    clean_power=8,
-    average_rating=3.9,
-    count_of_ratings=11
-)
-wash_station_2.rate_service(5)
-print(f"New Rating: {wash_station_2.average_rating}")
-print(f"New Count: {wash_station_2.count_of_ratings}")
