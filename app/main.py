@@ -41,6 +41,7 @@ class CarWashStation:
         return round(price, 1)
 
     def wash_single_car(self, car: Car) -> None:
+        price = 0.0
         if self.clean_power > car.clean_mark:
             price = self.calculate_washing_price(car)
             car.clean_mark = self.clean_power
