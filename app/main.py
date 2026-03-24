@@ -29,7 +29,7 @@ class CarWashStation:
     def serve_cars(self, cars: List[Car]) -> float:
         income = 0
         for car in cars:
-            if self.clean_power >= car.clean_mark:
+            if self.clean_power > car.clean_mark:
                 income += self.calculate_washing_price(car)
                 self.wash_single_car(car)
         return round(income, 1)
