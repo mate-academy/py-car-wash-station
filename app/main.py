@@ -40,8 +40,7 @@ class CarWashStation:
             car_calculated_price = self.calculate_washing_price(car)
             car.clean_mark = self.clean_power
             return car_calculated_price
-        else:
-            return 0.0
+        return 0.0
 
     def rate_service(self, mark: float) -> float:
         self.average_rating = round(
