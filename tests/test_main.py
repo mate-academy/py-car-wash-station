@@ -105,8 +105,8 @@ def test_rate_service(
         f"when initial 'average_rating' was {init_avg_rating}, "
         f"and initial 'count_of_ratings' was {init_num_ratings}"
     )
-    assert ws.count_of_rating == result_num_ratings, (
-        f"'count_of_rating' should equal to {result_num_ratings}, "
+    assert ws.count_of_ratings == result_num_ratings, (
+        f"'count_of_ratings' should equal to {result_num_ratings}, "
         f"when initial 'count_of_ratings' was {init_num_ratings}"
     )
 
