@@ -2,7 +2,12 @@ from typing import List
 
 
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+    def __init__(
+        self,
+        comfort_class: int,
+        clean_mark: int,
+        brand: str,
+    ) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -14,7 +19,7 @@ class CarWashStation:
         distance_from_city_center: float,
         clean_power: int,
         average_rating: float,
-        count_of_ratings: int
+        count_of_ratings: int,
     ) -> None:
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
@@ -50,7 +55,9 @@ class CarWashStation:
     def rate_service(self, new_rate: int) -> None:
         total_rating = self.average_rating * self.count_of_ratings
         total_rating += new_rate
+
         self.count_of_ratings += 1
         self.average_rating = round(
-            total_rating / self.count_of_ratings, 1
+            total_rating / self.count_of_ratings,
+            1,
         )
