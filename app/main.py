@@ -12,11 +12,12 @@ class Car:
 
 
 class CarWashStation:
-    def __init__(self,
-                 distance_from_city_center: float,
-                 clean_power: int,
-                 average_rating: float,
-                 count_of_ratings: int,
+    def __init__(
+            self,
+            distance_from_city_center: float,
+            clean_power: int,
+            average_rating: float,
+            count_of_ratings: int,
     ) -> None:
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
@@ -27,7 +28,12 @@ class CarWashStation:
         total_diff = self.clean_power - car.clean_mark
         if total_diff <= 0:
             return 0
-        pricewash = car.comfort_class * total_diff * self.average_rating / self.distance_from_city_center
+        pricewash = (
+                car.comfort_class
+                * total_diff
+                * self.average_rating
+                / self.distance_from_city_center
+        )
         return round(pricewash, 1)
 
     def wash_single_car(self, car: Car) -> None:
