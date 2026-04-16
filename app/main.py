@@ -45,8 +45,11 @@ class CarWashStation:
             car.clean_mark = self.clean_power
         return car.clean_mark
 
-    def rate_service(self, new_rate: int) -> Any:
-        rating = self.average_rating * self.count_of_ratings + new_rate
+    def rate_service(self, new_rate: int) -> None:
+        if not isinstance(new_rate, (int, float)):
+            raise ValueError("Rate must be a number")
+        if not (1 <= new_rate <= 5):
+            raise ValueError("Rate must be between 1 and 5")
+        total_score = self.average_rating * self.count_of_ratings + new_rate
         self.count_of_ratings += 1
-        self.average_rating = round(rating / self.count_of_ratings, 1)
-        return self.average_rating
+        self.average_rating = round(total_score / self.count_of_ratings, 1)
