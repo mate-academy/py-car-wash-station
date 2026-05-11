@@ -55,4 +55,3 @@ class CarWashStation:
             (total_points + new_rate) / self.count_of_ratings,
             1
         )
-        
