@@ -78,3 +78,4 @@ def is_adult(age: int) -> str:
 
 2. Add comments, prints, and functions to check your solution when you write your code. 
 Don't forget to delete them when you are ready to commit and push your code.
+class Car:
