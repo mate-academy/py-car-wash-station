@@ -1,5 +1,10 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+    def __init__(
+            self,
+            comfort_class: int,
+            clean_mark: int,
+            brand: str
+    ) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -18,26 +23,29 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-
     def calculate_washing_price(self, car: Car) -> float:
         """Calculates the cost of washing one car."""
         price = (
-                car.comfort_class
-                * (self.clean_power - car.clean_mark)
-                * self.average_rating
-                / self.distance_from_city_center
+            car.comfort_class
+            * (self.clean_power - car.clean_mark)
+            * self.average_rating
+            / self.distance_from_city_center
         )
         return round(price, 1)
 
-
     def wash_single_car(self, car: Car) -> None:
-        """Washes the car, improving its cleanliness to clean_power level."""
+        """Washes the car, improving its cleanliness
+
+        to clean_power level.
+        """
         if self.clean_power > car.clean_mark:
             car.clean_mark = self.clean_power
 
-
     def serve_cars(self, cars: list[Car]) -> float:
-        """Washes only those cars that are dirtier than clean_power and returns the total revenue."""
+        """Washes only those cars that are dirtier than clean_power
+
+        and returns the total revenue.
+        """
         total_income = 0.0
 
         for car in cars:
@@ -47,12 +55,16 @@ class CarWashStation:
 
         return round(total_income, 1)
 
-
     def rate_service(self, new_rating: int) -> None:
-        """Adds a new rating and recalculates the average station rating."""
+        """Adds a new rating and recalculates
+
+        the average station rating.
+        """
         total_rating_sum = self.average_rating * self.count_of_ratings
 
         total_rating_sum += new_rating
         self.count_of_ratings += 1
 
-        self.average_rating = round(total_rating_sum / self.count_of_ratings, 1)
+        self.average_rating = round(
+            total_rating_sum / self.count_of_ratings, 1
+        )
