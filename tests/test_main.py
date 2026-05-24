@@ -1,25 +1,31 @@
 import pytest
-from app.main import Car, CarWashStation
+from app.main import cache
 
 
-def test_car_initialization() -> None:
-    car = Car(3, 5, "BMW")
-    assert car.comfort_class == 3
-    assert car.clean_mark == 5
-    assert car.brand == "BMW"
+def test_cache_initial() -> None:
+    @cache
+    def inside_func(x: int) -> int:
+        inside_func.calls += 1
+        return x * 2
+
+    inside_func.calls = 0
+
+    assert inside_func(5) == 10
+    assert inside_func(5) == 10
+    # Якщо кеш працює, функція всередині викликалася лише 1 раз
+    assert inside_func.calls == 1
 
 
-def test_calculate_washing_price() -> None:
-    car = Car(3, 3, "BMW")
-    ws = CarWashStation(5.0, 6, 3.5, 6)
-    assert ws.calculate_washing_price(car) == 6.3
+def test_cache_with_multiple_arguments() -> None:
+    @cache
+    def add(a: int, b: int) -> int:
+        add.calls += 1
+        return a + b
 
+    add.calls = 0
 
-def test_serve_cars() -> None:
-    bmw = Car(3, 3, "BMW")
-    audi = Car(4, 9, "Audi")
-    ws = CarWashStation(5.0, 6, 3.5, 6)
-    income = ws.serve_cars([bmw, audi])
-    assert income == 6.3
-    assert bmw.clean_mark == 6
-    assert audi.clean_mark == 9
+    assert add(2, 3) == 5
+    assert add(2, 3) == 5
+    assert add(4, 5) == 9
+    assert add(2, 3) == 5
+    assert add.calls == 2
