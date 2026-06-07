@@ -39,11 +39,14 @@ def test_car_wash_station(cars, wash_station, total_cost):
     income = wash_station.serve_cars(cars)
     assert income == total_cost, f"Income should equal to {total_cost}"
 
+
 def test_wash_single_car_is_called():
-    with patch.object(CarWashStation, 'wash_single_car') as mock_method:
+    with patch.object(CarWashStation, "wash_single_car") as mock_method:
         CarWashStation(3, 9, 4, 11).serve_cars([Car(2, 1, "Ford")])
-        assert mock_method.called, "Expected 'wash_single_car' to have " \
-                                   "been called inside 'serve_cars' method"
+        assert mock_method.called, (
+            "Expected 'wash_single_car' to have "
+            "been called inside 'serve_cars' method"
+        )
 
 
 @pytest.mark.parametrize(
@@ -121,5 +124,5 @@ def test_unnecessary_comment():
         main_content = main.read()
 
         assert (
-                "# write your code here" not in main_content
+            "# write your code here" not in main_content
         ), "Remove unnecessary comment"
