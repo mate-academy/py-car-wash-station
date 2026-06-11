@@ -1,3 +1,13 @@
+from decimal import Decimal, ROUND_HALF_UP
+
+
+ROUNDING_PRECISION = Decimal("0.1")
+
+
+def _round_to_tenth(value: Decimal) -> float:
+    return float(value.quantize(ROUNDING_PRECISION, rounding=ROUND_HALF_UP))
+
+
 class Car:
     def __init__(
         self,
@@ -25,18 +35,18 @@ class CarWashStation:
 
     def calculate_washing_price(self, car: Car) -> float:
         price = (
-            car.comfort_class
-            * (self.clean_power - car.clean_mark)
-            * self.average_rating
-            / self.distance_from_city_center
+            Decimal(car.comfort_class)
+            * Decimal(self.clean_power - car.clean_mark)
+            * Decimal(str(self.average_rating))
+            / Decimal(str(self.distance_from_city_center))
         )
-        return round(price, 1)
+        return _round_to_tenth(price)
 
     def wash_single_car(self, car: Car) -> None:
         if self.clean_power > car.clean_mark:
             car.clean_mark = self.clean_power
 
-    def serve_cars(self, cars: list) -> float:
+    def serve_cars(self, cars: list[Car]) -> float:
         income = 0
         for car in cars:
             if self.clean_power > car.clean_mark:
@@ -45,10 +55,11 @@ class CarWashStation:
         return round(income, 1)
 
     def rate_service(self, rating: float) -> float:
-        past_points = self.average_rating * self.count_of_ratings
-        self.average_rating = round(
-            (past_points + rating) / (self.count_of_ratings + 1),
-            1,
+        past_points = Decimal(str(self.average_rating)) * self.count_of_ratings
+        new_rating = (
+            (past_points + Decimal(str(rating)))
+            / (self.count_of_ratings + 1)
         )
+        self.average_rating = _round_to_tenth(new_rating)
         self.count_of_ratings += 1
         return self.average_rating
