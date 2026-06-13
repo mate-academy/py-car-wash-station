@@ -2,9 +2,15 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+<<<<<<< HEAD
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.14 (Car_Wash_Station) (2)" jdkType="Python SDK" />
+=======
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.14 (Car_Wash_Station)" jdkType="Python SDK" />
+>>>>>>> b8d9524662e3e11c504b32fd0a3d00578f283a2e
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">
