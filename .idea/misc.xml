@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Black">
+<<<<<<< HEAD
+    <option name="sdkName" value="Python 3.14 (Car_Wash_Station) (2)" />
+=======
+    <option name="sdkName" value="Python 3.14 (Car_Wash_Station)" />
+>>>>>>> b8d9524662e3e11c504b32fd0a3d00578f283a2e
+  </component>
+</project>
