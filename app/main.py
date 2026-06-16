@@ -1,5 +1,10 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+    def __init__(
+        self,
+        comfort_class: int,
+        clean_mark: int,
+        brand: str
+    ) -> None:
         if not 1 <= comfort_class <= 7:
             raise ValueError("Class must be in 1 to 7")
         if not 1 <= clean_mark <= 10:
@@ -39,10 +44,12 @@ class CarWashStation:
         return round(total_price, 1)
 
     def calculate_washing_price(self, car: Car) -> float:
-        washing_price = (car.comfort_class
+        washing_price = (
+            car.comfort_class
             * (self.clean_power - car.clean_mark)
             * self.average_rating
-            / self.distance_from_city_center)
+            / self.distance_from_city_center
+        )
 
         return round(washing_price, 1)
 
