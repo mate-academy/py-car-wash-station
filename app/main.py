@@ -39,7 +39,7 @@ class CarWashStation:
                      * self.average_rating
                      / self.distance_from_city_center, 1)
 
-    def serve_cars(self, car_list: list):
+    def serve_cars(self, car_list: list) -> int:
         income = 0
         for car in car_list:
             result = self.wash_single_car(car)
