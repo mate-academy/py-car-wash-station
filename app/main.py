@@ -1,9 +1,10 @@
-from symtable import Class
-
-
 class Car:
     def __init__(self, comfort_class: int, clean_mark: int,
-                 brand: int) -> None:
+                 brand: str) -> None:
+        if not 1 <= comfort_class <= 7:
+            raise ValueError("comfort_class must be from 1 to 7")
+        if not 1 <= clean_mark <= 10:
+            raise ValueError("clean_mark must be from 1 to 10")
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -29,7 +30,7 @@ class CarWashStation:
                 self.wash_single_car(car)
         return round(income, 1)
 
-    def calculate_washing_price(self, car: Class) -> float :
+    def calculate_washing_price(self, car: Car) -> float :
         price = (car.comfort_class * (self.clean_power - car.clean_mark)
                  * self.average_rating / self.distance_from_city_center)
         return round(price, 1)
