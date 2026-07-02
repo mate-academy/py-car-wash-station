@@ -28,14 +28,14 @@ class CarWashStation:
         for car in cars:
             if self.is_washable(car):
                 income += self.wash_single_car(car)
-        return income
+        return round(income, 1)
 
     def wash_single_car(self, car: Car) -> float:
         price = 0
         if self.is_washable(car):
             price = self.calculate_washing_price(car)
             car.clean_mark = self.clean_power
-        return price
+        return round(price, 1)
 
     def calculate_washing_price(self, car: Car) -> float:
         return round(
