@@ -1,9 +1,15 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) \
-            -> None:
-        if (comfort_class < 1 & comfort_class > 7
-                or clean_mark < 1 & clean_mark > 10):
-            pass
+    def __init__(
+            self,
+            comfort_class: int,
+            clean_mark: int,
+            brand: str
+    ) -> None:
+        if (comfort_class < 1
+                or comfort_class > 7
+                or clean_mark < 1
+                or clean_mark > 10):
+            raise ValueError("Provided value is invalid")
         self.clean_mark = clean_mark
         self.comfort_class = comfort_class
         self.brand = brand
@@ -21,7 +27,7 @@ class CarWashStation:
                 or distance_from_city_center > 10
                 or average_rating < 1
                 or average_rating > 5):
-            pass
+            raise ValueError("Provided value is invalid")
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = average_rating
@@ -33,7 +39,7 @@ class CarWashStation:
             if car.clean_mark < self.clean_power:
                 res += self.calculate_washing_price(car)
                 self.wash_single_car(car)
-        return res
+        return round(res, 1)
 
     def wash_single_car(self, car: Car) -> Car:
         if car.clean_mark < self.clean_power:
