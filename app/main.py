@@ -29,7 +29,7 @@ class CarWashStation:
 # and based on this single rate average_rating and count_of_ratings should be changed:
 
     def rate_service(self, rate: int) -> None:
-        self.average_rating = round((round(self.average_rating * self.count_of_ratings) + rate) / self.count_of_ratings + 1, 1)
+        self.average_rating = round((self.average_rating * self.count_of_ratings + rate) / (self.count_of_ratings + 1), 1)
         self.count_of_ratings += 1
 
     # serve_cars - method, that takes a list of Car's, washes only
