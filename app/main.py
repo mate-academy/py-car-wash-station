@@ -31,3 +31,15 @@ class CarWashStation:
     def rate_service(self, rate: int) -> None:
         self.average_rating = round((round(self.average_rating * self.count_of_ratings) + rate) / self.count_of_ratings + 1, 1)
         self.count_of_ratings += 1
+
+    # serve_cars - method, that takes a list of Car's, washes only
+    # cars with clean_mark < clean_power of wash station and returns income
+    # of CarWashStation for serving this list of Car's, rounded to 1 decimal:
+
+    def serve_cars(self, cars: list[Car]) -> float:
+        filtered_cars = [car for car in cars if car.clean_mark < self.clean_power]
+        income = 0.0
+        for car in filtered_cars:
+            self.wash_single_car(car)
+            income += self.calculate_washing_price(car)
+        return income
