@@ -64,4 +64,3 @@ class CarWashStation:
             total_rating / self.count_of_ratings,
             1
         )
-        
