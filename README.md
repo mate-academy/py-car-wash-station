@@ -2,16 +2,16 @@
 
 Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before starting.
 
-You own a car washing station. Washing cost calculation 
+You own a car washing station. Washing cost calculation
 takes a lot of time, and you decide to automate this
-calculation. The washing cost will depend on car comfort 
+calculation. The washing cost will depend on car comfort
 class, car cleanness degree, wash station average rating
 and wash station distance from the center of the city.
 
 Create class `Car`, its `__init__` method takes and stores
 3 arguments:
 1. `comfort_class` - comfort class of a car, from 1 to 7
-2. `clean_mark` - car cleanness mark, from very 
+2. `clean_mark` - car cleanness mark, from very
 dirty - 1 to absolutely clean - 10
 3. `brand` - brand of the car
 
@@ -25,10 +25,10 @@ washes (yes, not all stations can clean your car completely)
 from 1.0 to 5.0, rounded to 1 decimal
 4. `count_of_ratings` - number of people who rated
 
-`CarWashStation` should have such methods: 
+`CarWashStation` should have such methods:
 1. `serve_cars` - method, that takes a list of `Car`'s, washes only
 cars with `clean_mark` < `clean_power` of wash station
-and returns income of `CarWashStation` for serving this list of Car's, 
+and returns income of `CarWashStation` for serving this list of Car's,
 rounded to 1 decimal:
 
 ```python
@@ -78,15 +78,15 @@ print(bmw.clean_mark)  # 6
 print(audi.clean_mark) # 6
 ```
 
-2. `calculate_washing_price` - method, that calculates cost for a 
+2. `calculate_washing_price` - method, that calculates cost for a
 single car wash,
 cost is calculated as: car's comfort class * difference between
-wash station's clean power and car's clean mark * car wash station 
-rating / car wash station 
-distance to the center of the city, returns number rounded 
+wash station's clean power and car's clean mark * car wash station
+rating / car wash station
+distance to the center of the city, returns number rounded
 to 1 decimal;
-3. `wash_single_car` - method, that washes a single car, so it should 
-have `clean_mark` equals wash station's `clean_power`, if 
+3. `wash_single_car` - method, that washes a single car, so it should
+have `clean_mark` equals wash station's `clean_power`, if
 `wash_station.clean_power` is greater than `car.clean_mark`;
 4. `rate_service` - method that adds a single rate to the wash station, and based on this single rate
 `average_rating` and `count_of_ratings` should be changed:
@@ -127,16 +127,16 @@ income = ws.serve_cars([
 income == 41.7
 
 bmw.clean_mark == 8
-audi.clean_mark == 9  
+audi.clean_mark == 9
 mercedes.clean_mark == 8
 # audi wasn't washed
 # all other cars are washed to '8'
 
 ford = Car(2, 1, 'Ford')
-wash_cost = ws.calculate_washing_price(ford)  
+wash_cost = ws.calculate_washing_price(ford)
 # only calculating cost, not washing
 wash_cost == 9.1
-ford.clean_mark == 1 
+ford.clean_mark == 1
 
 ws.rate_service(5)
 
