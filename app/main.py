@@ -46,5 +46,5 @@ class CarWashStation:
         if rate < 0:
             return
         total_rating = self.average_rating * self.count_of_ratings + rate
-        self.average_rating = total_rating / (self.count_of_ratings + 1)
+        self.average_rating = round(total_rating / (self.count_of_ratings + 1), 1)
         self.count_of_ratings += 1
