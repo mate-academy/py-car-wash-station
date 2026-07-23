@@ -34,11 +34,12 @@ int, average_rating: float, count_of_ratings: int) -> None:
         return round(income, 1)
     
     def whash_single_car(self, car: Car) -> None:
+        
         if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
     
     def rate_service(self, rating: float) -> None:
-        
+
         full_rating = self.average_rating * self.count_of_ratings
         full_rating += rating
         self.count_of_ratings += 1
