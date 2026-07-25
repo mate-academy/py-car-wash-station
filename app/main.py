@@ -1,12 +1,22 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str):
+    def __init__(
+            self,
+            comfort_class: int,
+            clean_mark: int,
+            brand: str) -> None:
         if not (1 <= comfort_class <= 7):
-            raise (ValueError
-                   ("A comfort_class értékének 1 és 7 között kell lennie!"))
+            raise (
+                ValueError(
+                    "A comfort_class értékének 1 és 7 között kell lennie!"
+                )
+            )
 
         if not (1 <= clean_mark <= 10):
-            raise (ValueError
-                   ("A clean_mark értékének 1 és 10 között kell lennie!"))
+            raise (
+                ValueError(
+                    "A clean_mark értékének 1 és 10 között kell lennie!"
+                )
+            )
 
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
@@ -20,17 +30,19 @@ class CarWashStation:
         clean_power: int,
         average_rating: float,
         count_of_ratings: int,
-    ):
+    ) -> None:
         if not (1.0 <= distance_from_city_center <= 10.0):
             raise (
                 ValueError(
-                    "A distance_from_city_center "
                     "1.0 és 10.0 között kell legyen!"
                 )
             )
         if not (1.0 <= average_rating <= 5.0):
-            raise (ValueError
-                   ("Az average_rating 1.0 és 5.0 között kell legyen!"))
+            raise (
+                ValueError(
+                    "Az average_rating 1.0 és 5.0 között kell legyen!"
+                )
+            )
 
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
@@ -51,7 +63,7 @@ class CarWashStation:
         )
         return round(price, 1)
 
-    def wash_single_car(self, car: Car):
+    def wash_single_car(self, car: Car) -> None:
         """
         Ha a mosó ereje nagyobb, mint az autó tisztasága,
         akkor az autó tisztasága felülíródik a mosó clean_power értékére.
@@ -59,7 +71,7 @@ class CarWashStation:
         if self.clean_power > car.clean_mark:
             car.clean_mark = self.clean_power
 
-    def rate_service(self, new_rating: float):
+    def rate_service(self, new_rating: float) -> None:
         """
         Hozzáad egy új értékelést, és újraszámolja
         az átlagot és az értékelések számát.
