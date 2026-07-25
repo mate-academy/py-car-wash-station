@@ -25,17 +25,13 @@ class CarWashStation:
         return round(result, 1)
 
     def wash_single_car(self, car: dict) -> None:
-        if car.clean_mark > self.clean_power:
-            print("No shower")
-        else:
+        if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
 
     def serve_cars(self, cars: list) -> any:
         income = 0
         for car in cars:
-            if car.clean_mark > self.clean_power:
-                print("No shower")
-            else:
+            if car.clean_mark < self.clean_power:
                 shower_cost = self.calculate_washing_price(car)
                 income += shower_cost
                 self.wash_single_car(car)
