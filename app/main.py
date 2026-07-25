@@ -1,5 +1,10 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+    def __init__(
+        self,
+        comfort_class: int,
+        clean_mark: int,
+        brand: str,
+    ) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -22,9 +27,7 @@ class CarWashStation:
         income = 0.0
         for car in cars:
             if car.clean_mark < self.clean_power:
-                # 1. Calculate price FIRST before the car's cleanness changes
                 income += self.calculate_washing_price(car)
-                # 2. Call the wash method explicitly so tests pass & cleanness updates
                 self.wash_single_car(car)
         return round(income, 1)
 
