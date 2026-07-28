@@ -3,7 +3,6 @@ class Car:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
-    pass
 
 
 class CarWashStation:
@@ -35,4 +34,3 @@ class CarWashStation:
         self.count_of_ratings += 1
         total = (new_media + rating) / self.count_of_ratings
         self.average_rating = round (total, 1)
-        pass
