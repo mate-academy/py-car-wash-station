@@ -17,12 +17,12 @@ class CarWashStation:
             distance_from_city_center: float,
             clean_power: float,
             average_rating: float,
-            count_of_rating: int
+            count_of_ratings: int
     ) -> None:
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = average_rating
-        self.count_of_rating = count_of_rating
+        self.count_of_ratings = count_of_ratings
 
     def serve_cars(self, cars: list[Car]) -> float:
         total_income = 0
@@ -49,6 +49,6 @@ class CarWashStation:
             print(f"{car.brand} wasn't washed")
 
     def rate_service(self, rate: float) -> None:
-        sum_sum = self.average_rating * self.count_of_rating
-        self.count_of_rating += 1
-        self.average_rating = round((sum_sum + rate) / self.count_of_rating, 1)
+        sum_sum = self.average_rating * self.count_of_ratings
+        self.count_of_ratings += 1
+        self.average_rating = round((sum_sum + rate) / self.count_of_ratings, 1)
