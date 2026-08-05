@@ -31,7 +31,7 @@ class CarWashStation:
     def serve_cars(self, cars: list) -> int:
         total_income = 0
         for car in cars:
-            if car.clean_mark < self.clean_power:  # якщо треба мити
+            if car.clean_mark < self.clean_power:
                 price = self.calculate_washing_price(car)
                 self.wash_single_car(car)
                 total_income += price
