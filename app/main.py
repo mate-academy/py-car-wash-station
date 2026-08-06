@@ -31,11 +31,10 @@ class CarWashStation:
         """
 
         income = 0.0
-        if len(cars) > 0:
-            for car in cars:
-                if self.clean_power > car.clean_mark:
-                    income += round(self.calculate_washing_price(car), 1)
-                    self.wash_single_car(car)
+        for car in cars:
+            if self.clean_power > car.clean_mark:
+                income += self.calculate_washing_price(car)
+                self.wash_single_car(car)
         return round(income, 1)
 
     def calculate_washing_price(self, car: Car) -> float:
@@ -49,11 +48,13 @@ class CarWashStation:
         :param car: Car
         :return: float
         """
-        return (((car.comfort_class
+        price = (((car.comfort_class
                 * (self.clean_power
                     - car.clean_mark))
                 * self.average_rating)
                 / self.distance_from_city_center)
+
+        return  round(price, 1)
 
     def wash_single_car(self, car: Car) -> None:
         """
