@@ -10,8 +10,6 @@ class Car:
 
 class CarWashStation:
 
-    income = 0
-
     def __init__(
             self,
             distance_from_city_center: float,
@@ -24,6 +22,7 @@ class CarWashStation:
         self.clean_power = clean_power
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
+        self.income = 0
 
     def serve_cars(self, cars: list) -> float:
         for car in cars:
