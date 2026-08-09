@@ -1,6 +1,7 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str)\
-            -> None:
+    def __init__(self, comfort_class: int,
+                 clean_mark: int, 
+                 brand: str) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -29,7 +30,7 @@ class CarWashStation:
 
         return income
 
-    def serve_cars(self, cars: list[Car]) -> int:
+    def serve_cars(self, cars: list[Car]) -> float:
         return sum([self.wash_single_car(car) for car in cars])
 
     def rate_service(self, rate: int) -> None:
