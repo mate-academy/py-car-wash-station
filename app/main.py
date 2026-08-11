@@ -27,12 +27,7 @@ class CarWashStation:
         earnings = 0
 
         for car in cars:
-            if car.clean_mark > self.clean_power:
-                print(
-                    "We can not wash you car, "
-                    "we have not enought clean power!"
-                )
-            else:
+            if car.clean_mark < self.clean_power:
                 earnings += self.calculate_washing_price(car)
                 self.wash_single_car(car)
 
