@@ -10,7 +10,6 @@ class Car:
         self.brand = brand
 
 
-
 class CarWashStation:
     def __init__(
         self,
