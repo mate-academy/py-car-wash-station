@@ -1,6 +1,6 @@
 def min_max(
     value: float, min_value: float = 1, max_value: float = 10
-    ) -> int | float:
+) -> int | float:
 
     min_max_value = min(max(min_value, value), max_value)
     return (
@@ -37,7 +37,8 @@ class CarWashStation:
         income = 0
         for car in car_list:
             wash_value = self.calculate_washing_price(car)
-            if wash_value > 0: self.wash_single_car(car)
+            if wash_value > 0:
+                self.wash_single_car(car)
             income += wash_value
         return round_1(income)
 
@@ -48,11 +49,15 @@ class CarWashStation:
         ) if self.is_washable(car) else 0
 
     def wash_single_car(self, car: Car) -> None:
-            if self.is_washable(car): car.clean_mark = self.clean_power 
+        if self.is_washable(car):
+            car.clean_mark = self.clean_power
 
     def is_washable(self, car: Car) -> bool:
         return self.clean_power >= car.clean_mark
 
     def rate_service(self, rate: float) -> None:
-        self.average_rating = min_max((self.average_rating * self.count_of_ratings + rate) / (self.count_of_ratings + 1), max_value=5)
+        self.average_rating = min_max(
+            (self.average_rating * self.count_of_ratings + rate)
+            / (self.count_of_ratings + 1), max_value=5
+        )
         self.count_of_ratings += 1
