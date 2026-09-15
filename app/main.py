@@ -15,8 +15,8 @@ class CarWashStation:
         self.count_of_ratings = count_of_ratings
 
     def wash_single_car(self, car: Car) -> None:
-            if self.clean_power > car.clean_mark:
-                car.clean_mark = self.clean_power
+        if self.clean_power > car.clean_mark:
+            car.clean_mark = self.clean_power
 
     def serve_cars(self, cars: list[Car]) -> float:
         total_price = 0
