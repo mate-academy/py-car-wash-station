@@ -32,9 +32,10 @@ class CarWashStation:
             if car.clean_mark < self.clean_power:
                 income += self.calculate_washing_price(car)
                 self.wash_single_car(car)
-        return income
+
 
     def rate_service(self,rating:int):
         total_score = self.average_rating * self.count_of_ratings + rating
         self.count_of_ratings +=1
         self.average_rating = round(total_score/self.count_of_ratings,1)
+
