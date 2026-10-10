@@ -1,8 +1,14 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+    def __init__(
+        self,
+        comfort_class: int,
+        clean_mark: int,
+        brand: str,
+    ) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
+
 
 class CarWashStation:
     def __init__(
@@ -17,11 +23,11 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-    def wash_single_car(self, car: Car) -> None:   # <-- 1 порожній рядок перед методом
+    def wash_single_car(self, car: Car) -> None:
         if self.clean_power > car.clean_mark:
             car.clean_mark = self.clean_power
 
-    def calculate_washing_price(self, car: Car) -> float:   # <-- 1 порожній рядок
+    def calculate_washing_price(self, car: Car) -> float:
         price = (
             car.comfort_class
             * self.average_rating
@@ -30,7 +36,7 @@ class CarWashStation:
         )
         return round(price, 1)
 
-    def serve_cars(self, cars: list[Car]) -> float:   # <-- 1 порожній рядок
+    def serve_cars(self, cars: list[Car]) -> float:
         income = 0
         for car in cars:
             if car.clean_mark < self.clean_power:
@@ -38,7 +44,12 @@ class CarWashStation:
                 self.wash_single_car(car)
         return round(income, 1)
 
-    def rate_service(self, rating: int) -> None:   # <-- 1 порожній рядок
-        total_score = self.average_rating * self.count_of_ratings + rating
+    def rate_service(self, rating: int) -> None:
+        total_score = (
+            self.average_rating * self.count_of_ratings + rating
+        )
         self.count_of_ratings += 1
-        self.average_rating = round(total_score / self.count_of_ratings, 1)
+        self.average_rating = round(
+            total_score / self.count_of_ratings,
+            1,
+        )
