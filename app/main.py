@@ -1,3 +1,4 @@
+# Car wash station
 class Car:
     def __init__(
         self,
