@@ -2,7 +2,7 @@ from decimal import Decimal, ROUND_HALF_UP
 
 
 def round_half_up(value: float, decimals: int = 1) -> float:
-    """Rounds a float value using standard half-up rounding."""
+    """Rounds a f loat value using standard half-up rounding."""
     numb = Decimal(str(value))
     return float(
         numb.quantize(Decimal("1." + "0" * decimals), rounding=ROUND_HALF_UP)
