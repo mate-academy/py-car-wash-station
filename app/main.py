@@ -22,18 +22,18 @@ class CarWashStation:
 
     def serve_cars(self, car_instance: list) -> None:
         total_money = 0
-        for i in car_instance:
-            if i.clean_mark < self.clean_power:
-                money = self.calculate_washing_price(i)
-                cleaner = self.wash_single_car(i.clean_mark)
+        for car in car_instance:
+            if car.clean_mark < self.clean_power:
+                money = self.calculate_washing_price(car)
+                cleaner = self.wash_single_car(car)
                 total_money += money
-                i.clean_mark = cleaner
+                car.clean_mark = cleaner
         return total_money
 
-    def wash_single_car(self, clean_level: int) -> None:
-        if clean_level < self.clean_power:
-            clean_level = self.clean_power
-        return clean_level
+    def wash_single_car(self, car_instance: Car) -> None:
+        if car_instance.clean_mark < self.clean_power:
+            car_instance.clean_mark = self.clean_power
+        return car_instance
 
     def rate_service(self, rate_in: float) -> None:
         self.average_rating = round(((self.average_rating
