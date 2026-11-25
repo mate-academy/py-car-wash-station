@@ -60,12 +60,6 @@ class CarWashStation:
             total_rating / self.count_of_ratings, 1
         )
 
-
-bmw = Car(comfort_class=3, clean_mark=3, brand="BMW")
-audi = Car(comfort_class=4, clean_mark=9, brand="Audi")
-
-print(bmw.clean_mark)  # 3
-
 wash_station = CarWashStation(
     distance_from_city_center=5,
     clean_power=6,
